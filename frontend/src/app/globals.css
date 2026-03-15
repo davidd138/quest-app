@@ -94,6 +94,14 @@ h1, h2, h3, h4, h5, h6 {
   animation: shimmer 2s infinite;
 }
 
+@keyframes indeterminate-bar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+.animate-indeterminate-bar {
+  animation: indeterminate-bar 1.5s ease-in-out infinite;
+}
+
 /* Mapbox overrides for dark theme */
 .mapboxgl-ctrl-group {
   background: rgba(15, 23, 42, 0.8) !important;
