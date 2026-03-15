@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, MicOff, Phone, PhoneOff, Lightbulb, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mic, Phone, PhoneOff, Lightbulb, Clock } from 'lucide-react';
 import type { Character, Challenge } from '@/types';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';

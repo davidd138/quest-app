@@ -11,7 +11,7 @@ interface RouteLayerProps {
   completedStageIds: Set<string>;
 }
 
-const RouteLayer: React.FC<RouteLayerProps> = ({ stages, currentStageIndex, completedStageIds }) => {
+const RouteLayer: React.FC<RouteLayerProps> = ({ stages, currentStageIndex }) => {
   if (stages.length < 2) return null;
 
   const sortedStages = [...stages].sort((a, b) => a.order - b.order);

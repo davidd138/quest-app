@@ -26,7 +26,6 @@ const QuestProgress: React.FC<QuestProgressProps> = ({
         {stages.map((stage, idx) => {
           const isCompleted = completedIds.has(stage.id);
           const isCurrent = idx === currentStageIndex;
-          const isLocked = !isCompleted && !isCurrent;
           const isLast = idx === stages.length - 1;
 
           return (

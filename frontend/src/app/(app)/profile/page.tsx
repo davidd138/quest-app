@@ -7,7 +7,6 @@ import {
   Calendar,
   Zap,
   Target,
-  Clock,
   Shield,
   LogOut,
   Settings,

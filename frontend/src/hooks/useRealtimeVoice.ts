@@ -320,7 +320,7 @@ export function useRealtimeVoice({ questId, stageId, character, challenge }: Use
       setError(errMsg);
       setState('error');
     }
-  }, [questId, stageId, character, challenge, playAudioQueue]);
+  }, [questId, stageId, character, challenge, playAudioQueue, state]);
 
   const disconnect = useCallback(() => {
     // Close WebSocket

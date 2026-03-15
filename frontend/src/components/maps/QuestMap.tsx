@@ -119,12 +119,6 @@ const QuestMap: React.FC<QuestMapProps> = ({
         {/* Stage markers */}
         {sortedStages.map((stage, index) => {
           const markerState = getMarkerState(index, currentStageIndex, completedStageIds, stage.id);
-          const Icon =
-            markerState === 'completed'
-              ? Check
-              : markerState === 'locked'
-                ? Lock
-                : challengeIcons[stage.challenge.type];
 
           const bgColor =
             markerState === 'completed'

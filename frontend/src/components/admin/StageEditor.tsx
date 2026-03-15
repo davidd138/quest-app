@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import type { StageInput, ChallengeType } from '@/types';
 import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import CharacterBuilder from './CharacterBuilder';
 
@@ -32,15 +31,6 @@ const challengeTypes: ChallengeType[] = [
   'persuasion',
   'exploration',
   'trivia',
-];
-
-const voiceStyles = [
-  'warm',
-  'mysterious',
-  'energetic',
-  'calm',
-  'authoritative',
-  'playful',
 ];
 
 const StageEditor: React.FC<StageEditorProps> = ({

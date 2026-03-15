@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Shield, Clock, AlertTriangle, Ban } from 'lucide-react';
+import { Clock, AlertTriangle, Ban } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
 function SkeletonLoader() {

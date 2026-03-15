@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Search,
-  Filter,
   Compass,
   Clock,
   Zap,
@@ -14,8 +13,8 @@ import {
 import Link from 'next/link';
 import { useQuery } from '@/hooks/useGraphQL';
 import { LIST_QUESTS } from '@/lib/graphql/queries';
-import { QUEST_CATEGORIES, QUEST_DIFFICULTIES, DIFFICULTY_COLORS } from '@/lib/constants';
-import type { Quest, QuestCategory, QuestDifficulty, QuestConnection } from '@/types';
+import { QUEST_CATEGORIES, QUEST_DIFFICULTIES } from '@/lib/constants';
+import type { Quest, QuestConnection } from '@/types';
 
 const containerVariants = {
   hidden: { opacity: 0 },

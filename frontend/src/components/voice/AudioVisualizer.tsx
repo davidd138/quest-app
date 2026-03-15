@@ -20,7 +20,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
-  const dataArrayRef = useRef<Uint8Array | null>(null);
+  const dataArrayRef = useRef<Uint8Array<ArrayBuffer> | null>(null);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -40,7 +40,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({
     let dataArray = dataArrayRef.current;
 
     if (analyserNode && !dataArray) {
-      dataArray = new Uint8Array(analyserNode.frequencyBinCount);
+      dataArray = new Uint8Array(analyserNode.frequencyBinCount) as Uint8Array<ArrayBuffer>;
       dataArrayRef.current = dataArray;
     }
 

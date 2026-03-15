@@ -43,7 +43,6 @@ export function useAuthProvider() {
 
   const syncUser = useCallback(async () => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result = await getClient().graphql({ query: SYNC_USER });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const syncedUser = (result as any).data?.syncUser;

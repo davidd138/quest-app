@@ -1,17 +1,22 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import DashboardPage from '@/app/(app)/dashboard/page';
 import type { User, Analytics, Quest } from '@/types';
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
-      const { whileHover, whileTap, transition, variants, initial, animate, exit, layout, ...rest } = props as Record<string, unknown>;
-      return <div {...(rest as React.HTMLAttributes<HTMLDivElement>)}>{children}</div>;
-    },
-  },
-  AnimatePresence: ({ children }: React.PropsWithChildren) => <>{children}</>,
+  motion: new Proxy({}, {
+    get: (_target: unknown, prop: string) => {
+      const Component = React.forwardRef((props: Record<string, unknown>, ref: React.Ref<HTMLElement>) => {
+        const { children, className, onClick, href, style, ...rest } = props;
+        void rest;
+        return React.createElement(prop, { ref, className, onClick, href, style, 'data-testid': props['data-testid'] }, children as React.ReactNode);
+      });
+      Component.displayName = `motion.${prop}`;
+      return Component;
+    }
+  }),
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, null, children),
 }));
 
 // Mock next/link

@@ -5,13 +5,18 @@ import type { Stage } from '@/types';
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
-      const { whileHover, whileTap, transition, variants, initial, animate, exit, layout, ...rest } = props as Record<string, unknown>;
-      return <div {...(rest as React.HTMLAttributes<HTMLDivElement>)}>{children}</div>;
-    },
-  },
-  AnimatePresence: ({ children }: React.PropsWithChildren) => <>{children}</>,
+  motion: new Proxy({}, {
+    get: (_target: unknown, prop: string) => {
+      const Component = React.forwardRef((props: Record<string, unknown>, ref: React.Ref<HTMLElement>) => {
+        const { children, className, onClick, href, style, ...rest } = props;
+        void rest;
+        return React.createElement(prop, { ref, className, onClick, href, style, 'data-testid': props['data-testid'] }, children as React.ReactNode);
+      });
+      Component.displayName = `motion.${prop}`;
+      return Component;
+    }
+  }),
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, null, children),
 }));
 
 // Mock react-map-gl
@@ -23,7 +28,7 @@ vi.mock('react-map-gl', () => ({
       {children}
     </div>
   ),
-  Marker: ({ children, onClick, longitude, latitude, ...props }: React.PropsWithChildren<{
+  Marker: ({ children, onClick, longitude, latitude }: React.PropsWithChildren<{
     onClick?: (e: { originalEvent: { stopPropagation: () => void } }) => void;
     longitude: number;
     latitude: number;
@@ -40,7 +45,7 @@ vi.mock('react-map-gl', () => ({
       {children}
     </div>
   ),
-  Popup: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
+  Popup: ({ children }: React.PropsWithChildren<Record<string, unknown>>) => (
     <div data-testid="map-popup">{children}</div>
   ),
   NavigationControl: () => <div data-testid="nav-control" />,

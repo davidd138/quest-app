@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Medal, Trophy, Crown, Star, Zap } from 'lucide-react';
+import { Medal, Trophy, Crown, Zap } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useQuery } from '@/hooks/useGraphQL';
 import { GET_LEADERBOARD } from '@/lib/graphql/queries';
@@ -125,8 +125,6 @@ export default function LeaderboardPage() {
   }, [execute]);
 
   const top3 = entries?.slice(0, 3) || [];
-  const rest = entries?.slice(3) || [];
-
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}

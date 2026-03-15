@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { History as HistoryIcon, Clock, Zap, MessageSquare, ChevronRight, ScrollText } from 'lucide-react';
+import { Clock, Zap, MessageSquare, ChevronRight, ScrollText } from 'lucide-react';
 import Link from 'next/link';
 import { useQuery } from '@/hooks/useGraphQL';
 import { LIST_CONVERSATIONS } from '@/lib/graphql/queries';
