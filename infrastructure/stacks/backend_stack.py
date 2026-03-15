@@ -377,6 +377,25 @@ class BackendStack(cdk.Stack):
             read_tables=["achievements", "users"],
         )
 
+        # ---- GDPR / Data rights resolvers ----
+        create_resolver(
+            "export_user_data", "Query", "exportMyData",
+            read_tables=["users", "progress", "conversations", "scores", "achievements"],
+            write_tables=["users"],  # writes lastDataExportAt audit field
+        )
+
+        delete_user_data_fn = create_resolver(
+            "delete_user_data", "Mutation", "deleteMyAccount",
+            write_tables=["users", "progress", "conversations", "scores", "achievements"],
+            extra_env={"USER_POOL_ID": user_pool.user_pool_id},
+        )
+        delete_user_data_fn.add_to_role_policy(
+            iam.PolicyStatement(
+                actions=["cognito-idp:AdminDeleteUser"],
+                resources=[user_pool.user_pool_arn],
+            )
+        )
+
         # ---- Admin resolvers ----
         create_quest_fn = create_resolver(
             "create_quest", "Mutation", "createQuest",

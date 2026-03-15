@@ -53,6 +53,8 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [confirmCode, setConfirmCode] = useState('');
+  const [acceptPrivacy, setAcceptPrivacy] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const { signUp, confirmAccount, needsConfirmation, error } = useAuth();
   const router = useRouter();
@@ -255,9 +257,42 @@ export default function RegisterPage() {
                   )}
                 </div>
 
+                {/* GDPR Consent checkboxes */}
+                <div className="space-y-3">
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={acceptPrivacy}
+                      onChange={(e) => setAcceptPrivacy(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded border-slate-600 bg-navy-800/50 text-violet-500 focus:ring-violet-500/30 focus:ring-offset-0 cursor-pointer"
+                    />
+                    <span className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">
+                      He leido y acepto la{' '}
+                      <Link href="/privacy" className="text-violet-400 hover:text-violet-300 underline" target="_blank">
+                        Politica de Privacidad
+                      </Link>
+                      {' '}y consiento el tratamiento de mis datos personales conforme al RGPD y la LOPD-GDD.
+                    </span>
+                  </label>
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={acceptTerms}
+                      onChange={(e) => setAcceptTerms(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded border-slate-600 bg-navy-800/50 text-violet-500 focus:ring-violet-500/30 focus:ring-offset-0 cursor-pointer"
+                    />
+                    <span className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">
+                      He leido y acepto los{' '}
+                      <Link href="/terms" className="text-violet-400 hover:text-violet-300 underline" target="_blank">
+                        Terminos y Condiciones de Uso
+                      </Link>
+                    </span>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
-                  disabled={submitting || !passwordsMatch}
+                  disabled={submitting || !passwordsMatch || !acceptPrivacy || !acceptTerms}
                   className="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold transition-all duration-200 shadow-lg shadow-violet-600/25 hover:shadow-violet-500/40 flex items-center justify-center gap-2"
                 >
                   {submitting ? (

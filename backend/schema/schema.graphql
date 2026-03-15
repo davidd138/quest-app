@@ -355,6 +355,15 @@ input UpdateConversationInput {
   duration: Int
 }
 
+type UserDataExport {
+  user: User!
+  progress: [Progress!]!
+  conversations: [Conversation!]!
+  scores: [Score!]!
+  achievements: [Achievement!]!
+  exportedAt: String!
+}
+
 type Query {
   listQuests(category: String, difficulty: String, limit: Int, nextToken: String): QuestConnection! @aws_cognito_user_pools
   getQuest(id: ID!): Quest @aws_cognito_user_pools
@@ -367,6 +376,7 @@ type Query {
   getRealtimeToken(questId: ID!, stageId: ID!): RealtimeToken! @aws_cognito_user_pools
   listAllUsers(limit: Int, nextToken: String): UserConnection! @aws_cognito_user_pools
   getAdminAnalytics: AdminAnalytics @aws_cognito_user_pools
+  exportMyData: UserDataExport! @aws_cognito_user_pools
 }
 
 type Mutation {
@@ -381,4 +391,5 @@ type Mutation {
   updateQuest(input: UpdateQuestInput!): Quest! @aws_cognito_user_pools
   deleteQuest(id: ID!): Boolean! @aws_cognito_user_pools
   updateUserStatus(userId: ID!, status: UserStatus!): User! @aws_cognito_user_pools
+  deleteMyAccount: Boolean! @aws_cognito_user_pools
 }

@@ -11,7 +11,9 @@ import {
   LogOut,
   Settings,
   Bell,
+  Database,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 
 const containerVariants = {
@@ -153,6 +155,19 @@ export default function ProfilePage() {
               <p className="text-xs text-slate-500">Theme, language, and display</p>
             </div>
           </button>
+
+          <Link
+            href="/profile/data"
+            className="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-white/[0.02] transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <Database className="w-5 h-5 text-emerald-400" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-slate-200">Mis datos (RGPD)</p>
+              <p className="text-xs text-slate-500">Descargar o eliminar tus datos personales</p>
+            </div>
+          </Link>
 
           <button
             onClick={signOut}

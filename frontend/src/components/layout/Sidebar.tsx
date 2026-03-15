@@ -20,6 +20,8 @@ import {
   Menu,
   X,
   Sparkles,
+  Map,
+  UsersRound,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -33,6 +35,8 @@ interface NavItem {
 const mainNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Quests', href: '/quests', icon: Compass },
+  { label: 'Discover', href: '/discover', icon: Map },
+  { label: 'Social', href: '/social', icon: UsersRound },
   { label: 'History', href: '/history', icon: History },
   { label: 'Achievements', href: '/achievements', icon: Trophy },
   { label: 'Leaderboard', href: '/leaderboard', icon: Medal },

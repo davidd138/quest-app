@@ -43,12 +43,15 @@ def handler(event, context):
         total_points = existing.get("totalPoints", 0)
         quests_completed = existing.get("questsCompleted", 0)
         created_at = existing.get("createdAt", now)
+        consented_at = existing.get("consentedAt", "")
     else:
         role = "admin" if is_admin else "player"
         status = "active"
         total_points = 0
         quests_completed = 0
         created_at = now
+        # Record GDPR/LOPD consent timestamp for new users (first sync after registration)
+        consented_at = now
 
     item = {
         "userId": user_id,
@@ -60,6 +63,7 @@ def handler(event, context):
         "questsCompleted": quests_completed,
         "createdAt": created_at,
         "updatedAt": now,
+        "consentedAt": consented_at,
     }
     users_table.put_item(Item=item)
 
