@@ -90,3 +90,29 @@ Client (Next.js 15 / React Native Expo)
 - CloudFront security headers (HSTS, CSP, X-Frame-Options)
 - Least-privilege Lambda IAM per resolver
 - Input validation on both client and server
+
+### Frontend Libraries & Utilities
+
+#### Theme System (`frontend/src/lib/theme.ts`)
+- `ThemeProvider` — React context provider, wraps the app
+- `useTheme()` — returns `{ theme, resolvedTheme, setTheme, toggleTheme }`
+- Modes: `'dark'` (default), `'light'`, `'system'` (follows OS preference)
+- Persists to localStorage (`quest-app-theme`), applies CSS class + custom properties to `<html>`
+
+#### Animation Library (`frontend/src/lib/animations.ts`)
+- Reusable framer-motion `Variants`: `fadeIn`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, `scaleIn`, `staggerContainer`, `staggerItem`, `pageTransition`, `popIn`, `shake`, `pulse`, `bounceIn`
+- `withReducedMotion(variants)` — wraps any variants for instant transitions
+- `transitions` — preset timing objects (`fast`, `default`, `slow`, `spring`, `gentleSpring`)
+
+#### UI Components
+- **AnimatedNumber** (`frontend/src/components/ui/AnimatedNumber.tsx`) — smooth counting animation (rAF-based, ease-out, locale-aware formatting, reduced-motion safe)
+- **ParticleBackground** (`frontend/src/components/ui/ParticleBackground.tsx`) — canvas particle system with connecting lines, mouse interaction, color variants (`violet`, `emerald`, `mixed`)
+- **GradientText** (`frontend/src/components/ui/GradientText.tsx`) — animated CSS gradient text with presets (`violet-to-emerald`, `sunrise`, `ocean`, `fire`)
+- **Confetti** (`frontend/src/components/ui/Confetti.tsx`) — canvas confetti burst with physics (gravity, wind, rotation), auto-cleanup, quest completion celebrations
+
+#### Map Components
+- **MapStyleSwitcher** (`frontend/src/components/maps/MapStyleSwitcher.tsx`) — floating style selector for Mapbox styles (Dark, Satellite, Streets, Outdoors) with thumbnail previews and glassmorphism panel
+- **Map3DToggle** (`frontend/src/components/maps/Map3DToggle.tsx`) — 3D perspective/buildings/terrain toggle with animated pitch transition (0-60 degrees)
+
+#### Quest Components
+- **QuestSearch** (`frontend/src/components/quest/QuestSearch.tsx`) — advanced fuzzy search across title/description/tags/characters, debounced input, search history, keyboard navigation (Ctrl+K), result highlighting
