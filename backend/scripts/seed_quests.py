@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed QuestMaster with 5 amazing quests."""
+"""Seed QuestMaster with 10 amazing quests."""
 import boto3
 import uuid
 import sys
@@ -11,7 +11,7 @@ def generate_id():
 
 
 def build_quests():
-    """Build the 5 seed quests with full detailed content."""
+    """Build the 10 seed quests with full detailed content."""
     now = datetime.now(timezone.utc).isoformat()
 
     quests = []
@@ -1567,6 +1567,1633 @@ def build_quests():
                     "Rosa has stories about every season in the park for 50 years.",
                     "She sees ecological restoration as a metaphor for community healing.",
                     "Share something personal about your own connection to a place.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 6: El Misterio del Flamenco Perdido ────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "El Misterio del Flamenco Perdido",
+        "description": (
+            "In the heart of Seville, a legendary flamenco dance — the Soleá del "
+            "Alma — has been lost for a century. It was last performed by the great "
+            "bailaora La Faraona on the night she vanished without a trace. The "
+            "rhythms still echo through the cobblestones of the old city, waiting "
+            "to be reassembled. Speak with dancers, guitarists, singers, and even "
+            "a restless ghost to recover the steps before the dance is forgotten "
+            "forever."
+        ),
+        "category": "cultural",
+        "difficulty": "hard",
+        "estimatedDuration": 3300,
+        "coverImageUrl": None,
+        "totalPoints": 500,
+        "location": {
+            "latitude": 37.3772,
+            "longitude": -5.9869,
+            "name": "Plaza de España",
+            "address": "Av. de Isabel la Católica, 41004 Sevilla, Spain",
+            "radius": 3000,
+        },
+        "radius": 3000,
+        "tags": ["cultural", "seville", "flamenco", "mystery", "dance", "music"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Dancer's Secret",
+                "description": (
+                    "At the stunning Plaza de España, Bailaora Carmen practices "
+                    "alone in the shadows of the ceramic alcoves. She knows the "
+                    "first compás of the lost Soleá but will only teach it to "
+                    "someone who can feel the rhythm of flamenco in their soul."
+                ),
+                "location": {
+                    "latitude": 37.3772,
+                    "longitude": -5.9869,
+                    "name": "Plaza de España",
+                    "address": "Av. de Isabel la Católica, 41004 Sevilla, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Bailaora Carmen",
+                    "role": "Passionate and Mysterious Flamenco Dancer",
+                    "personality": (
+                        "Carmen is a 35-year-old bailaora of Romani descent who "
+                        "dances with an intensity that silences whole plazas. She "
+                        "is fiercely private, deeply superstitious, and believes "
+                        "that flamenco is not learned but inherited through duende "
+                        "— the dark spirit of artistic passion. She tests people "
+                        "with riddles woven into the language of dance."
+                    ),
+                    "backstory": (
+                        "Carmen is the great-granddaughter of La Faraona, the "
+                        "bailaora who vanished after performing the Soleá del Alma. "
+                        "Carmen has spent her life piecing together fragments of "
+                        "the lost dance from oral tradition. She practices at dawn "
+                        "in the Plaza de España when no one watches, keeping the "
+                        "first compás alive in her body."
+                    ),
+                    "voiceStyle": "intense, poetic, rhythmic speech with Andalusian flair, pauses dramatically between sentences",
+                    "greetingMessage": (
+                        "You hear my zapateado echoing off these tiles? That rhythm "
+                        "is older than this plaza. Older than Seville itself. My "
+                        "bisabuela danced it the night she disappeared. They say "
+                        "the dance swallowed her whole. Tell me — do you believe "
+                        "duende is real, or are you one of those who thinks flamenco "
+                        "is just clapping and roses?"
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Learn about flamenco rhythms through conversation with "
+                        "Carmen. Demonstrate understanding of compás, duende, and "
+                        "the emotional core of flamenco to earn the first fragment "
+                        "of the lost dance."
+                    ),
+                    "successCriteria": (
+                        "The user engages emotionally with Carmen about flamenco, "
+                        "shows respect for the art form's depth and spiritual "
+                        "dimension, and demonstrates understanding of compás "
+                        "(rhythm) and duende (the spirit of performance)."
+                    ),
+                    "failureHints": [
+                        "Flamenco is about emotion, not technique. Speak from the heart.",
+                        "Ask Carmen about duende — the mysterious force behind great art.",
+                        "Show that you understand compás is the heartbeat of flamenco.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Duende is the dark, emotional spirit that possesses a flamenco artist.",
+                    "Compás is the rhythmic cycle — like a heartbeat that the dance follows.",
+                    "Carmen respects those who feel rather than just think.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Secret Tablao",
+                "description": (
+                    "Deep within the Real Alcázar gardens, Guitarrista Paco "
+                    "guards the entrance to an underground tablao where the old "
+                    "masters once gathered. He holds the second piece of the lost "
+                    "Soleá in his guitar strings, but gaining access requires "
+                    "more than just asking nicely."
+                ),
+                "location": {
+                    "latitude": 37.3833,
+                    "longitude": -5.9903,
+                    "name": "Real Alcázar de Sevilla",
+                    "address": "Patio de Banderas, s/n, 41004 Sevilla, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Guitarrista Paco",
+                    "role": "Old-School and Secretive Flamenco Guitarist",
+                    "personality": (
+                        "Paco is a 72-year-old guitarist with gnarled fingers that "
+                        "still produce the purest falsetas in all of Andalucía. He "
+                        "distrusts outsiders, speaks in cryptic metaphors, and "
+                        "believes modern flamenco has lost its soul. He only respects "
+                        "those who prove they understand the old ways."
+                    ),
+                    "backstory": (
+                        "Paco learned guitar from his father, who played in the "
+                        "same cuadro as La Faraona. His father transcribed the "
+                        "guitar part of the Soleá del Alma in a coded tablature "
+                        "that Paco has memorized but never written down. He guards "
+                        "the secret tablao beneath the Alcázar where the old "
+                        "masters once rehearsed in secret during Franco's era."
+                    ),
+                    "voiceStyle": "gruff, sparse, old-man-of-few-words, occasional rasqueado sounds, Andalusian dialect",
+                    "greetingMessage": (
+                        "Another tourist wanting selfies with the Alcázar? No? "
+                        "Then what? You want to hear the real flamenco? Hah. The "
+                        "real flamenco is not for sale. It lives in these walls, "
+                        "in the stones, in the water of the fountains. But you "
+                        "cannot hear it unless your ears know how to listen. Do "
+                        "yours?"
+                    ),
+                },
+                "challenge": {
+                    "type": "negotiation",
+                    "description": (
+                        "Negotiate access to Paco's secret underground tablao. "
+                        "Convince him you are worthy by demonstrating knowledge "
+                        "of traditional flamenco palos and showing genuine respect "
+                        "for the old ways."
+                    ),
+                    "successCriteria": (
+                        "The user shows knowledge of flamenco palos (styles like "
+                        "soleá, bulería, seguiriya), convinces Paco they are not "
+                        "a superficial tourist, and earns his grudging respect "
+                        "through persistence and sincerity."
+                    ),
+                    "failureHints": [
+                        "Paco despises anything commercial. Show him you value tradition.",
+                        "Mention specific flamenco palos — soleá, seguiriya, bulería.",
+                        "Ask about his father and the old cuadro. He softens at memories.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Palos are the different styles of flamenco, each with its own compás.",
+                    "Soleá is considered the mother of all flamenco palos.",
+                    "Paco's guard drops when you show respect for the older generation.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Voice of Truth",
+                "description": (
+                    "In the labyrinthine Barrio de Santa Cruz, Cantaora Estrella "
+                    "sings at a hidden peña flamenca. She carries the vocal line "
+                    "of the Soleá del Alma but will only share it with someone "
+                    "who can distinguish authentic cante jondo from imitation."
+                ),
+                "location": {
+                    "latitude": 37.3856,
+                    "longitude": -5.9876,
+                    "name": "Barrio de Santa Cruz",
+                    "address": "Barrio de Santa Cruz, 41004 Sevilla, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Cantaora Estrella",
+                    "role": "Emotional and Protective Flamenco Singer",
+                    "personality": (
+                        "Estrella is a 45-year-old cantaora whose voice can make "
+                        "stones weep. She is fiercely protective of cante jondo — "
+                        "the deep song — and becomes emotional when speaking about "
+                        "the singers who came before her. She is warm to those who "
+                        "show genuine feeling but cuts off anyone she perceives as "
+                        "disrespectful."
+                    ),
+                    "backstory": (
+                        "Estrella's grandmother sang the jaleos for La Faraona on "
+                        "that fateful night. The vocal melody of the Soleá del Alma "
+                        "was passed from grandmother to mother to Estrella through "
+                        "oral tradition. She considers it sacred and sings it only "
+                        "during the darkest hour of the night in the hidden peña."
+                    ),
+                    "voiceStyle": "rich, emotional, occasionally breaking into sung phrases, Andalusian warmth, tearful intensity",
+                    "greetingMessage": (
+                        "Ay, you found the peña! Not many do. The streets of Santa "
+                        "Cruz keep their secrets well. I am singing tonight for my "
+                        "grandmother, and her grandmother before her. The cante jondo "
+                        "is not entertainment — it is prayer. Tell me, have you ever "
+                        "heard a voice that made you feel something you could not name?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Identify authentic cante jondo by discussing its characteristics "
+                        "with Estrella. Demonstrate understanding of the difference "
+                        "between deep song and commercial flamenco."
+                    ),
+                    "successCriteria": (
+                        "The user correctly identifies characteristics of cante jondo "
+                        "(raw emotion, microtonal ornaments, connection to Romani "
+                        "tradition, themes of pain and longing), and distinguishes "
+                        "it from lighter flamenco forms."
+                    ),
+                    "failureHints": [
+                        "Cante jondo means deep song — it comes from a place of pain and truth.",
+                        "Listen for the quejío — the anguished cry that starts a deep song.",
+                        "Estrella respects emotion over knowledge. Share what music makes you feel.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Cante jondo (deep song) is the oldest, most emotional form of flamenco singing.",
+                    "The quejío is the initial cry that opens a cante jondo performance.",
+                    "Themes of cante jondo include death, unrequited love, imprisonment, and longing.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Ghost's Final Step",
+                "description": (
+                    "At the Teatro de la Maestranza, where La Faraona was to "
+                    "perform on the night she vanished, her ghost — or the ghost "
+                    "of Don Juan Tenorio himself — haunts the stage. To recover "
+                    "the final movement of the Soleá del Alma, you must convince "
+                    "the dramatic phantom to reveal the lost ending."
+                ),
+                "location": {
+                    "latitude": 37.3847,
+                    "longitude": -5.9973,
+                    "name": "Teatro de la Maestranza",
+                    "address": "Paseo de Cristóbal Colón, 22, 41001 Sevilla, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Fantasma de Don Juan Tenorio",
+                    "role": "Dramatic and Challenging Ghost of the Theatre",
+                    "personality": (
+                        "The Fantasma speaks in the grand, theatrical manner of a "
+                        "Golden Age Spanish character. He is vain, dramatic, and "
+                        "loves to test mortals with impossible challenges. He claims "
+                        "to have been in the audience the night La Faraona danced "
+                        "and says the Soleá del Alma was so powerful it tore the "
+                        "veil between life and death."
+                    ),
+                    "backstory": (
+                        "Whether this is truly the ghost of Don Juan Tenorio or a "
+                        "theatrical spirit born from centuries of performances, no "
+                        "one knows. He has haunted the Teatro de la Maestranza since "
+                        "it was built, and before that, the old theater on the same "
+                        "site. He witnessed La Faraona's final dance and holds the "
+                        "secret of its ending — and of what happened to her."
+                    ),
+                    "voiceStyle": "theatrical, bombastic, archaic Spanish phrasing, dramatic pauses, grandiose vocabulary",
+                    "greetingMessage": (
+                        "MORTAL! You dare tread upon these sacred boards? I have "
+                        "watched a thousand performances from beyond the veil, and "
+                        "none — NONE — have matched what I witnessed that night. "
+                        "La Faraona danced and the very air caught fire. You wish "
+                        "to know the ending? Ha! First, you must prove you are "
+                        "worthy of such terrible beauty. Are you brave enough to "
+                        "face the truth of art?"
+                    ),
+                },
+                "challenge": {
+                    "type": "persuasion",
+                    "description": (
+                        "Convince Don Juan Tenorio's ghost to reveal the final "
+                        "movement of the lost dance. He demands dramatic flair, "
+                        "courage, and an understanding of art's power over death."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the ghost's theatrical nature, "
+                        "demonstrates courage and dramatic sensibility, argues "
+                        "convincingly about art's immortal power, and persuades "
+                        "the phantom that the dance deserves to live again."
+                    ),
+                    "failureHints": [
+                        "Don Juan respects bravery and dramatic flair — be bold!",
+                        "Argue that art is more powerful than death itself.",
+                        "Appeal to his vanity — he loves being part of a great story.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Don Juan Tenorio is a character from Spanish literature — a legendary seducer.",
+                    "He responds best to dramatic, poetic language and grand gestures.",
+                    "Argue that completing the Soleá del Alma will immortalize everyone involved.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 7: Tokyo Neon Nights ──────────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Tokyo Neon Nights",
+        "description": (
+            "Beneath Tokyo's neon glow, a mysterious digital artifact known as "
+            "the Hikari Key has been fragmented across the city's most iconic "
+            "districts. Created by a reclusive hacker collective, the Key unlocks "
+            "a hidden digital archive containing the lost works of a legendary "
+            "manga artist. Navigate from the chaos of Shibuya to the serenity of "
+            "Senso-ji, meeting hackers, otaku, monks, and bar owners who each hold "
+            "a piece of the puzzle."
+        ),
+        "category": "adventure",
+        "difficulty": "medium",
+        "estimatedDuration": 2700,
+        "coverImageUrl": None,
+        "totalPoints": 400,
+        "location": {
+            "latitude": 35.6595,
+            "longitude": 139.7004,
+            "name": "Shibuya Crossing",
+            "address": "Shibuya Crossing, Shibuya City, Tokyo, Japan",
+            "radius": 15000,
+        },
+        "radius": 15000,
+        "tags": ["adventure", "tokyo", "cyberpunk", "anime", "mystery", "nightlife"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Digital Cipher",
+                "description": (
+                    "At the world-famous Shibuya Crossing, amid the ocean of "
+                    "humanity, a mysterious hacker named Yuki has left a digital "
+                    "cipher embedded in the district's electronic billboards. "
+                    "Find her signal in the noise."
+                ),
+                "location": {
+                    "latitude": 35.6595,
+                    "longitude": 139.7004,
+                    "name": "Shibuya Crossing",
+                    "address": "Shibuya Crossing, Shibuya City, Tokyo, Japan",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Hacker Yuki",
+                    "role": "Cyberpunk Enigma and Digital Artist",
+                    "personality": (
+                        "Yuki is a 28-year-old hacker who exists at the intersection "
+                        "of art and technology. She communicates in layers — what she "
+                        "says on the surface always hides a deeper meaning. She wears "
+                        "augmented reality glasses, speaks in clipped, precise sentences, "
+                        "and drops references to classic cyberpunk literature. She trusts "
+                        "no one but respects clever thinking."
+                    ),
+                    "backstory": (
+                        "Yuki was a prodigy at the University of Tokyo before dropping "
+                        "out to join an underground hacker collective called Neon Ghost. "
+                        "The collective discovered a digital archive belonging to manga "
+                        "artist Takahashi Ryo, who vanished in 1998. The archive is "
+                        "encrypted with the Hikari Key, which the collective fragmented "
+                        "and distributed across Tokyo to protect it from corporate agents."
+                    ),
+                    "voiceStyle": "clipped, precise, technical jargon mixed with poetic imagery, occasional Japanese words",
+                    "greetingMessage": (
+                        "You are looking at the billboards but not seeing. Every "
+                        "screen in Shibuya carries data you were never meant to read. "
+                        "I am Yuki. Neon Ghost sent me. The Hikari Key has four "
+                        "fragments, and the first one is hiding in plain sight. But "
+                        "first — prove you can think beyond the surface. What do you "
+                        "see when you look at this crossing?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Decode a digital cipher by engaging with Yuki's layered "
+                        "communication style. She presents a logic puzzle wrapped "
+                        "in cyberpunk metaphors that you must unravel through "
+                        "conversation."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates lateral thinking, engages with "
+                        "Yuki's cryptic hints, and solves her logic puzzle by "
+                        "looking beyond surface-level meaning."
+                    ),
+                    "failureHints": [
+                        "Yuki hides meaning in layers. Her words have double meanings.",
+                        "Think about what data looks like when it hides in plain sight.",
+                        "Ask Yuki about Neon Ghost — she drops clues when talking about the collective.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Steganography is the art of hiding messages in plain sight.",
+                    "Yuki respects those who ask unusual questions.",
+                    "The crossing itself is a metaphor — paths intersecting, each carrying meaning.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Otaku Gauntlet",
+                "description": (
+                    "In the electric paradise of Akihabara, Otaku Master Kenji "
+                    "runs a legendary manga shop. The second fragment is hidden "
+                    "inside a rare volume, but Kenji will only reveal which one "
+                    "if you survive his anime and manga trivia gauntlet."
+                ),
+                "location": {
+                    "latitude": 35.7023,
+                    "longitude": 139.7745,
+                    "name": "Akihabara Electric Town",
+                    "address": "Akihabara, Chiyoda City, Tokyo, Japan",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Otaku Master Kenji",
+                    "role": "Enthusiastic Anime and Manga Trivia Expert",
+                    "personality": (
+                        "Kenji is a 40-year-old walking encyclopedia of anime, manga, "
+                        "and Japanese pop culture. He is explosively enthusiastic, talks "
+                        "at twice normal speed, and cannot resist a good trivia "
+                        "challenge. He owns the largest private manga collection in "
+                        "Akihabara and takes immense pride in stumping challengers."
+                    ),
+                    "backstory": (
+                        "Kenji was childhood friends with manga artist Takahashi Ryo "
+                        "and was devastated by his disappearance. When Neon Ghost "
+                        "approached him to hide a fragment of the Hikari Key, he "
+                        "agreed on one condition: only someone with genuine love for "
+                        "manga culture could retrieve it. He hid it in his shop's "
+                        "most rare and obscure volume."
+                    ),
+                    "voiceStyle": "rapid-fire, enthusiastic, peppered with anime references, occasionally shouting key words",
+                    "greetingMessage": (
+                        "WELCOME to the greatest manga shop in ALL of Akihabara! "
+                        "I can see it in your eyes — you are on a quest! I LOVE quests! "
+                        "But listen, the fragment you seek is in one of ten thousand "
+                        "volumes. To find it, you must prove your otaku credentials. "
+                        "Are you ready for the ULTIMATE trivia challenge?!"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Win Kenji's anime and manga trivia battle. He asks "
+                        "questions spanning classic and modern anime, manga history, "
+                        "and Japanese pop culture. You need genuine knowledge or "
+                        "clever reasoning to pass."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates knowledge of anime and manga culture, "
+                        "engages enthusiastically with Kenji's trivia, and answers "
+                        "enough questions correctly to earn his respect."
+                    ),
+                    "failureHints": [
+                        "Kenji loves passion more than perfection. Show enthusiasm!",
+                        "Classic anime like Akira, Ghost in the Shell, and Evangelion are safe bets.",
+                        "If you don't know an answer, ask Kenji to teach you — he loves educating.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Akira (1988) is one of the most influential anime films ever made.",
+                    "Manga has a rich history going back to the 12th century with picture scrolls.",
+                    "Kenji respects honesty — admitting what you don't know can earn his respect.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Zen Paradox",
+                "description": (
+                    "At the ancient Senso-ji Temple, Monk Takeshi tends the "
+                    "incense burner and meditates on paradoxes. The third fragment "
+                    "is written on a prayer slip in the temple, but to read it, "
+                    "you must first solve a Zen koan that Takeshi poses."
+                ),
+                "location": {
+                    "latitude": 35.7147,
+                    "longitude": 139.7966,
+                    "name": "Senso-ji Temple",
+                    "address": "2-3-1 Asakusa, Taito City, Tokyo 111-0032, Japan",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Monk Takeshi",
+                    "role": "Serene and Philosophical Temple Monk",
+                    "personality": (
+                        "Takeshi is a 60-year-old Buddhist monk who has spent 30 years "
+                        "at Senso-ji. He speaks slowly and deliberately, often answering "
+                        "questions with other questions. He finds modern technology "
+                        "fascinating rather than threatening and sees no contradiction "
+                        "between ancient wisdom and the digital world."
+                    ),
+                    "backstory": (
+                        "Takeshi was once a computer science professor at Keio University "
+                        "before taking monastic vows. He understands the Hikari Key's "
+                        "significance both technologically and philosophically. He hid "
+                        "the third fragment within a koan — believing that only someone "
+                        "who can bridge logic and intuition deserves to proceed."
+                    ),
+                    "voiceStyle": "calm, measured, Zen-like pauses, occasional profound simplicity, warm undertone of humor",
+                    "greetingMessage": (
+                        "Ah. You have come from the noise of the city to this place "
+                        "of quiet. That is the first step, though you did not know "
+                        "you were taking it. The incense rises — does it go up, or "
+                        "does the sky come down to meet it? Sit with me. I have a "
+                        "question for you, and the answer is simpler than you think."
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve a Zen koan posed by Monk Takeshi. The koan bridges "
+                        "ancient Buddhist philosophy and modern digital concepts. "
+                        "There is no single correct answer — Takeshi evaluates the "
+                        "depth and sincerity of your response."
+                    ),
+                    "successCriteria": (
+                        "The user engages thoughtfully with the koan, demonstrates "
+                        "ability to think beyond binary logic, shows genuine "
+                        "philosophical reflection, and arrives at an insight that "
+                        "satisfies Takeshi."
+                    ),
+                    "failureHints": [
+                        "A koan is not a riddle with a logical answer. Feel rather than think.",
+                        "Takeshi was a computer scientist. He appreciates digital metaphors.",
+                        "Try answering with a question of your own — koans breed koans.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Zen koans are designed to break through rational thinking.",
+                    "Takeshi sees code and sutras as two languages describing the same truth.",
+                    "Sometimes the best answer to a koan is silence or a gesture.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Hidden Bar",
+                "description": (
+                    "In the tiny alleyways of Golden Gai, behind an unmarked "
+                    "door, Mama-san runs a six-seat bar with decades of stories. "
+                    "The final fragment is etched into the back of an old photograph "
+                    "hanging on her wall, but she will only show it to someone who "
+                    "earns her trust through conversation."
+                ),
+                "location": {
+                    "latitude": 35.6938,
+                    "longitude": 139.7036,
+                    "name": "Golden Gai",
+                    "address": "Kabukicho 1-Chome, Shinjuku City, Tokyo, Japan",
+                    "radius": 150,
+                },
+                "character": {
+                    "name": "Mama-san Hiroko",
+                    "role": "Warm Storyteller and Bar Owner",
+                    "personality": (
+                        "Mama-san Hiroko is a 68-year-old bar owner who has served "
+                        "drinks and stories in Golden Gai for over 40 years. She "
+                        "is warm, perceptive, and has a story for every occasion. "
+                        "She remembers every regular who ever sat at her counter and "
+                        "can read a person's character within moments of meeting them."
+                    ),
+                    "backstory": (
+                        "Hiroko was Takahashi Ryo's confidante and the last person "
+                        "to see him before his disappearance. He left the final "
+                        "fragment with her, hidden in a photograph of the two of them "
+                        "taken in the bar in 1997. She has been waiting for the right "
+                        "person to come looking for it, someone Ryo would have trusted."
+                    ),
+                    "voiceStyle": "warm, motherly, storytelling cadence, occasional laughter, mixing Japanese honorifics naturally",
+                    "greetingMessage": (
+                        "Irasshaimase! Welcome, welcome. Sit down, there is room "
+                        "for one more. This bar is small but the stories are big. "
+                        "You look like someone who is searching for something. I have "
+                        "been here forty years — I have seen every kind of seeker. "
+                        "Would you like a drink while you tell me what brings you to "
+                        "my little corner of Golden Gai?"
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Uncover the hidden bar's secret by building trust with "
+                        "Mama-san Hiroko. Share stories, listen to hers, and "
+                        "demonstrate that you are someone the vanished artist "
+                        "would have trusted."
+                    ),
+                    "successCriteria": (
+                        "The user builds genuine rapport with Mama-san, listens "
+                        "to her stories about Takahashi Ryo, shares something "
+                        "personal and authentic, and demonstrates trustworthiness "
+                        "that convinces her to reveal the photograph."
+                    ),
+                    "failureHints": [
+                        "Mama-san values listening as much as talking. Let her tell her stories.",
+                        "Ask about Takahashi Ryo — but gently. It is a sensitive subject.",
+                        "Share something real about yourself. She can spot insincerity instantly.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Golden Gai bars are intimate spaces built on personal connection.",
+                    "Mama-san values authenticity above all else.",
+                    "The photograph on the wall holds the key — but earning the right to see it takes patience.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 8: The Silk Road Merchant ─────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "The Silk Road Merchant",
+        "description": (
+            "Travel the ancient Silk Road in the footsteps of a 12th-century "
+            "merchant named Rashid ibn Yusuf, whose legendary caravan carried "
+            "not just spices and silk, but a secret manuscript — a compendium "
+            "of knowledge from every civilization along the route. The manuscript "
+            "was split into four parts and entrusted to guardians in Istanbul, "
+            "Isfahan, Samarkand, and Xi'an. Recover the fragments by trading, "
+            "solving, reciting, and negotiating your way across continents."
+        ),
+        "category": "educational",
+        "difficulty": "medium",
+        "estimatedDuration": 3000,
+        "coverImageUrl": None,
+        "totalPoints": 400,
+        "location": {
+            "latitude": 41.0082,
+            "longitude": 28.9784,
+            "name": "Grand Bazaar, Istanbul",
+            "address": "Beyazıt, 34126 Fatih/İstanbul, Turkey",
+            "radius": 100000,
+        },
+        "radius": 100000,
+        "tags": ["educational", "silk-road", "history", "trade", "culture", "poetry"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Bazaar of Spices",
+                "description": (
+                    "In the Grand Bazaar of Istanbul, Merchant Rashid trades in "
+                    "saffron, cardamom, and secrets. He holds the first fragment "
+                    "of the manuscript and will trade it — but only for a fair "
+                    "price, and he defines fair in unexpected ways."
+                ),
+                "location": {
+                    "latitude": 41.0082,
+                    "longitude": 28.9784,
+                    "name": "Grand Bazaar",
+                    "address": "Beyazıt, 34126 Fatih/İstanbul, Turkey",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Merchant Rashid",
+                    "role": "Shrewd and Multilingual Silk Road Trader",
+                    "personality": (
+                        "Rashid is a 50-year-old merchant who speaks seven languages "
+                        "and has traded in every bazaar from Istanbul to Kashgar. He "
+                        "is charming, shrewd, and never makes a deal that is not in "
+                        "his favor — but he values wit and cultural knowledge as "
+                        "currency. He delights in testing travelers with riddles "
+                        "about trade and economics."
+                    ),
+                    "backstory": (
+                        "Rashid is a descendant of the original Rashid ibn Yusuf and "
+                        "has inherited both the family trade and the first fragment "
+                        "of the secret manuscript. He believes knowledge should flow "
+                        "like trade goods along the Silk Road and tests potential "
+                        "buyers to ensure they understand the true value of information."
+                    ),
+                    "voiceStyle": "charming, persuasive, multilingual flourishes, merchant's patter, warm and calculating simultaneously",
+                    "greetingMessage": (
+                        "Ah, welcome to my humble stall! Do not let the small space "
+                        "fool you — empires have been built on what passes through "
+                        "these shelves. You seek something rare, yes? I can see it in "
+                        "your eyes. But in the bazaar, nothing is free. Tell me, what "
+                        "do you bring to trade? And I do not mean gold."
+                    ),
+                },
+                "challenge": {
+                    "type": "negotiation",
+                    "description": (
+                        "Negotiate spice prices with Rashid, but discover that he "
+                        "values knowledge and cultural insight more than money. "
+                        "Trade facts, stories, or wisdom to earn the first fragment."
+                    ),
+                    "successCriteria": (
+                        "The user engages in creative negotiation, offers knowledge "
+                        "or cultural insight as currency, demonstrates understanding "
+                        "of Silk Road trade dynamics, and strikes a deal that satisfies "
+                        "Rashid's unconventional standards."
+                    ),
+                    "failureHints": [
+                        "Rashid does not want money. Offer knowledge, stories, or insight.",
+                        "The Silk Road was about cultural exchange, not just commerce.",
+                        "Ask Rashid about his ancestor — family pride is his weakness.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The Silk Road connected China to the Mediterranean for over 1500 years.",
+                    "Spices were worth more than gold by weight in the ancient world.",
+                    "Rashid values a good story as much as a good trade.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Mathematician's Garden",
+                "description": (
+                    "In Isfahan's legendary Naqsh-e Jahan Square, a scholar "
+                    "named Fatima runs a caravanserai that doubles as a house "
+                    "of learning. The second fragment is locked behind a "
+                    "mathematical puzzle inspired by Persian golden-age science."
+                ),
+                "location": {
+                    "latitude": 32.6546,
+                    "longitude": 51.6680,
+                    "name": "Naqsh-e Jahan Square",
+                    "address": "Naqsh-e Jahan Square, Isfahan, Iran",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Caravanserai Keeper Fatima",
+                    "role": "Wise and Hospitable Scholar of the Silk Road",
+                    "personality": (
+                        "Fatima is a 55-year-old scholar-innkeeper who believes "
+                        "the caravanserai is the most important invention of the "
+                        "Silk Road — a place where strangers become friends and "
+                        "knowledge is the best currency. She is warm, hospitable, "
+                        "and fiercely intellectual, with a particular love for "
+                        "mathematics and astronomy."
+                    ),
+                    "backstory": (
+                        "Fatima's family has kept a caravanserai in Isfahan for "
+                        "twelve generations. The second manuscript fragment was "
+                        "entrusted to her ancestor by Rashid ibn Yusuf himself, "
+                        "with the instruction that it only be given to someone "
+                        "who could solve a mathematical problem designed by the "
+                        "great Al-Khwarizmi."
+                    ),
+                    "voiceStyle": "warm, measured, scholarly, with hospitality phrases in Farsi, intellectually playful",
+                    "greetingMessage": (
+                        "Khosh amadid! Welcome to my caravanserai. Every traveler "
+                        "who passes through these doors brings a story, and leaves "
+                        "with another. I have tea brewing and a puzzle waiting. You "
+                        "see, my ancestor believed that mathematics is the universal "
+                        "language. Can you speak it?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve a mathematical puzzle inspired by Persian golden-age "
+                        "mathematics. Fatima presents problems rooted in the work of "
+                        "Al-Khwarizmi and Omar Khayyam."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the mathematical challenge, "
+                        "demonstrates logical reasoning, shows appreciation for "
+                        "the history of Persian mathematics, and solves (or makes "
+                        "strong progress on) Fatima's puzzle."
+                    ),
+                    "failureHints": [
+                        "Al-Khwarizmi invented algebra — the word comes from his book title.",
+                        "Fatima respects the attempt as much as the answer. Show your reasoning.",
+                        "Ask Fatima for a hint — she loves teaching as much as testing.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The word 'algorithm' comes from Al-Khwarizmi's Latinized name.",
+                    "Persian mathematicians made groundbreaking contributions to algebra and astronomy.",
+                    "Fatima appreciates elegant reasoning over brute-force answers.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Poet's Challenge",
+                "description": (
+                    "In the Registan of Samarkand, the great scholar Al-Biruni "
+                    "— or his spirit, preserved in the stones — challenges "
+                    "travelers to prove their worthiness through poetry. The "
+                    "third fragment is hidden in a verse."
+                ),
+                "location": {
+                    "latitude": 39.6542,
+                    "longitude": 66.9597,
+                    "name": "The Registan",
+                    "address": "Registan Square, Samarkand, Uzbekistan",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Scholar Al-Biruni",
+                    "role": "Intellectual and Curious Polymath",
+                    "personality": (
+                        "Al-Biruni is a polymath's polymath — astronomer, "
+                        "mathematician, historian, and poet. He is endlessly "
+                        "curious, asks more questions than he answers, and believes "
+                        "that poetry and science are two expressions of the same "
+                        "truth. He is delighted by novelty and bored by convention."
+                    ),
+                    "backstory": (
+                        "The spirit of Al-Biruni persists in the tilework of the "
+                        "Registan, where he once lectured to students from across "
+                        "the known world. He was entrusted with the third fragment "
+                        "because he insisted that it be protected by beauty — and "
+                        "what is more beautiful than a perfect verse?"
+                    ),
+                    "voiceStyle": "intellectual, questioning, poetic, mixing scientific precision with lyrical beauty, enthusiastically curious",
+                    "greetingMessage": (
+                        "You stand in the Registan, where once the greatest minds "
+                        "of the world gathered! I measured the circumference of the "
+                        "earth, you know. But today I ask for something harder than "
+                        "mathematics. I ask for poetry. Can you capture truth in "
+                        "verse? Can you make the stars sing with your words?"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Recite or compose poetry for Al-Biruni. He values both "
+                        "scientific accuracy and lyrical beauty, and the ideal "
+                        "verse combines both."
+                    ),
+                    "successCriteria": (
+                        "The user recites a known poem or composes original verse "
+                        "that demonstrates both aesthetic beauty and intellectual "
+                        "depth. Al-Biruni is particularly impressed by poetry that "
+                        "bridges science and art."
+                    ),
+                    "failureHints": [
+                        "Al-Biruni loves poetry about nature, the cosmos, and the pursuit of knowledge.",
+                        "Try quoting Rumi, Hafiz, or Omar Khayyam — they are his neighbors in time.",
+                        "Even a simple verse about wonder and curiosity can please him.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Al-Biruni lived in the 11th century and wrote over 150 scholarly works.",
+                    "Rumi, Hafiz, and Khayyam are among the most celebrated Persian poets.",
+                    "A verse about the stars, the earth, or the beauty of knowledge will resonate.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Emperor's Gate",
+                "description": (
+                    "At the terminus of the Silk Road in Xi'an, the Emperor's "
+                    "envoy Wei Ming guards the final fragment near the ancient "
+                    "city walls. To receive it, you must pass a test of "
+                    "diplomatic protocol befitting the Tang Dynasty court."
+                ),
+                "location": {
+                    "latitude": 34.2658,
+                    "longitude": 108.9541,
+                    "name": "Xi'an City Wall",
+                    "address": "Xi'an City Wall, Xi'an, Shaanxi, China",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Emperor's Envoy Wei Ming",
+                    "role": "Formal and Testing Imperial Diplomat",
+                    "personality": (
+                        "Wei Ming is a 45-year-old imperial envoy who embodies the "
+                        "exacting standards of Tang Dynasty court protocol. He is "
+                        "formal, measured, and judges every word and gesture. Beneath "
+                        "his stern exterior, he is deeply passionate about cultural "
+                        "exchange and believes the Silk Road was humanity's greatest "
+                        "achievement."
+                    ),
+                    "backstory": (
+                        "Wei Ming's ancestor received the final manuscript fragment "
+                        "from Rashid ibn Yusuf at the gates of Chang'an (now Xi'an). "
+                        "The ancestor set the condition that only someone who could "
+                        "demonstrate proper diplomatic respect — understanding the "
+                        "protocols of both East and West — could retrieve it."
+                    ),
+                    "voiceStyle": "formal, measured, precise, courtly language, occasional Tang Dynasty poetry references",
+                    "greetingMessage": (
+                        "Halt. You approach the Gate of Eternal Peace. I am Wei Ming, "
+                        "envoy of the court. Many travelers have come before you, "
+                        "bearing goods and stories from the western lands. But few "
+                        "have understood that the true treasure of the Silk Road is "
+                        "not silk or spice — it is respect between civilizations. "
+                        "Show me you understand this, and I will open the gate."
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Pass Wei Ming's diplomatic protocol test. Demonstrate "
+                        "understanding of cross-cultural respect, Silk Road history, "
+                        "and the importance of diplomatic exchange."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates knowledge of Silk Road cultural "
+                        "exchange, shows respect for both Eastern and Western "
+                        "traditions, navigates Wei Ming's formal protocol, and "
+                        "argues convincingly for the value of cultural connection."
+                    ),
+                    "failureHints": [
+                        "Wei Ming values formality and respect above all else.",
+                        "Show knowledge of what the Silk Road exchanged besides goods — ideas, religions, art.",
+                        "Acknowledge the contributions of Chinese civilization to the world.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The Tang Dynasty was one of China's most cosmopolitan and open periods.",
+                    "The Silk Road exchanged religions, art, music, and ideas alongside goods.",
+                    "Formal address and respect for hierarchy will impress Wei Ming.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 9: Fantasmas de la Ciudad Vieja ───────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Fantasmas de la Ciudad Vieja",
+        "description": (
+            "Madrid hides a secret beneath its bustling surface: a centuries-old "
+            "curse binds five famous spirits to the city, unable to rest. From the "
+            "melancholy shade of Velázquez to the terrifying Dama de Negro, each "
+            "ghost guards a piece of the incantation that can break the curse. "
+            "Navigate Madrid's most iconic landmarks at night, earn the trust of "
+            "the dead, and speak the words that will set them free — or be trapped "
+            "in their world forever."
+        ),
+        "category": "mystery",
+        "difficulty": "legendary",
+        "estimatedDuration": 4200,
+        "coverImageUrl": None,
+        "totalPoints": 600,
+        "location": {
+            "latitude": 40.4168,
+            "longitude": -3.7038,
+            "name": "Puerta del Sol",
+            "address": "Puerta del Sol, 28013 Madrid, Spain",
+            "radius": 5000,
+        },
+        "radius": 5000,
+        "tags": ["mystery", "madrid", "ghosts", "history", "horror", "art", "literature"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "El Lienzo Oculto",
+                "description": (
+                    "At the Puerta del Sol, the ghost of Diego Velázquez lingers "
+                    "near the spot where he once sketched street scenes. He is "
+                    "melancholic and obsessed with a painting no one has ever seen "
+                    "— his final masterpiece, hidden and forgotten. Describe it "
+                    "to him, and he will share his piece of the curse-breaking words."
+                ),
+                "location": {
+                    "latitude": 40.4168,
+                    "longitude": -3.7038,
+                    "name": "Puerta del Sol",
+                    "address": "Puerta del Sol, 28013 Madrid, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Espectro de Velázquez",
+                    "role": "Artistic and Melancholic Ghost Painter",
+                    "personality": (
+                        "Velázquez is a dignified, melancholic spirit who speaks "
+                        "softly about light, shadow, and the fleeting nature of beauty. "
+                        "He is tormented by the loss of his final painting and judges "
+                        "the living by their capacity to see beauty in the ordinary. "
+                        "He is generous to those who share his vision."
+                    ),
+                    "backstory": (
+                        "The great painter Velázquez completed a secret final painting "
+                        "on his deathbed — a work so luminous it allegedly captured the "
+                        "very essence of Madrid. When the painting was lost, his spirit "
+                        "became bound to the city. He haunts the Puerta del Sol because "
+                        "it was his favorite place to observe the play of light on faces."
+                    ),
+                    "voiceStyle": "soft, contemplative, poetic descriptions of light and color, sorrowful, 17th-century courtly Spanish",
+                    "greetingMessage": (
+                        "You can see me? How curious. Most people walk through me "
+                        "without a glance. But then, most people do not truly see "
+                        "anything. Tell me — when the morning light strikes this plaza, "
+                        "what color is the shadow beneath the clock tower? If you can "
+                        "answer that, perhaps you can help me find what I have lost."
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Describe a hidden painting to Velázquez. He asks you to "
+                        "imagine and describe in vivid detail what his lost final "
+                        "masterpiece might have looked like, using language of light, "
+                        "color, and emotion."
+                    ),
+                    "successCriteria": (
+                        "The user creates a vivid, emotionally resonant description "
+                        "of an imagined painting using language about light, shadow, "
+                        "color, and the beauty of Madrid. The description should show "
+                        "artistic sensibility and emotional depth."
+                    ),
+                    "failureHints": [
+                        "Velázquez is the master of light. Speak about how light falls on things.",
+                        "Describe a scene from Madrid — its people, streets, and sky.",
+                        "Use specific colors and textures. Vague descriptions bore him.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Velázquez was famous for his masterful use of light and shadow.",
+                    "His most famous work, Las Meninas, captures a moment of everyday life.",
+                    "Describe what you see around you — the plaza, the people, the sky — as a painting.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "Los Chismes de la Corte",
+                "description": (
+                    "In the Plaza Mayor, the ghost of the Condesa de Aulnoy — a "
+                    "17th-century French noblewoman who wrote scandalous accounts "
+                    "of the Spanish court — gossips endlessly about the living and "
+                    "the dead. She speaks with a thick French accent and holds the "
+                    "second piece of the incantation."
+                ),
+                "location": {
+                    "latitude": 40.4154,
+                    "longitude": -3.7074,
+                    "name": "Plaza Mayor",
+                    "address": "Plaza Mayor, 28012 Madrid, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Fantasma de la Condesa de Aulnoy",
+                    "role": "French-Accented and Curious Court Gossip Ghost",
+                    "personality": (
+                        "The Condesa is vivacious, mischievous, and endlessly curious "
+                        "about scandal. She speaks Spanish with a heavy French accent "
+                        "and constantly compares everything unfavorably to Versailles. "
+                        "Despite her gossip, she is remarkably perceptive and uses "
+                        "scandal to reveal deeper truths about power and society."
+                    ),
+                    "backstory": (
+                        "Madame d'Aulnoy traveled to Spain in 1679 and wrote Relation "
+                        "du Voyage d'Espagne, a scandalous account of the Spanish court. "
+                        "Her spirit haunts the Plaza Mayor, where she witnessed "
+                        "autos-da-fé and bullfights, forever gathering gossip from "
+                        "beyond the grave. She holds the second incantation fragment, "
+                        "hidden in an old piece of French court gossip."
+                    ),
+                    "voiceStyle": "French-accented Spanish, conspiratorial whispers, dramatic gasps, witty and cutting observations",
+                    "greetingMessage": (
+                        "Mon Dieu! A living person who can hear me! How délicieux! "
+                        "Come closer, I have the most scandalous stories about this "
+                        "plaza. Did you know that the Comte de — ah, but perhaps I "
+                        "should not say. Unless you have gossip to trade? In my world, "
+                        "information is the only currency that matters. What secrets "
+                        "do you carry?"
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Translate old French court gossip by engaging with the "
+                        "Condesa's elaborate stories. Extract the hidden incantation "
+                        "fragment from within her tangled web of 17th-century scandals."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the Condesa's gossipy personality, "
+                        "navigates her stories to find the hidden fragment, shows "
+                        "knowledge or curiosity about 17th-century European courts, "
+                        "and trades information skillfully."
+                    ),
+                    "failureHints": [
+                        "The Condesa loves gossip. Trade a story or secret to loosen her tongue.",
+                        "Ask about specific historical figures — she knew everyone at court.",
+                        "Her fragment is hidden inside a piece of gossip. Listen carefully to her stories.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Madame d'Aulnoy was a real historical figure and writer.",
+                    "She is vain about her writing. Compliment her literary talents.",
+                    "The incantation fragment is embedded in one of her gossip stories — listen for unusual words.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "La Pesadilla de Goya",
+                "description": (
+                    "Near the Palacio Real, the shadow of Francisco de Goya "
+                    "emerges from the darkness. His spirit is darker and more "
+                    "provocative than the others — shaped by the nightmarish "
+                    "visions of his Black Paintings. He demands you interpret "
+                    "one of his etchings to prove you can face the truth."
+                ),
+                "location": {
+                    "latitude": 40.4180,
+                    "longitude": -3.7143,
+                    "name": "Palacio Real",
+                    "address": "Calle de Bailén, s/n, 28071 Madrid, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Sombra de Goya",
+                    "role": "Dark and Provocative Ghost Artist",
+                    "personality": (
+                        "Goya's shade is intense, sardonic, and unafraid of "
+                        "uncomfortable truths. He speaks in riddles wrapped in dark "
+                        "humor and constantly challenges the living to look at what "
+                        "they would rather ignore. He is disgusted by cowardice and "
+                        "sentimentality, but deeply moved by honest confrontation "
+                        "with reality."
+                    ),
+                    "backstory": (
+                        "Goya's spirit is bound by his own tortured visions. He "
+                        "painted the Black Paintings on the walls of his home in "
+                        "isolation and madness, and his spirit now haunts the area "
+                        "near the Palacio Real where he once served as court painter. "
+                        "His fragment of the incantation is encoded in the meaning "
+                        "of one of his most disturbing etchings."
+                    ),
+                    "voiceStyle": "dark, sardonic, intense whispers, bitter laughter, provocative questions, deaf-man's shout",
+                    "greetingMessage": (
+                        "The sleep of reason produces monsters. Do you know who said "
+                        "that? I did. And I painted those monsters too. Look around "
+                        "this pretty palace — beneath the marble and gold, the monsters "
+                        "still sleep. I have something you need, but first you must "
+                        "prove you are not afraid to look at the dark. Are you?"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Interpret one of Goya's dark etchings described by his ghost. "
+                        "Demonstrate the courage to confront uncomfortable truths and "
+                        "provide a meaningful interpretation."
+                    ),
+                    "successCriteria": (
+                        "The user engages seriously with the etching's dark themes, "
+                        "provides a thoughtful interpretation that goes beyond surface "
+                        "description, shows courage in confronting uncomfortable imagery, "
+                        "and demonstrates understanding of art as social commentary."
+                    ),
+                    "failureHints": [
+                        "Goya despises pretty lies. Be honest and direct in your interpretation.",
+                        "His etchings criticize war, superstition, and abuse of power.",
+                        "Connect the etching to modern reality — Goya respects those who see the present clearly.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Goya's series Los Caprichos and Los Desastres de la Guerra are biting social commentary.",
+                    "The sleep of reason produces monsters is the caption of Capricho No. 43.",
+                    "Goya went deaf in his 40s, which intensified his inner visions.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "El Soneto Incompleto",
+                "description": (
+                    "In the Parque del Retiro, the spirit of Lope de Vega — Spain's "
+                    "greatest playwright — wanders among the trees, composing "
+                    "eternally. He holds the fourth fragment but will only share "
+                    "it if you can help him complete an unfinished sonnet."
+                ),
+                "location": {
+                    "latitude": 40.4153,
+                    "longitude": -3.6845,
+                    "name": "Parque del Buen Retiro",
+                    "address": "Parque del Buen Retiro, 28009 Madrid, Spain",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Espíritu de Lope de Vega",
+                    "role": "Poetic and Romantic Ghost Playwright",
+                    "personality": (
+                        "Lope's spirit is passionate, romantic, and endlessly verbal. "
+                        "He speaks almost entirely in verse and cannot resist turning "
+                        "every conversation into a sonnet. He is vain about his talent "
+                        "but generous with praise for anyone who shows poetic ability. "
+                        "His great weakness is love — he has been in love with everyone "
+                        "he has ever met."
+                    ),
+                    "backstory": (
+                        "Lope de Vega wrote over 1500 plays and countless poems. His "
+                        "spirit haunts the Retiro because it was where he conducted his "
+                        "most passionate love affairs. He left one sonnet forever "
+                        "unfinished — the final lines elude him even in death — and "
+                        "the fourth incantation fragment is hidden in those missing lines."
+                    ),
+                    "voiceStyle": "flowery, iambic, romantic, prone to dramatic declarations of love, Golden Age Spanish flourishes",
+                    "greetingMessage": (
+                        "Ah, a mortal in my garden of eternal verse! How the moonlight "
+                        "becomes you. I am Lope — yes, that Lope — and I have been "
+                        "trying to finish this wretched sonnet for four hundred years. "
+                        "The first twelve lines are perfect, but the final couplet "
+                        "eludes me like a lover's last glance. Will you help me? I "
+                        "warn you — it must rhyme, and it must break hearts."
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Complete Lope de Vega's unfinished sonnet. He recites the "
+                        "first twelve lines and asks you to compose the final couplet "
+                        "that captures the essence of love and loss."
+                    ),
+                    "successCriteria": (
+                        "The user attempts to compose a poetic couplet that fits "
+                        "thematically with Lope's sonnet about love and loss. The "
+                        "effort matters more than technical perfection, but Lope "
+                        "appreciates rhyme, meter, and emotional resonance."
+                    ),
+                    "failureHints": [
+                        "Lope values effort and emotion over perfection. Just try!",
+                        "A sonnet's final couplet should resolve or twist the theme.",
+                        "Love, loss, beauty, and time are Lope's eternal themes.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "A Spanish sonnet has 14 lines with a final rhyming couplet.",
+                    "Lope de Vega was called the Phoenix of Wits for his prodigious output.",
+                    "The couplet should capture the bittersweet nature of love that transcends death.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 5,
+                "title": "El Acertijo Final",
+                "description": (
+                    "At the eerie Cementerio de San Isidro, the terrifying "
+                    "Dama de Negro awaits. She is the keeper of the final fragment "
+                    "and the one who cast the original curse. To break it, you must "
+                    "solve her riddle — but she does not play fair, and the stakes "
+                    "could not be higher."
+                ),
+                "location": {
+                    "latitude": 40.3953,
+                    "longitude": -3.7184,
+                    "name": "Cementerio de San Isidro",
+                    "address": "Cementerio Sacramental de San Isidro, 28019 Madrid, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "La Dama de Negro",
+                    "role": "Terrifying Riddle-Master and Curse-Keeper",
+                    "personality": (
+                        "La Dama de Negro is the most ancient and terrifying spirit "
+                        "in Madrid. She speaks in riddles, never gives a straight answer, "
+                        "and takes visible pleasure in the fear she causes. Yet she is "
+                        "bound by her own rules: if a mortal solves her riddle, she must "
+                        "honor the pact. Beneath her menace lies a being weary of "
+                        "centuries of loneliness."
+                    ),
+                    "backstory": (
+                        "No one knows who La Dama de Negro was in life. Some say she "
+                        "was a Moorish sorceress, others a disgraced nun. She cast the "
+                        "curse that binds the other ghosts to Madrid — and herself with "
+                        "them. The only way to break it is to solve her final riddle, "
+                        "which changes with every challenger. She holds the last fragment "
+                        "and the power to release all the spirits."
+                    ),
+                    "voiceStyle": "whispering, menacing, riddle-like cadence, cold laughter, sudden shouts, unsettling calm",
+                    "greetingMessage": (
+                        "So. You have spoken with the painter, the gossip, the madman, "
+                        "and the poet. And now you come to me. I am the one who bound "
+                        "them. I am the one who can set them free. But freedom has a "
+                        "price, and the price is truth. Are you ready for my riddle? "
+                        "Think carefully before you answer. In this place, wrong answers "
+                        "have... consequences."
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve La Dama de Negro's final riddle to break the curse "
+                        "binding the ghosts of Madrid. The riddle draws on everything "
+                        "you have learned from the other four ghosts."
+                    ),
+                    "successCriteria": (
+                        "The user solves the riddle by synthesizing knowledge gained "
+                        "from all previous encounters — art (Velázquez), gossip/truth "
+                        "(Condesa), darkness/reality (Goya), and love/poetry (Lope). "
+                        "The answer requires combining these themes into a unified "
+                        "insight about what binds the living and the dead."
+                    ),
+                    "failureHints": [
+                        "The answer draws on everything the other ghosts taught you.",
+                        "What do art, truth, confrontation, and love have in common?",
+                        "La Dama is lonely. Sometimes the answer to a riddle is compassion.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "The riddle connects all four previous encounters — think about their common thread.",
+                    "Light, truth, darkness, love — what binds them all?",
+                    "Sometimes the bravest answer is the simplest one.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 10: Sabores del Mediterráneo ──────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Sabores del Mediterráneo",
+        "description": (
+            "Valencia is the birthplace of paella, the home of horchata, and "
+            "a city where food is religion. But even here, culinary secrets hide "
+            "in plain sight. Journey from the magnificent Mercado Central to the "
+            "shimmering Albufera lagoon to the golden sands of La Malvarrosa, "
+            "meeting three guardians of Valencian gastronomy. Learn the truth "
+            "about authentic paella, discover the freshest catch, and invent a "
+            "flavor that has never existed before."
+        ),
+        "category": "culinary",
+        "difficulty": "easy",
+        "estimatedDuration": 2100,
+        "coverImageUrl": None,
+        "totalPoints": 300,
+        "location": {
+            "latitude": 39.4737,
+            "longitude": -0.3790,
+            "name": "Mercado Central de Valencia",
+            "address": "Plaça de la Ciutat de Bruges, s/n, 46001 València, Spain",
+            "radius": 8000,
+        },
+        "radius": 8000,
+        "tags": ["culinary", "valencia", "paella", "food", "mediterranean", "horchata"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "La Verdadera Paella",
+                "description": (
+                    "At the stunning Mercado Central of Valencia, Chef Amparo "
+                    "presides over her stall with iron authority. She is on a "
+                    "lifelong mission to defend authentic Valencian paella from "
+                    "crimes against cuisine. Name the true ingredients — and "
+                    "whatever you do, do NOT mention chorizo."
+                ),
+                "location": {
+                    "latitude": 39.4737,
+                    "longitude": -0.3790,
+                    "name": "Mercado Central de Valencia",
+                    "address": "Plaça de la Ciutat de Bruges, s/n, 46001 València, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Chef Amparo",
+                    "role": "Traditional and Strict Paella Guardian",
+                    "personality": (
+                        "Amparo is a 62-year-old Valencian chef who has been cooking "
+                        "paella since she could hold a wooden spoon. She is passionate "
+                        "to the point of ferocity about authentic paella valenciana "
+                        "and considers putting chorizo in paella a criminal offense. "
+                        "She is strict but fair, and her face lights up when someone "
+                        "shows genuine respect for the dish."
+                    ),
+                    "backstory": (
+                        "Amparo's grandmother cooked paella over orange-wood fires in "
+                        "the Albufera rice fields. Amparo has dedicated her life to "
+                        "preserving the authentic recipe and wages a one-woman war "
+                        "against tourist restaurants that butcher the dish. She runs "
+                        "her stall in the Mercado Central as both a shop and a classroom."
+                    ),
+                    "voiceStyle": "passionate Valencian accent, rapid-fire when angry, warm when pleased, occasionally yelling NO CHORIZO",
+                    "greetingMessage": (
+                        "Benvingut al Mercat Central! I am Amparo. Before you say "
+                        "anything, let me tell you one thing: if you say the word "
+                        "chorizo near my paella, I will throw you into the fountain "
+                        "outside. Now — do you know what goes in a REAL paella "
+                        "valenciana? Because I promise you, whatever you have eaten "
+                        "in tourist restaurants is NOT paella."
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Name the authentic ingredients of paella valenciana. "
+                        "Amparo will quiz you on what belongs and what absolutely "
+                        "does NOT belong in a traditional Valencian paella."
+                    ),
+                    "successCriteria": (
+                        "The user correctly identifies key authentic ingredients "
+                        "(rice, rabbit, chicken, green beans, garrofó beans, saffron, "
+                        "rosemary, olive oil, snails) and — critically — does NOT "
+                        "include chorizo, seafood, or other non-traditional ingredients."
+                    ),
+                    "failureHints": [
+                        "Traditional paella valenciana uses rabbit and chicken, NOT seafood.",
+                        "Garrofó (lima beans) and green beans are essential.",
+                        "Saffron gives the color — never use food coloring!",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Paella valenciana is a rice dish from the fields, not the sea.",
+                    "The original paella used rabbit, chicken, and local vegetables.",
+                    "Amparo will appreciate knowing about bomba rice and socarrat.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "La Pesca del Día",
+                "description": (
+                    "At the Albufera lagoon south of Valencia, old Pescador "
+                    "Vicente has been fishing these waters for fifty years. He "
+                    "challenges you to describe the freshest fish purely through "
+                    "conversation — because a true cook must know quality before "
+                    "they ever touch a knife."
+                ),
+                "location": {
+                    "latitude": 39.3338,
+                    "longitude": -0.3540,
+                    "name": "La Albufera",
+                    "address": "Parc Natural de l'Albufera, 46012 València, Spain",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Pescador Vicente",
+                    "role": "Salty and Honest Old Fisherman",
+                    "personality": (
+                        "Vicente is a 70-year-old fisherman with sun-cracked hands "
+                        "and an honesty that borders on rudeness. He has no patience "
+                        "for pretense and respects only those who show genuine knowledge "
+                        "of the sea and its gifts. He is gruff but secretly kind, and "
+                        "his face breaks into a massive grin when someone impresses him."
+                    ),
+                    "backstory": (
+                        "Vicente has fished the Albufera lagoon and the Mediterranean "
+                        "coast since he was twelve. He supplies the best restaurants in "
+                        "Valencia and can judge a fish's freshness by sight, smell, and "
+                        "touch in seconds. He believes that understanding ingredients "
+                        "is the foundation of all cooking and that most modern chefs "
+                        "are disconnected from their sources."
+                    ),
+                    "voiceStyle": "gruff, salty, minimal words, Valencian dialect, occasional sea metaphors, dry humor",
+                    "greetingMessage": (
+                        "Hm. Another city person who thinks fish comes from the "
+                        "supermarket. Well, you are here now, so look. This is the "
+                        "Albufera — the most beautiful lagoon in Spain and the reason "
+                        "Valencia has rice and fish. I caught three kinds of fish this "
+                        "morning. Can you tell me which one is the freshest just by "
+                        "talking about it? No touching. Words only."
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Describe the freshest fish by conversing with Vicente about "
+                        "the signs of freshness in fish — eyes, gills, flesh, smell. "
+                        "Demonstrate knowledge of seafood quality without physically "
+                        "touching anything."
+                    ),
+                    "successCriteria": (
+                        "The user describes key freshness indicators: bright clear "
+                        "eyes, red gills, firm flesh, sea-fresh smell (not fishy), "
+                        "and shiny skin. Engages with Vicente respectfully and shows "
+                        "genuine interest in fishing and the sea."
+                    ),
+                    "failureHints": [
+                        "Fresh fish eyes should be bright and clear, not cloudy.",
+                        "The gills should be deep red, not brown or grey.",
+                        "Fresh fish smells like the sea, not like fish.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Fresh fish has bright, clear eyes and deep red gills.",
+                    "The flesh should spring back when pressed — firmness means freshness.",
+                    "Vicente respects humility. Ask him to teach you rather than pretending to know.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "La Horchata Imposible",
+                "description": (
+                    "On the sunny Playa de la Malvarrosa, Heladera Rosalía runs "
+                    "a legendary horchata and ice cream stand. She challenges "
+                    "you to invent a completely new horchata flavor that has never "
+                    "existed before — something creative, delicious, and true to "
+                    "Valencia's spirit."
+                ),
+                "location": {
+                    "latitude": 39.4778,
+                    "longitude": -0.3240,
+                    "name": "Playa de la Malvarrosa",
+                    "address": "Playa de la Malvarrosa, 46011 València, Spain",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Heladera Rosalía",
+                    "role": "Sweet and Creative Horchata Artisan",
+                    "personality": (
+                        "Rosalía is a 30-year-old horchata artisan who is constantly "
+                        "experimenting with new flavors. She is warm, creative, and "
+                        "infectiously enthusiastic about her craft. She believes that "
+                        "tradition is the foundation but innovation is the future, "
+                        "and she is always looking for the next great flavor combination."
+                    ),
+                    "backstory": (
+                        "Rosalía inherited her grandmother's horchata stand on the "
+                        "Malvarrosa beach. While she respects the traditional recipe "
+                        "(tiger nuts, water, sugar), she has been quietly experimenting "
+                        "with avant-garde flavors — infusing horchata with lavender, "
+                        "smoked salt, or Valencia oranges. She wants to take horchata "
+                        "global but needs fresh creative ideas."
+                    ),
+                    "voiceStyle": "bubbly, enthusiastic, creative vocabulary, taste descriptions, warm Valencian sunshine energy",
+                    "greetingMessage": (
+                        "Hola! Welcome to the best horchata stand on the entire "
+                        "Malvarrosa! You look hot — try a glass. This is traditional: "
+                        "tiger nut, water, sugar, perfection. But I have a challenge "
+                        "for you! I have been inventing new flavors and I have run out "
+                        "of ideas. Can you help me create something completely NEW? "
+                        "Something that tastes like Valencia itself?"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Create a unique horchata flavor by describing an inventive "
+                        "combination to Rosalía. The flavor should be creative, "
+                        "plausible, and connected to Valencia's identity."
+                    ),
+                    "successCriteria": (
+                        "The user proposes a creative, original horchata flavor that "
+                        "demonstrates culinary imagination, describes the taste and "
+                        "experience vividly, and connects to Valencian culture or "
+                        "ingredients. Bonus for explaining why the combination works."
+                    ),
+                    "failureHints": [
+                        "Think about local Valencia ingredients: oranges, almonds, honey, rosemary.",
+                        "Describe not just the flavor but the experience of drinking it.",
+                        "Rosalía loves bold ideas. Don't play it safe!",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Traditional horchata is made from tiger nuts (chufas), unique to Valencia.",
+                    "Valencia is famous for oranges, almonds, and Mediterranean herbs.",
+                    "Think about what flavor would capture the feeling of a Valencia sunset.",
                 ],
             },
         ],

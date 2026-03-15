@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, Search, ChevronRight, LogOut, User } from 'lucide-react';
+import { Search, ChevronRight, LogOut, User } from 'lucide-react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
+import { NotificationBell } from './NotificationBell';
 
 const breadcrumbMap: Record<string, string> = {
   dashboard: 'Dashboard',
@@ -100,10 +101,7 @@ export function Topbar() {
         {/* Right: Notifications + Avatar */}
         <div className="flex items-center gap-3">
           {/* Notification Bell */}
-          <button className="relative p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200">
-            <Bell className="w-5 h-5" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-violet-500 rounded-full" />
-          </button>
+          <NotificationBell />
 
           {/* User Avatar Dropdown */}
           <div className="relative" ref={dropdownRef}>

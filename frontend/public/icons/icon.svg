@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="needleN" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="needleS" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#080c16"/>
+
+  <!-- Outer decorative ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="url(#ring)" stroke-width="4" stroke-dasharray="12 8" opacity="0.6"/>
+
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.3"/>
+
+  <!-- Cardinal tick marks -->
+  <!-- N -->
+  <line x1="256" y1="76" x2="256" y2="100" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+  <!-- S -->
+  <line x1="256" y1="412" x2="256" y2="436" stroke="#6ee7b7" stroke-width="6" stroke-linecap="round"/>
+  <!-- E -->
+  <line x1="412" y1="256" x2="436" y2="256" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+  <!-- W -->
+  <line x1="76" y1="256" x2="100" y2="256" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Minor ticks (8 intercardinal) -->
+  <line x1="383" y1="129" x2="395" y2="117" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="383" y1="383" x2="395" y2="395" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="129" y1="383" x2="117" y2="395" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="129" y1="129" x2="117" y2="117" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Cardinal letters -->
+  <text x="256" y="68" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="28" font-weight="bold">N</text>
+  <text x="256" y="460" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="22" font-weight="bold">S</text>
+  <text x="458" y="264" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="22" font-weight="bold">E</text>
+  <text x="54" y="264" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="22" font-weight="bold">O</text>
+
+  <!-- Compass needle - North (violet) -->
+  <polygon points="256,100 232,256 280,256" fill="url(#needleN)"/>
+
+  <!-- Compass needle - South (emerald) -->
+  <polygon points="256,412 232,256 280,256" fill="url(#needleS)"/>
+
+  <!-- Center jewel -->
+  <circle cx="256" cy="256" r="20" fill="#7c3aed"/>
+  <circle cx="256" cy="256" r="10" fill="white"/>
+  <circle cx="256" cy="256" r="5" fill="#7c3aed"/>
+
+  <!-- Decorative sparkle dots -->
+  <circle cx="180" cy="160" r="3" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="340" cy="180" r="2" fill="#10b981" opacity="0.5"/>
+  <circle cx="160" cy="340" r="2.5" fill="#10b981" opacity="0.4"/>
+  <circle cx="350" cy="350" r="2" fill="#a78bfa" opacity="0.4"/>
+</svg>

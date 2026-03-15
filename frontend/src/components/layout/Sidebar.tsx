@@ -19,11 +19,11 @@ import {
   ChevronRight,
   Menu,
   X,
-  Sparkles,
   Map,
   UsersRound,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { Logo } from './Logo';
 
 interface NavItem {
   label: string;
@@ -111,23 +111,8 @@ export function Sidebar() {
   const sidebarContent = (
     <div className="flex flex-col h-full">
       {/* Logo */}
-      <div className={`flex items-center gap-3 px-4 py-6 ${collapsed ? 'justify-center' : ''}`}>
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-violet-500/25">
-          <Sparkles className="w-5 h-5 text-white" />
-        </div>
-        <AnimatePresence>
-          {!collapsed && (
-            <motion.span
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 'auto' }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{ duration: 0.2 }}
-              className="font-heading text-xl font-bold text-white whitespace-nowrap overflow-hidden"
-            >
-              QuestMaster
-            </motion.span>
-          )}
-        </AnimatePresence>
+      <div className={`px-4 py-6 ${collapsed ? 'flex justify-center' : ''}`}>
+        <Logo size={collapsed ? 'sm' : 'md'} linkTo="/dashboard" />
       </div>
 
       {/* Main Nav */}
