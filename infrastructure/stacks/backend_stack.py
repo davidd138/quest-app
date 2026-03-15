@@ -408,6 +408,12 @@ class BackendStack(cdk.Stack):
             read_tables=["scores", "users"],
         )
 
+        # ---- Quest stats resolver ----
+        create_resolver(
+            "get_quest_stats", "Query", "getQuestStats",
+            read_tables=["progress", "scores", "users"],
+        )
+
         # ---- Community quest resolver ----
         create_resolver(
             "create_community_quest", "Mutation", "createCommunityQuest",

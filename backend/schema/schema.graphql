@@ -367,6 +367,16 @@ input UpdateConversationInput {
   duration: Int
 }
 
+type QuestStats {
+  questId: String!
+  totalPlays: Int!
+  completionRate: Float!
+  avgScore: Float!
+  avgTime: Int!
+  totalRatings: Int!
+  avgRating: Float!
+}
+
 type QuestRating {
   id: String!
   questId: String!
@@ -419,6 +429,7 @@ type Query {
   listContentReports(status: String, limit: Int): [ContentReport!]! @aws_cognito_user_pools
   getUserProfile(userId: ID!): PublicUserProfile @aws_cognito_user_pools
   searchQuests(query: String!, category: String, difficulty: String, limit: Int): QuestConnection! @aws_cognito_user_pools
+  getQuestStats(questId: ID!): QuestStats! @aws_cognito_user_pools
 }
 
 input GenerateQuestInput {
