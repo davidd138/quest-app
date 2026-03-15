@@ -316,6 +316,18 @@ input CreateQuestInput {
   isPublished: Boolean
 }
 
+input CreateCommunityQuestInput {
+  title: String!
+  description: String!
+  category: QuestCategory!
+  difficulty: QuestDifficulty!
+  estimatedDuration: Int!
+  stages: [StageInput!]!
+  location: LocationInput!
+  radius: Float!
+  tags: [String!]!
+}
+
 input UpdateQuestInput {
   id: ID!
   title: String
@@ -409,4 +421,5 @@ type Mutation {
   updateUserStatus(userId: ID!, status: UserStatus!): User! @aws_cognito_user_pools
   deleteMyAccount: Boolean! @aws_cognito_user_pools
   rateQuest(questId: ID!, rating: Int!, review: String): QuestRating! @aws_cognito_user_pools
+  createCommunityQuest(input: CreateCommunityQuestInput!): Quest! @aws_cognito_user_pools
 }

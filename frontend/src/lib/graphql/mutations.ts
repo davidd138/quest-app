@@ -287,6 +287,66 @@ export const RATE_QUEST = /* GraphQL */ `
   }
 `;
 
+export const CREATE_COMMUNITY_QUEST = /* GraphQL */ `
+  mutation CreateCommunityQuest($input: CreateCommunityQuestInput!) {
+    createCommunityQuest(input: $input) {
+      id
+      title
+      description
+      category
+      difficulty
+      estimatedDuration
+      coverImageUrl
+      stages {
+        id
+        order
+        title
+        description
+        location {
+          latitude
+          longitude
+          name
+          address
+          radius
+        }
+        character {
+          name
+          role
+          personality
+          backstory
+          avatarUrl
+          voiceStyle
+          greetingMessage
+        }
+        challenge {
+          type
+          description
+          successCriteria
+          failureHints
+          maxAttempts
+        }
+        points
+        hints
+        unlockCondition
+      }
+      totalPoints
+      location {
+        latitude
+        longitude
+        name
+        address
+        radius
+      }
+      radius
+      tags
+      isPublished
+      createdBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
 export const UPDATE_USER_STATUS = /* GraphQL */ `
   mutation UpdateUserStatus($userId: ID!, $status: UserStatus!) {
     updateUserStatus(userId: $userId, status: $status) {

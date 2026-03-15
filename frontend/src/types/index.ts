@@ -295,6 +295,18 @@ export interface CreateQuestInput {
   isPublished?: boolean;
 }
 
+export interface CreateCommunityQuestInput {
+  title: string;
+  description: string;
+  category: QuestCategory;
+  difficulty: QuestDifficulty;
+  estimatedDuration: number;
+  stages: StageInput[];
+  location: LocationInput;
+  radius: number;
+  tags: string[];
+}
+
 export interface UpdateQuestInput {
   id: string;
   title?: string;

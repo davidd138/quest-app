@@ -21,6 +21,8 @@ import {
   X,
   Map,
   UsersRound,
+  PlusCircle,
+  Globe,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from './Logo';
@@ -36,6 +38,8 @@ const mainNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Quests', href: '/quests', icon: Compass },
   { label: 'Discover', href: '/discover', icon: Map },
+  { label: 'Crear', href: '/create', icon: PlusCircle },
+  { label: 'Comunidad', href: '/community', icon: Globe },
   { label: 'Social', href: '/social', icon: UsersRound },
   { label: 'History', href: '/history', icon: History },
   { label: 'Achievements', href: '/achievements', icon: Trophy },
