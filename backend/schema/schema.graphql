@@ -391,6 +391,16 @@ type UserDataExport {
   exportedAt: String!
 }
 
+type PublicUserProfile {
+  userId: String!
+  name: String
+  avatarUrl: String
+  totalPoints: Int!
+  questsCompleted: Int!
+  role: String!
+  createdAt: String!
+}
+
 type Query {
   listQuests(category: String, difficulty: String, limit: Int, nextToken: String): QuestConnection! @aws_cognito_user_pools
   getQuest(id: ID!): Quest @aws_cognito_user_pools
@@ -407,6 +417,8 @@ type Query {
   getQuestRatings(questId: ID!): QuestRatingStats! @aws_cognito_user_pools
   listPendingQuests(limit: Int, nextToken: String): QuestConnection! @aws_cognito_user_pools
   listContentReports(status: String, limit: Int): [ContentReport!]! @aws_cognito_user_pools
+  getUserProfile(userId: ID!): PublicUserProfile @aws_cognito_user_pools
+  searchQuests(query: String!, category: String, difficulty: String, limit: Int): QuestConnection! @aws_cognito_user_pools
 }
 
 input GenerateQuestInput {

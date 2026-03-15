@@ -438,6 +438,17 @@ class BackendStack(cdk.Stack):
         )
         list_content_reports_fn.add_to_role_policy(cognito_policy)
 
+        # ---- Public profile & search resolvers ----
+        create_resolver(
+            "get_user_profile", "Query", "getUserProfile",
+            read_tables=["users"],
+        )
+
+        create_resolver(
+            "search_quests", "Query", "searchQuests",
+            read_tables=["quests", "users"],
+        )
+
         # ---- Admin resolvers ----
         create_quest_fn = create_resolver(
             "create_quest", "Mutation", "createQuest",
