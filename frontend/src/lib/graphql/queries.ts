@@ -291,6 +291,50 @@ export const GET_QUEST_RATINGS = /* GraphQL */ `
   }
 `;
 
+export const LIST_PENDING_QUESTS = /* GraphQL */ `
+  query ListPendingQuests($limit: Int, $nextToken: String) {
+    listPendingQuests(limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        category
+        difficulty
+        estimatedDuration
+        stages {
+          id
+          title
+        }
+        totalPoints
+        location {
+          name
+        }
+        tags
+        isPublished
+        createdBy
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+
+export const LIST_CONTENT_REPORTS = /* GraphQL */ `
+  query ListContentReports($status: String, $limit: Int) {
+    listContentReports(status: $status, limit: $limit) {
+      id
+      reporterId
+      contentType
+      contentId
+      reason
+      details
+      status
+      createdAt
+    }
+  }
+`;
+
 export const GET_ADMIN_ANALYTICS = /* GraphQL */ `
   query GetAdminAnalytics {
     getAdminAnalytics {

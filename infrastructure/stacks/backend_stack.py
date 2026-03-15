@@ -414,6 +414,30 @@ class BackendStack(cdk.Stack):
             read_tables=["users"], write_tables=["quests"],
         )
 
+        # ---- Moderation resolvers ----
+        create_resolver(
+            "report_content", "Mutation", "reportContent",
+            read_tables=["users"], write_tables=["users"],
+        )
+
+        approve_quest_fn = create_resolver(
+            "approve_quest", "Mutation", "approveQuest",
+            read_tables=["users"], write_tables=["quests", "users"],
+        )
+        approve_quest_fn.add_to_role_policy(cognito_policy)
+
+        list_pending_quests_fn = create_resolver(
+            "list_pending_quests", "Query", "listPendingQuests",
+            read_tables=["quests", "users"],
+        )
+        list_pending_quests_fn.add_to_role_policy(cognito_policy)
+
+        list_content_reports_fn = create_resolver(
+            "list_content_reports", "Query", "listContentReports",
+            read_tables=["users"],
+        )
+        list_content_reports_fn.add_to_role_policy(cognito_policy)
+
         # ---- Admin resolvers ----
         create_quest_fn = create_resolver(
             "create_quest", "Mutation", "createQuest",

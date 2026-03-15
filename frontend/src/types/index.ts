@@ -225,6 +225,17 @@ export interface QuestRatingStats {
   distribution: number[];
 }
 
+export interface ContentReport {
+  id: string;
+  reporterId: string;
+  contentType: string;
+  contentId: string;
+  reason: string;
+  details?: string;
+  status: string;
+  createdAt: string;
+}
+
 // Connection types
 export interface QuestConnection {
   items: Quest[];

@@ -347,6 +347,37 @@ export const CREATE_COMMUNITY_QUEST = /* GraphQL */ `
   }
 `;
 
+export const REPORT_CONTENT = /* GraphQL */ `
+  mutation ReportContent($input: ReportContentInput!) {
+    reportContent(input: $input) {
+      id
+      reporterId
+      contentType
+      contentId
+      reason
+      details
+      status
+      createdAt
+    }
+  }
+`;
+
+export const APPROVE_QUEST = /* GraphQL */ `
+  mutation ApproveQuest($questId: ID!, $approved: Boolean!, $rejectionReason: String) {
+    approveQuest(questId: $questId, approved: $approved, rejectionReason: $rejectionReason) {
+      id
+      title
+      description
+      category
+      difficulty
+      isPublished
+      createdBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
 export const UPDATE_USER_STATUS = /* GraphQL */ `
   mutation UpdateUserStatus($userId: ID!, $status: UserStatus!) {
     updateUserStatus(userId: $userId, status: $status) {

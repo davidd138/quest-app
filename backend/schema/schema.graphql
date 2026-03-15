@@ -405,6 +405,26 @@ type Query {
   getAdminAnalytics: AdminAnalytics @aws_cognito_user_pools
   exportMyData: UserDataExport! @aws_cognito_user_pools
   getQuestRatings(questId: ID!): QuestRatingStats! @aws_cognito_user_pools
+  listPendingQuests(limit: Int, nextToken: String): QuestConnection! @aws_cognito_user_pools
+  listContentReports(status: String, limit: Int): [ContentReport!]! @aws_cognito_user_pools
+}
+
+input ReportContentInput {
+  contentType: String!
+  contentId: ID!
+  reason: String!
+  details: String
+}
+
+type ContentReport {
+  id: String!
+  reporterId: String!
+  contentType: String!
+  contentId: String!
+  reason: String!
+  details: String
+  status: String!
+  createdAt: String!
 }
 
 type Mutation {
@@ -422,4 +442,6 @@ type Mutation {
   deleteMyAccount: Boolean! @aws_cognito_user_pools
   rateQuest(questId: ID!, rating: Int!, review: String): QuestRating! @aws_cognito_user_pools
   createCommunityQuest(input: CreateCommunityQuestInput!): Quest! @aws_cognito_user_pools
+  reportContent(input: ReportContentInput!): ContentReport! @aws_cognito_user_pools
+  approveQuest(questId: ID!, approved: Boolean!, rejectionReason: String): Quest! @aws_cognito_user_pools
 }
