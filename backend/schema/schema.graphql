@@ -409,6 +409,14 @@ type Query {
   listContentReports(status: String, limit: Int): [ContentReport!]! @aws_cognito_user_pools
 }
 
+input GenerateQuestInput {
+  city: String!
+  theme: String!
+  difficulty: QuestDifficulty!
+  stageCount: Int!
+  language: String
+}
+
 input ReportContentInput {
   contentType: String!
   contentId: ID!
@@ -444,4 +452,5 @@ type Mutation {
   createCommunityQuest(input: CreateCommunityQuestInput!): Quest! @aws_cognito_user_pools
   reportContent(input: ReportContentInput!): ContentReport! @aws_cognito_user_pools
   approveQuest(questId: ID!, approved: Boolean!, rejectionReason: String): Quest! @aws_cognito_user_pools
+  generateQuestAI(input: GenerateQuestInput!): Quest! @aws_cognito_user_pools
 }

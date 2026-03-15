@@ -475,6 +475,26 @@ class BackendStack(cdk.Stack):
         )
         update_user_status_fn.add_to_role_policy(cognito_policy)
 
+        # ---- AI Quest Generator ----
+        generate_quest_ai_fn = create_resolver(
+            "generate_quest_ai", "Mutation", "generateQuestAI",
+            read_tables=["users"], write_tables=[],
+            timeout=90,
+            memory=512,
+        )
+        generate_quest_ai_fn.add_to_role_policy(cognito_policy)
+        generate_quest_ai_fn.add_to_role_policy(
+            iam.PolicyStatement(
+                actions=["bedrock:InvokeModel", "bedrock:Converse"],
+                resources=[
+                    "arn:aws:bedrock:*::foundation-model/anthropic.claude-*",
+                    "arn:aws:bedrock:*::foundation-model/amazon.nova-*",
+                    f"arn:aws:bedrock:*:{self.account}:inference-profile/us.anthropic.*",
+                    f"arn:aws:bedrock:*:{self.account}:inference-profile/eu.anthropic.*",
+                ],
+            )
+        )
+
         # ---- Exports ----
         self.graphql_url = api.graphql_url
         self.user_pool_id = user_pool.user_pool_id

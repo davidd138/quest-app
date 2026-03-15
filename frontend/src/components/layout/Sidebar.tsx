@@ -28,6 +28,7 @@ import {
   TrendingUp,
   Swords,
   Volume2,
+  CalendarCheck,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from './Logo';
@@ -41,6 +42,7 @@ interface NavItem {
 
 const mainNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+  { label: 'Daily', href: '/daily', icon: CalendarCheck },
   { label: 'Quests', href: '/quests', icon: Compass },
   { label: 'Discover', href: '/discover', icon: Map },
   { label: 'Crear', href: '/create', icon: PlusCircle },
