@@ -210,6 +210,21 @@ export interface RealtimeToken {
   expiresAt: number;
 }
 
+export interface QuestRating {
+  id: string;
+  questId: string;
+  userId: string;
+  rating: number;
+  review?: string;
+  createdAt: string;
+}
+
+export interface QuestRatingStats {
+  averageRating: number;
+  totalRatings: number;
+  distribution: number[];
+}
+
 // Connection types
 export interface QuestConnection {
   items: Quest[];

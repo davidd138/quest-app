@@ -396,6 +396,18 @@ class BackendStack(cdk.Stack):
             )
         )
 
+        # ---- Quest rating resolvers ----
+        create_resolver(
+            "rate_quest", "Mutation", "rateQuest",
+            read_tables=["users", "quests"],
+            write_tables=["scores"],
+        )
+
+        create_resolver(
+            "get_quest_ratings", "Query", "getQuestRatings",
+            read_tables=["scores", "users"],
+        )
+
         # ---- Admin resolvers ----
         create_quest_fn = create_resolver(
             "create_quest", "Mutation", "createQuest",

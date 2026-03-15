@@ -6,6 +6,7 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { Topbar } from '@/components/layout/Topbar';
 import { ErrorBoundary } from '@/components/layout/ErrorBoundary';
 import { CookieConsent } from '@/components/layout/CookieConsent';
+import { OnboardingTour } from '@/components/quest/OnboardingTour';
 import { SkipToContent } from '@/components/ui/SkipToContent';
 import { KeyboardShortcutsHelp } from '@/components/ui/KeyboardShortcutsHelp';
 import { I18nProvider } from '@/lib/i18n';
@@ -31,6 +32,7 @@ function AppShell({ children }: { children: React.ReactNode }) {
         </ErrorBoundary>
       </main>
       <CookieConsent />
+      <OnboardingTour />
       <KeyboardShortcutsHelp isOpen={shortcutsOpen} onClose={() => setShortcutsOpen(false)} />
     </div>
   );

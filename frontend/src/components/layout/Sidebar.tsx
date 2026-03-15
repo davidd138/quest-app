@@ -50,6 +50,7 @@ const adminNav: NavItem[] = [
 ];
 
 const bottomNav: NavItem[] = [
+  { label: 'Ajustes', href: '/settings', icon: Settings },
   { label: 'Profile', href: '/profile', icon: User },
 ];
 
@@ -67,6 +68,7 @@ function NavLink({
   return (
     <Link
       href={item.href}
+      {...(item.href === '/quests' ? { 'data-tour': 'quests-link' } : {})}
       className={`
         relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group
         ${isActive
@@ -111,12 +113,12 @@ export function Sidebar() {
   const sidebarContent = (
     <div className="flex flex-col h-full">
       {/* Logo */}
-      <div className={`px-4 py-6 ${collapsed ? 'flex justify-center' : ''}`}>
+      <div data-tour="logo" className={`px-4 py-6 ${collapsed ? 'flex justify-center' : ''}`}>
         <Logo size={collapsed ? 'sm' : 'md'} linkTo="/dashboard" />
       </div>
 
       {/* Main Nav */}
-      <nav className="flex-1 px-3 space-y-1">
+      <nav data-tour="sidebar-nav" className="flex-1 px-3 space-y-1">
         {mainNav.map((item) => (
           <NavLink
             key={item.href}

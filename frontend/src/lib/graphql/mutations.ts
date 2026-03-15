@@ -274,6 +274,19 @@ export const DELETE_QUEST = /* GraphQL */ `
   }
 `;
 
+export const RATE_QUEST = /* GraphQL */ `
+  mutation RateQuest($questId: ID!, $rating: Int!, $review: String) {
+    rateQuest(questId: $questId, rating: $rating, review: $review) {
+      id
+      questId
+      userId
+      rating
+      review
+      createdAt
+    }
+  }
+`;
+
 export const UPDATE_USER_STATUS = /* GraphQL */ `
   mutation UpdateUserStatus($userId: ID!, $status: UserStatus!) {
     updateUserStatus(userId: $userId, status: $status) {

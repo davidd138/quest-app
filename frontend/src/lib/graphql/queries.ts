@@ -281,6 +281,16 @@ export const LIST_ALL_USERS = /* GraphQL */ `
   }
 `;
 
+export const GET_QUEST_RATINGS = /* GraphQL */ `
+  query GetQuestRatings($questId: ID!) {
+    getQuestRatings(questId: $questId) {
+      averageRating
+      totalRatings
+      distribution
+    }
+  }
+`;
+
 export const GET_ADMIN_ANALYTICS = /* GraphQL */ `
   query GetAdminAnalytics {
     getAdminAnalytics {

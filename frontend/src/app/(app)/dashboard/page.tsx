@@ -173,6 +173,7 @@ export default function DashboardPage() {
       variants={containerVariants}
       initial="hidden"
       animate="show"
+      data-tour="dashboard-content"
       className="max-w-7xl mx-auto space-y-8"
     >
       {/* Welcome */}
