@@ -26,6 +26,8 @@ import {
   MessageCircle,
   HelpCircle,
   TrendingUp,
+  Swords,
+  Volume2,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from './Logo';
@@ -43,6 +45,8 @@ const mainNav: NavItem[] = [
   { label: 'Discover', href: '/discover', icon: Map },
   { label: 'Crear', href: '/create', icon: PlusCircle },
   { label: 'Comunidad', href: '/community', icon: Globe },
+  { label: 'Multiplayer', href: '/multiplayer', icon: Swords },
+  { label: 'Voice Rooms', href: '/voice-rooms', icon: Volume2 },
   { label: 'Social', href: '/social', icon: UsersRound },
   { label: 'Messages', href: '/messages', icon: MessageCircle },
   { label: 'History', href: '/history', icon: History },
