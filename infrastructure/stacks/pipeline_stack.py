@@ -54,6 +54,11 @@ class PipelineStack(cdk.Stack):
                 input=source,
                 commands=[
                     "n 20",
+                    # Fetch backend outputs for frontend env vars
+                    'export NEXT_PUBLIC_USER_POOL_ID=$(aws cloudformation describe-stacks --stack-name QuestMasterDev-BackendStack --query "Stacks[0].Outputs[?OutputKey==\'UserPoolId\'].OutputValue" --output text --region eu-west-1)',
+                    'export NEXT_PUBLIC_USER_POOL_CLIENT_ID=$(aws cloudformation describe-stacks --stack-name QuestMasterDev-BackendStack --query "Stacks[0].Outputs[?OutputKey==\'UserPoolClientId\'].OutputValue" --output text --region eu-west-1)',
+                    'export NEXT_PUBLIC_GRAPHQL_URL=$(aws cloudformation describe-stacks --stack-name QuestMasterDev-BackendStack --query "Stacks[0].Outputs[?OutputKey==\'GraphQLUrl\'].OutputValue" --output text --region eu-west-1)',
+                    'export NEXT_PUBLIC_REGION=eu-west-1',
                     "cd frontend && npm ci && npm run build",
                     "aws s3 sync out/ s3://dev-qm-frontend-890742600627/ --delete",
                     'DIST_ID=$(aws cloudformation describe-stacks --stack-name QuestMasterDev-FrontendStack --query "Stacks[0].Outputs[?OutputKey==\'DistributionId\'].OutputValue" --output text --region eu-west-1)',
@@ -69,7 +74,10 @@ class PipelineStack(cdk.Stack):
                     ),
                     iam.PolicyStatement(
                         actions=["cloudformation:DescribeStacks"],
-                        resources=["arn:aws:cloudformation:eu-west-1:890742600627:stack/QuestMasterDev-FrontendStack/*"],
+                        resources=[
+                            "arn:aws:cloudformation:eu-west-1:890742600627:stack/QuestMasterDev-FrontendStack/*",
+                            "arn:aws:cloudformation:eu-west-1:890742600627:stack/QuestMasterDev-BackendStack/*",
+                        ],
                     ),
                     iam.PolicyStatement(
                         actions=["cloudfront:CreateInvalidation"],

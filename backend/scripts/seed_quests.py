@@ -1,9 +1,22 @@
 #!/usr/bin/env python3
 """Seed QuestMaster with 20 amazing quests."""
 import boto3
+import json
 import uuid
 import sys
+from decimal import Decimal
 from datetime import datetime, timezone
+
+
+def convert_floats(obj):
+    """Recursively convert float values to Decimal for DynamoDB."""
+    if isinstance(obj, float):
+        return Decimal(str(obj))
+    elif isinstance(obj, dict):
+        return {k: convert_floats(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_floats(i) for i in obj]
+    return obj
 
 
 def generate_id():
@@ -6460,7 +6473,7 @@ def seed_quests(env_name="dev"):
     quests = build_quests()
 
     for quest in quests:
-        table.put_item(Item=quest)
+        table.put_item(Item=convert_floats(quest))
         print(f"Seeded quest: {quest['title']} ({quest['id']})")
 
     print(f"\nSuccessfully seeded {len(quests)} quests into {table_name}")
