@@ -29,6 +29,9 @@ import {
   Swords,
   Volume2,
   CalendarCheck,
+  CalendarDays,
+  Bookmark,
+  Flame,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from './Logo';
@@ -44,6 +47,9 @@ const mainNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Daily', href: '/daily', icon: CalendarCheck },
   { label: 'Quests', href: '/quests', icon: Compass },
+  { label: 'Trending', href: '/quests/trending', icon: Flame },
+  { label: 'Schedule', href: '/schedule', icon: CalendarDays },
+  { label: 'Saved', href: '/saved', icon: Bookmark },
   { label: 'Discover', href: '/discover', icon: Map },
   { label: 'Crear', href: '/create', icon: PlusCircle },
   { label: 'Comunidad', href: '/community', icon: Globe },
