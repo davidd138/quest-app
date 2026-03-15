@@ -5,6 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from boto3.dynamodb.conditions import Key
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 achievements_table = boto3.resource("dynamodb").Table(os.environ["ACHIEVEMENTS_TABLE"])
 
@@ -20,4 +21,4 @@ def handler(event, context):
         ScanIndexForward=False,
     )
 
-    return response.get("Items", [])
+    return convert_decimals(response.get("Items", []))

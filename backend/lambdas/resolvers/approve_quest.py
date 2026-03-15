@@ -2,7 +2,7 @@ import os
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_admin_access
-from validation import validate_string, ValidationError
+from validation import validate_string, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 quests_table = dynamodb.Table(os.environ["QUESTS_TABLE"])
@@ -107,4 +107,4 @@ def handler(event, context):
             users_table.put_item(Item=notification)
 
     quest["updatedAt"] = now
-    return quest
+    return convert_decimals(quest)

@@ -136,13 +136,13 @@ export default function QuestsPage() {
   const [category, setCategory] = useState<string>('');
   const [difficulty, setDifficulty] = useState<string>('');
   const [search, setSearch] = useState('');
-  const { data, loading, execute } = useQuery<QuestConnection>(LIST_QUESTS);
+  const { data, loading, error, execute } = useQuery<QuestConnection>(LIST_QUESTS);
 
   const fetchQuests = useCallback(() => {
     const vars: Record<string, string | number> = { limit: 50 };
     if (category) vars.category = category;
     if (difficulty) vars.difficulty = difficulty;
-    execute(vars);
+    execute(vars).catch(() => {});
   }, [category, difficulty, execute]);
 
   useEffect(() => {
@@ -220,6 +220,17 @@ export default function QuestsPage() {
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
         </div>
       </motion.div>
+
+      {/* Error */}
+      {error && (
+        <div className="glass rounded-xl p-6 border border-rose-500/30 bg-rose-500/5">
+          <p className="text-rose-400 font-medium">Error loading quests</p>
+          <p className="text-sm text-slate-400 mt-1">{error}</p>
+          <button onClick={fetchQuests} className="mt-3 px-4 py-2 text-sm rounded-lg bg-violet-600 text-white hover:bg-violet-500 transition-colors">
+            Retry
+          </button>
+        </div>
+      )}
 
       {/* Quest Grid */}
       {loading ? (

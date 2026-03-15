@@ -1,6 +1,7 @@
 import os
 import boto3
 from auth_helpers import check_admin_access
+from validation import convert_decimals
 from boto3.dynamodb.conditions import Attr
 
 dynamodb = boto3.resource("dynamodb")
@@ -36,7 +37,7 @@ def handler(event, context):
     items.sort(key=lambda x: x.get("createdAt", ""), reverse=True)
 
     result = {
-        "items": items[:limit],
+        "items": convert_decimals(items[:limit]),
         "nextToken": None,
     }
 

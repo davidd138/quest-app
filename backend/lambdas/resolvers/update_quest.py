@@ -4,7 +4,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_admin_access
-from validation import validate_uuid, validate_string, validate_enum, ValidationError
+from validation import validate_uuid, validate_string, validate_enum, convert_decimals, ValidationError
 
 quests_table = boto3.resource("dynamodb").Table(os.environ["QUESTS_TABLE"])
 
@@ -62,7 +62,7 @@ def handler(event, context):
             expr_names[safe] = field
 
     if not update_parts:
-        return quest
+        return convert_decimals(quest)
 
     # Recalculate totalPoints if stages are updated
     if "stages" in args and args["stages"] is not None:
@@ -93,4 +93,4 @@ def handler(event, context):
             quest[field] = args[field]
     quest["updatedAt"] = expr_values[":updatedAt"]
 
-    return quest
+    return convert_decimals(quest)

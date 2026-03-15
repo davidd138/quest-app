@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from collections import defaultdict
 from boto3.dynamodb.conditions import Key
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 scores_table = dynamodb.Table(os.environ["SCORES_TABLE"])
@@ -104,7 +105,7 @@ def handler(event, context):
             "averageScore": avg_score,
         })
 
-    return {
+    return convert_decimals({
         "totalQuests": total_quests,
         "questsCompleted": quests_completed,
         "totalPoints": total_points,
@@ -114,4 +115,4 @@ def handler(event, context):
         "completionRate": completion_rate,
         "recentActivity": recent_activity,
         "categoryBreakdown": category_breakdown,
-    }
+    })

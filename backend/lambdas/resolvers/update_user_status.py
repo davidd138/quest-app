@@ -4,7 +4,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_admin_access
-from validation import validate_uuid, validate_enum, ValidationError
+from validation import validate_uuid, validate_enum, convert_decimals, ValidationError
 
 users_table = boto3.resource("dynamodb").Table(os.environ["USERS_TABLE"])
 
@@ -42,4 +42,4 @@ def handler(event, context):
     user["status"] = status
     user.setdefault("groups", [])
 
-    return user
+    return convert_decimals(user)

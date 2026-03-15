@@ -1,6 +1,7 @@
 import os
 import boto3
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 quests_table = dynamodb.Table(os.environ["QUESTS_TABLE"])
@@ -53,7 +54,7 @@ def handler(event, context):
     response = quests_table.scan(**scan_kwargs)
 
     result = {
-        "items": response.get("Items", []),
+        "items": convert_decimals(response.get("Items", [])),
         "nextToken": None,
     }
 

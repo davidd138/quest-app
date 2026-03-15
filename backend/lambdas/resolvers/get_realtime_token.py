@@ -6,7 +6,7 @@ import boto3
 from datetime import datetime, timezone
 from urllib import request
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 secrets_client = boto3.client("secretsmanager")
 quests_table = boto3.resource("dynamodb").Table(os.environ["QUESTS_TABLE"])
@@ -110,7 +110,7 @@ def handler(event, context):
     with request.urlopen(req) as resp:
         data = json.loads(resp.read())
 
-    return {
+    return convert_decimals({
         "token": data["client_secret"]["value"],
         "expiresAt": data["client_secret"]["expires_at"],
-    }
+    })

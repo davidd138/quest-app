@@ -1,6 +1,7 @@
 import os
 import boto3
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 users_table = dynamodb.Table(os.environ["USERS_TABLE"])
@@ -26,7 +27,7 @@ def handler(event, context):
         raise Exception("User not found")
 
     # Return only public fields — hide email, status details, etc.
-    return {
+    return convert_decimals({
         "userId": user.get("userId", target_user_id),
         "name": user.get("name"),
         "avatarUrl": user.get("avatarUrl"),
@@ -34,4 +35,4 @@ def handler(event, context):
         "questsCompleted": int(user.get("questsCompleted", 0)),
         "role": user.get("role", "user"),
         "createdAt": user.get("createdAt", ""),
-    }
+    })

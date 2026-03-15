@@ -5,6 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from collections import defaultdict
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 scores_table = dynamodb.Table(os.environ["SCORES_TABLE"])
@@ -62,4 +63,4 @@ def handler(event, context):
         entry["rank"] = i
         result.append(entry)
 
-    return result
+    return convert_decimals(result)

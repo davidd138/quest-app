@@ -2,7 +2,7 @@ import os
 import boto3
 from decimal import Decimal
 from auth_helpers import check_user_access
-from validation import validate_uuid
+from validation import validate_uuid, convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 scores_table = dynamodb.Table(os.environ["SCORES_TABLE"])
@@ -40,11 +40,11 @@ def handler(event, context):
     total = len(ratings)
 
     if total == 0:
-        return {
+        return convert_decimals({
             "averageRating": 0.0,
             "totalRatings": 0,
             "distribution": [0, 0, 0, 0, 0],
-        }
+        })
 
     # Calculate distribution [1-star count, 2-star count, ..., 5-star count]
     distribution = [0, 0, 0, 0, 0]
@@ -54,8 +54,8 @@ def handler(event, context):
 
     average = sum(ratings) / total
 
-    return {
+    return convert_decimals({
         "averageRating": round(average, 2),
         "totalRatings": total,
         "distribution": distribution,
-    }
+    })

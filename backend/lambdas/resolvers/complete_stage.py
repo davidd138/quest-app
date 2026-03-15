@@ -5,7 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from boto3.dynamodb.conditions import Key
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 quests_table = dynamodb.Table(os.environ["QUESTS_TABLE"])
@@ -99,7 +99,7 @@ def handler(event, context):
     completed_stages = progress.get("completedStages", [])
     already_completed = any(cs.get("stageId") == stage_id for cs in completed_stages)
     if already_completed:
-        return progress
+        return convert_decimals(progress)
 
     # Build completed stage entry
     stage_points = stage_info.get("rewardPoints", 0)
@@ -194,4 +194,4 @@ def handler(event, context):
             }
             achievements_table.put_item(Item=achievement_item)
 
-    return updated_progress
+    return convert_decimals(updated_progress)

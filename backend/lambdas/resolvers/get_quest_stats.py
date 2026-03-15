@@ -2,7 +2,7 @@ import os
 import boto3
 from decimal import Decimal
 from auth_helpers import check_user_access
-from validation import validate_uuid
+from validation import validate_uuid, convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 progress_table = dynamodb.Table(os.environ["PROGRESS_TABLE"])
@@ -80,7 +80,7 @@ def handler(event, context):
     total_ratings = len(ratings)
     avg_rating = round(sum(ratings) / max(total_ratings, 1), 2) if ratings else 0.0
 
-    return {
+    return convert_decimals({
         "questId": quest_id,
         "totalPlays": total_plays,
         "completionRate": completion_rate,
@@ -88,4 +88,4 @@ def handler(event, context):
         "avgTime": avg_time,
         "totalRatings": total_ratings,
         "avgRating": avg_rating,
-    }
+    })

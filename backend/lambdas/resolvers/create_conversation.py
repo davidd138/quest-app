@@ -4,7 +4,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 conversations_table = dynamodb.Table(os.environ["CONVERSATIONS_TABLE"])
@@ -57,4 +57,4 @@ def handler(event, context):
         "startedAt": datetime.now(timezone.utc).isoformat(),
     }
     conversations_table.put_item(Item=item)
-    return item
+    return convert_decimals(item)

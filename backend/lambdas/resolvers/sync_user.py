@@ -1,6 +1,7 @@
 import os
 import boto3
 from datetime import datetime, timezone
+from validation import convert_decimals
 
 users_table = boto3.resource("dynamodb").Table(os.environ["USERS_TABLE"])
 cognito = boto3.client("cognito-idp")
@@ -67,4 +68,4 @@ def handler(event, context):
     }
     users_table.put_item(Item=item)
 
-    return item
+    return convert_decimals(item)

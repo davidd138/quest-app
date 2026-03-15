@@ -9,6 +9,7 @@ from validation import (
     validate_enum,
     validate_positive_int,
     validate_transcript,
+    convert_decimals,
     ValidationError,
 )
 
@@ -57,7 +58,7 @@ def handler(event, context):
             expr_names[safe] = field
 
     if not update_expr_parts:
-        return conv
+        return convert_decimals(conv)
 
     conversations_table.update_item(
         Key={"id": conv_id},
@@ -67,4 +68,4 @@ def handler(event, context):
     )
 
     conv.update({k: v for k, v in args.items() if v is not None})
-    return conv
+    return convert_decimals(conv)

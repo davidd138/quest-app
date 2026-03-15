@@ -3,7 +3,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_user_access
-from validation import validate_uuid, validate_positive_int, validate_string, ValidationError
+from validation import validate_uuid, validate_positive_int, validate_string, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 scores_table = dynamodb.Table(os.environ["SCORES_TABLE"])
@@ -50,11 +50,11 @@ def handler(event, context):
     # Put item (creates or overwrites existing rating from this user for this quest)
     scores_table.put_item(Item=item)
 
-    return {
+    return convert_decimals({
         "id": rating_id,
         "questId": quest_id,
         "userId": user_id,
         "rating": rating,
         "review": review,
         "createdAt": now,
-    }
+    })

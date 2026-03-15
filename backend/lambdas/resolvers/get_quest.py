@@ -2,7 +2,7 @@ import os
 import boto3
 from boto3.dynamodb.conditions import Key
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 quests_table = dynamodb.Table(os.environ["QUESTS_TABLE"])
@@ -36,4 +36,4 @@ def handler(event, context):
     if progress_items:
         quest["userProgress"] = progress_items[0]
 
-    return quest
+    return convert_decimals(quest)

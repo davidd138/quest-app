@@ -2,7 +2,7 @@ import os
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_user_access
-from validation import validate_uuid, validate_enum, ValidationError
+from validation import validate_uuid, validate_enum, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 progress_table = dynamodb.Table(os.environ["PROGRESS_TABLE"])
@@ -61,4 +61,4 @@ def handler(event, context):
         ReturnValues="ALL_NEW",
     )
 
-    return response["Attributes"]
+    return convert_decimals(response["Attributes"])

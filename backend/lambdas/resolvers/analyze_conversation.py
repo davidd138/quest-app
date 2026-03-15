@@ -5,7 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from decimal import Decimal
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 conversations_table = dynamodb.Table(os.environ["CONVERSATIONS_TABLE"])
@@ -132,7 +132,7 @@ def handler(event, context):
     }
     scores_table.put_item(Item=score_item)
 
-    return challenge_result
+    return convert_decimals(challenge_result)
 
 
 def _build_prompt(transcript, quest, stage, challenge, conv):

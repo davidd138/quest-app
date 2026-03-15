@@ -4,6 +4,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_admin_access
+from validation import convert_decimals
 
 users_table = boto3.resource("dynamodb").Table(os.environ["USERS_TABLE"])
 
@@ -43,7 +44,7 @@ def handler(event, context):
         )
     )
 
-    result = {"items": items}
+    result = {"items": convert_decimals(items)}
     if "LastEvaluatedKey" in response:
         result["nextToken"] = json.dumps(response["LastEvaluatedKey"])
 

@@ -3,7 +3,7 @@ import uuid
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_user_access
-from validation import validate_string, validate_enum, ValidationError
+from validation import validate_string, validate_enum, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 users_table = dynamodb.Table(os.environ["USERS_TABLE"])
@@ -68,7 +68,7 @@ def handler(event, context):
     users_table.put_item(Item=item)
     users_table.put_item(Item=duplicate_item)
 
-    return {
+    return convert_decimals({
         "id": report_id,
         "reporterId": user_id,
         "contentType": content_type,
@@ -77,4 +77,4 @@ def handler(event, context):
         "details": details,
         "status": "pending",
         "createdAt": now,
-    }
+    })

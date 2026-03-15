@@ -5,6 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from boto3.dynamodb.conditions import Key, Attr
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 conversations_table = boto3.resource("dynamodb").Table(os.environ["CONVERSATIONS_TABLE"])
 
@@ -34,7 +35,7 @@ def handler(event, context):
 
     response = conversations_table.query(**query_kwargs)
 
-    result = {"items": response.get("Items", [])}
+    result = {"items": convert_decimals(response.get("Items", []))}
     if "LastEvaluatedKey" in response:
         result["nextToken"] = json.dumps(response["LastEvaluatedKey"])
 

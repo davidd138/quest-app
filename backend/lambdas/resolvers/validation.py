@@ -1,5 +1,6 @@
 import re
 import json
+from decimal import Decimal
 
 
 class ValidationError(Exception):
@@ -8,6 +9,19 @@ class ValidationError(Exception):
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
+
+
+def convert_decimals(obj):
+    """Recursively convert Decimal values to int/float for JSON serialization."""
+    if isinstance(obj, Decimal):
+        if obj == int(obj):
+            return int(obj)
+        return float(obj)
+    elif isinstance(obj, dict):
+        return {k: convert_decimals(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_decimals(i) for i in obj]
+    return obj
 
 
 UUID_V4_REGEX = re.compile(

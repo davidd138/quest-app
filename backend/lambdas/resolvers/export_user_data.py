@@ -7,6 +7,7 @@ import boto3
 from boto3.dynamodb.conditions import Key
 
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -78,18 +79,6 @@ def handler(event, context):
     achievement_items = scan_by_user_id(
         achievements_table, "userId-earnedAt-index", user_id
     )
-
-    # Convert DynamoDB Decimal types to int/float for JSON serialization
-    def convert_decimals(obj):
-        if isinstance(obj, list):
-            return [convert_decimals(i) for i in obj]
-        elif isinstance(obj, dict):
-            return {k: convert_decimals(v) for k, v in obj.items()}
-        elif hasattr(obj, "__int__") and not isinstance(obj, (int, float, bool, str)):
-            if float(obj) == int(obj):
-                return int(obj)
-            return float(obj)
-        return obj
 
     # Record audit log in user table
     users_table.update_item(

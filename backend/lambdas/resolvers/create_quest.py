@@ -8,6 +8,7 @@ from validation import (
     validate_string,
     validate_enum,
     validate_positive_int,
+    convert_decimals,
     ValidationError,
 )
 
@@ -84,4 +85,4 @@ def handler(event, context):
     }
 
     quests_table.put_item(Item=item)
-    return item
+    return convert_decimals(item)

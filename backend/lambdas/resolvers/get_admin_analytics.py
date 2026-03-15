@@ -5,6 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from collections import defaultdict
 from auth_helpers import check_admin_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 users_table = dynamodb.Table(os.environ["USERS_TABLE"])
@@ -100,11 +101,11 @@ def handler(event, context):
             "completions": growth_map[date_key]["completions"],
         })
 
-    return {
+    return convert_decimals({
         "totalUsers": total_users,
         "activeUsers": active_users,
         "totalQuests": total_quests,
         "totalCompletions": total_completions,
         "popularQuests": popular_quests,
         "userGrowth": user_growth,
-    }
+    })

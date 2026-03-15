@@ -1,6 +1,7 @@
 import os
 import boto3
 from auth_helpers import check_admin_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 users_table = dynamodb.Table(os.environ["USERS_TABLE"])
@@ -61,4 +62,4 @@ def handler(event, context):
     # Sort by date descending
     reports.sort(key=lambda x: x.get("createdAt", ""), reverse=True)
 
-    return reports[:limit]
+    return convert_decimals(reports[:limit])

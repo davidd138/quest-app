@@ -5,7 +5,7 @@ import boto3
 from datetime import datetime, timezone
 from boto3.dynamodb.conditions import Key
 from auth_helpers import check_user_access
-from validation import validate_uuid, ValidationError
+from validation import validate_uuid, convert_decimals, ValidationError
 
 dynamodb = boto3.resource("dynamodb")
 quests_table = dynamodb.Table(os.environ["QUESTS_TABLE"])
@@ -38,7 +38,7 @@ def handler(event, context):
     )
     existing = progress_resp.get("Items", [])
     if existing:
-        return existing[0]
+        return convert_decimals(existing[0])
 
     now = datetime.now(timezone.utc).isoformat()
 
@@ -55,4 +55,4 @@ def handler(event, context):
     }
     progress_table.put_item(Item=item)
 
-    return item
+    return convert_decimals(item)

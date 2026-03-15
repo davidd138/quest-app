@@ -156,14 +156,14 @@ function QuestProgressCard({ quest, progress }: { quest: Quest; progress: number
 
 export default function DashboardPage() {
   const { user } = useAuth();
-  const { data: analytics, execute: fetchAnalytics } = useQuery<Analytics>(GET_ANALYTICS);
+  const { data: analytics, error: analyticsErr, execute: fetchAnalytics } = useQuery<Analytics>(GET_ANALYTICS);
   const { data: achievements, execute: fetchAchievements } = useQuery<Achievement[]>(GET_ACHIEVEMENTS);
-  const { data: questsData, execute: fetchQuests } = useQuery<{ items: Quest[] }>(LIST_QUESTS);
+  const { data: questsData, error: questsErr, execute: fetchQuests } = useQuery<{ items: Quest[] }>(LIST_QUESTS);
 
   useEffect(() => {
-    fetchAnalytics();
-    fetchAchievements();
-    fetchQuests({ limit: 6 });
+    fetchAnalytics().catch(() => {});
+    fetchAchievements().catch(() => {});
+    fetchQuests({ limit: 6 }).catch(() => {});
   }, [fetchAnalytics, fetchAchievements, fetchQuests]);
 
   const firstName = user?.name?.split(' ')[0] || 'Adventurer';
@@ -176,6 +176,13 @@ export default function DashboardPage() {
       data-tour="dashboard-content"
       className="max-w-7xl mx-auto space-y-8"
     >
+      {/* Errors */}
+      {(analyticsErr || questsErr) && (
+        <div className="glass rounded-xl p-4 border border-rose-500/30 bg-rose-500/5">
+          <p className="text-rose-400 text-sm">{analyticsErr || questsErr}</p>
+        </div>
+      )}
+
       {/* Welcome */}
       <motion.div variants={itemVariants}>
         <h1 className="font-heading text-3xl md:text-4xl font-bold text-white">

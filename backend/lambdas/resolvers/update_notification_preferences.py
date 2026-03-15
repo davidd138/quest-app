@@ -2,6 +2,7 @@ import os
 import boto3
 from datetime import datetime, timezone
 from auth_helpers import check_user_access
+from validation import convert_decimals
 
 dynamodb = boto3.resource("dynamodb")
 users_table = dynamodb.Table(os.environ["USERS_TABLE"])
@@ -71,9 +72,9 @@ def handler(event, context):
     item = response.get("Attributes", {})
     prefs = item.get("notificationPreferences", {})
 
-    return {
+    return convert_decimals({
         "emailNotifications": prefs.get("emailNotifications", True),
         "pushNotifications": prefs.get("pushNotifications", True),
         "inAppNotifications": prefs.get("inAppNotifications", True),
         "marketingEmails": prefs.get("marketingEmails", True),
-    }
+    })
