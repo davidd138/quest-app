@@ -7,6 +7,7 @@ import { Search, ChevronRight, LogOut, User } from 'lucide-react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { NotificationBell } from './NotificationBell';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const breadcrumbMap: Record<string, string> = {
   dashboard: 'Dashboard',
@@ -98,8 +99,11 @@ export function Topbar() {
           </div>
         </div>
 
-        {/* Right: Notifications + Avatar */}
+        {/* Right: Language + Notifications + Avatar */}
         <div className="flex items-center gap-3">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* Notification Bell */}
           <NotificationBell />
 
