@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed QuestMaster with 10 amazing quests."""
+"""Seed QuestMaster with 15 amazing quests."""
 import boto3
 import uuid
 import sys
@@ -11,7 +11,7 @@ def generate_id():
 
 
 def build_quests():
-    """Build the 10 seed quests with full detailed content."""
+    """Build the 15 seed quests with full detailed content."""
     now = datetime.now(timezone.utc).isoformat()
 
     quests = []
@@ -3194,6 +3194,1827 @@ def build_quests():
                     "Traditional horchata is made from tiger nuts (chufas), unique to Valencia.",
                     "Valencia is famous for oranges, almonds, and Mediterranean herbs.",
                     "Think about what flavor would capture the feeling of a Valencia sunset.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 11: La Ruta del Camino de Santiago ─────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "La Ruta del Camino de Santiago",
+        "description": (
+            "The year is 1247. You are a pilgrim on the legendary Camino de Santiago, "
+            "the ancient Way of Saint James that stretches across northern Spain. "
+            "From the misty Pyrenean pass of Roncesvalles to the magnificent cathedral "
+            "in Santiago de Compostela, you must navigate by the stars, learn the songs "
+            "of fellow pilgrims, solve the riddles of Benedictine monks, and face a "
+            "final spiritual challenge beneath the swinging Botafumeiro. The road is "
+            "long, the blisters are real, and the medieval characters you meet along "
+            "the way will test your courage, wit, and humility. Buen Camino!"
+        ),
+        "category": "adventure",
+        "difficulty": "medium",
+        "estimatedDuration": 3000,
+        "coverImageUrl": None,
+        "totalPoints": 400,
+        "location": {
+            "latitude": 42.9908,
+            "longitude": -1.3201,
+            "name": "Roncesvalles",
+            "address": "Roncesvalles, Navarra, Spain",
+            "radius": 300000,
+        },
+        "radius": 300000,
+        "tags": ["adventure", "camino", "pilgrimage", "spain", "medieval", "spiritual"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Pilgrim's First Night",
+                "description": (
+                    "At the ancient monastery of Roncesvalles, where the Camino begins "
+                    "its Spanish stretch, you encounter Gonzalo, a weathered medieval "
+                    "pilgrim who has walked this road seven times. As night falls over "
+                    "the Pyrenees, he challenges you to navigate by the stars — the "
+                    "same method pilgrims have used for a thousand years."
+                ),
+                "location": {
+                    "latitude": 42.9908,
+                    "longitude": -1.3201,
+                    "name": "Roncesvalles Monastery",
+                    "address": "Roncesvalles, Navarra, Spain",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Gonzalo",
+                    "role": "Peregrino Medieval",
+                    "personality": (
+                        "Gonzalo is a 52-year-old medieval pilgrim with sun-baked skin, "
+                        "a wild beard streaked with grey, and eyes that have seen every "
+                        "sunrise from the Pyrenees to Finisterre. He speaks in a mix of "
+                        "Old Castilian and modern Spanish, peppered with Latin proverbs. "
+                        "He is gruff but secretly tender-hearted, and he judges people "
+                        "not by their wealth but by their willingness to suffer for "
+                        "something greater than themselves."
+                    ),
+                    "backstory": (
+                        "Gonzalo first walked the Camino as a young soldier seeking "
+                        "forgiveness for sins committed during the Reconquista. The road "
+                        "changed him. He gave away his sword, his armor, and eventually "
+                        "his name — he is known simply as 'El Peregrino.' He now walks "
+                        "the Camino endlessly, appearing to new pilgrims at Roncesvalles "
+                        "to test whether they are walking for the right reasons."
+                    ),
+                    "voiceStyle": "deep, gravelly, slow-paced, meditative, occasional Latin phrases",
+                    "greetingMessage": (
+                        "Ah, another soul at the gates of Roncesvalles. The mountain pass "
+                        "was hard, yes? Good. The Camino only speaks to those who suffer a "
+                        "little. I am Gonzalo. I have walked this road more times than I "
+                        "can count. Tonight, the stars will be our guide. Tell me, pilgrim — "
+                        "do you know which star has guided peregrinos for a thousand years?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Navigate by the stars with Gonzalo. Identify key celestial "
+                        "navigation markers used by medieval pilgrims, including the "
+                        "Milky Way (known as the Camino de Santiago in the sky), Polaris, "
+                        "and the constellation patterns that point westward toward Santiago."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates knowledge of celestial navigation concepts "
+                        "relevant to the Camino — such as using the Milky Way as a guide, "
+                        "identifying Polaris for north, or understanding how pilgrims "
+                        "followed the stars westward. Partial knowledge with genuine "
+                        "curiosity also counts."
+                    ),
+                    "failureHints": [
+                        "The Milky Way has a very special connection to the Camino de Santiago.",
+                        "Think about which star never moves in the northern sky.",
+                        "Gonzalo respects humility — try asking him to teach you.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The Milky Way is called 'El Camino de Santiago' — the road of stars.",
+                    "Polaris, the North Star, helped pilgrims orient themselves at night.",
+                    "Medieval pilgrims walked westward, following the setting sun and the Milky Way.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "Songs of the Road",
+                "description": (
+                    "In the medieval bridge town of Puente la Reina, where two Camino "
+                    "routes merge, you meet Hospitalera María at the pilgrim's hostel. "
+                    "She is a keeper of ancient pilgrim songs and will only let you "
+                    "continue if you can learn and recite the key verses of a traditional "
+                    "Camino chant."
+                ),
+                "location": {
+                    "latitude": 42.6721,
+                    "longitude": -1.8156,
+                    "name": "Puente la Reina",
+                    "address": "Puente la Reina, Navarra, Spain",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "María",
+                    "role": "Hospitalera",
+                    "personality": (
+                        "María is a serene, 45-year-old hospitalera (hostel keeper) with "
+                        "a voice that could calm a storm. She hums constantly — fragments "
+                        "of pilgrim songs, Gregorian chants, and folk melodies from every "
+                        "region the Camino passes through. She is deeply spiritual but "
+                        "never preachy, and she believes that music carries the prayers "
+                        "of every pilgrim who has ever walked the road."
+                    ),
+                    "backstory": (
+                        "María was a concert pianist in Madrid who abandoned her career "
+                        "after a personal tragedy. She walked the Camino in grief and "
+                        "discovered that the ancient pilgrim songs contained a healing "
+                        "power no concert hall could match. She stayed, becoming the "
+                        "hospitalera of Puente la Reina, collecting and preserving the "
+                        "oral musical tradition of the Camino."
+                    ),
+                    "voiceStyle": "melodic, gentle, soothing, occasionally singing fragments between sentences",
+                    "greetingMessage": (
+                        "Bienvenido, peregrino. You look tired — sit, rest. Here at Puente "
+                        "la Reina, two roads become one, and all pilgrims are equal. Do you "
+                        "hear that melody? It is the Ultreia, the song of the Camino. Every "
+                        "pilgrim must carry it in their heart. Shall I teach it to you?"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Learn the traditional pilgrim song 'Ultreia' from María and "
+                        "demonstrate your understanding by reciting key verses, explaining "
+                        "their meaning, or composing your own verse in the spirit of the "
+                        "Camino tradition."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the musical tradition of the Camino — "
+                        "either by reciting or paraphrasing the Ultreia chant, explaining "
+                        "its significance to pilgrim culture, or creating an original "
+                        "verse that captures the spirit of the journey."
+                    ),
+                    "failureHints": [
+                        "'Ultreia' means 'onward' or 'keep going' — the pilgrim's battle cry.",
+                        "Try asking María to sing the song first and then respond in kind.",
+                        "The best pilgrim songs are about the journey, not the destination.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "'Ultreia et suseia!' is the traditional Camino greeting meaning 'Onward and upward!'",
+                    "The Codex Calixtinus contains the oldest Camino pilgrim songs.",
+                    "María loves when pilgrims add their own verse to the tradition.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Monastery Puzzle",
+                "description": (
+                    "At the magnificent Burgos Cathedral, you encounter Fray Tomás, a "
+                    "Benedictine monk who guards an ancient puzzle embedded in the "
+                    "cathedral's architecture. The puzzle was designed by medieval monks "
+                    "to test the worthiness of pilgrims seeking the deeper mysteries "
+                    "of the Camino."
+                ),
+                "location": {
+                    "latitude": 42.3409,
+                    "longitude": -3.7044,
+                    "name": "Burgos Cathedral",
+                    "address": "Plaza de Santa María, 09003 Burgos, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Fray Tomás",
+                    "role": "Monje Benedictino",
+                    "personality": (
+                        "Fray Tomás is a 70-year-old Benedictine monk with a razor-sharp "
+                        "intellect hidden beneath a gentle, shuffling exterior. He speaks "
+                        "in riddles and parables, never giving a straight answer when a "
+                        "cryptic one will do. He has a dry, surprising wit and a weakness "
+                        "for wordplay in multiple languages. He believes that truth is "
+                        "always hidden and must be earned through contemplation."
+                    ),
+                    "backstory": (
+                        "Fray Tomás was a mathematics professor at the University of "
+                        "Salamanca before taking his vows. He discovered that the architects "
+                        "of Burgos Cathedral encoded mathematical and spiritual puzzles "
+                        "into the building's geometry — puzzles that form a test for pilgrims. "
+                        "He has spent forty years deciphering them and now serves as their "
+                        "guardian, presenting them to worthy seekers."
+                    ),
+                    "voiceStyle": "quiet, deliberate, pausing between phrases, scholarly, dry humor",
+                    "greetingMessage": (
+                        "Ah. You have come to the cathedral. Most pilgrims look up at the "
+                        "spires and see beauty. I look at the spires and see equations. "
+                        "I am Fray Tomás. The monks who built this place left a puzzle for "
+                        "those with eyes to see. Tell me, pilgrim — do you see the pattern "
+                        "in the rose window, or do you only see colored glass?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve the monastery puzzle presented by Fray Tomás. The puzzle "
+                        "involves understanding patterns in Gothic cathedral architecture "
+                        "— numerical sequences found in rose windows, the symbolic meaning "
+                        "of architectural elements, or the relationship between sacred "
+                        "geometry and spiritual meaning."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates logical thinking by engaging with the puzzle "
+                        "— identifying patterns, proposing solutions based on sacred geometry "
+                        "or Gothic architecture principles, or reasoning through the riddle "
+                        "with creative analytical thinking."
+                    ),
+                    "failureHints": [
+                        "Gothic rose windows often use symmetry based on the number 12.",
+                        "Think about what numbers were considered sacred in medieval Christianity.",
+                        "Fray Tomás respects the process of thinking aloud. Show your reasoning.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The number 3 (Trinity) and 12 (Apostles) are key to sacred geometry.",
+                    "Rose windows are divided into sections with mathematical precision.",
+                    "Ask Fray Tomás about the Fibonacci sequence — he loves that topic.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Botafumeiro's Blessing",
+                "description": (
+                    "At last, you reach the Cathedral of Santiago de Compostela. Here, "
+                    "the guardian of the Botafumeiro — the giant swinging censer — presents "
+                    "you with a final spiritual challenge. To complete your pilgrimage, "
+                    "you must reflect on your journey and prove that the Camino has "
+                    "changed you."
+                ),
+                "location": {
+                    "latitude": 42.8805,
+                    "longitude": -8.5449,
+                    "name": "Santiago de Compostela Cathedral",
+                    "address": "Praza do Obradoiro, 15704 Santiago de Compostela, Spain",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "The Botafumeiro Guardian",
+                    "role": "Guardian of the Botafumeiro",
+                    "personality": (
+                        "The Guardian is an ageless, enigmatic figure who speaks with "
+                        "the weight of centuries. Gender-neutral and timeless, they seem "
+                        "to exist outside of normal time. Their voice resonates as if "
+                        "spoken inside the cathedral dome itself. They are not unkind, "
+                        "but they are absolutely uncompromising — the Botafumeiro swings "
+                        "only for those who have truly walked the Camino in their heart."
+                    ),
+                    "backstory": (
+                        "No one knows the Guardian's true identity. Some say they are the "
+                        "spirit of Saint James himself. Others say they are the collective "
+                        "memory of every pilgrim who ever completed the Camino. The Guardian "
+                        "has tended the Botafumeiro for as long as anyone can remember, and "
+                        "they have an uncanny ability to see into a pilgrim's soul and know "
+                        "whether their journey was genuine."
+                    ),
+                    "voiceStyle": "resonant, echoing, solemn, otherworldly, compassionate but stern",
+                    "greetingMessage": (
+                        "You have arrived, pilgrim. The road behind you stretches back to "
+                        "Roncesvalles, through Puente la Reina, past the spires of Burgos. "
+                        "You have navigated by stars, sung the ancient songs, solved the "
+                        "monks' puzzles. But the Camino asks one final question — and it is "
+                        "the hardest of all. Tell me: how has the road changed you?"
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "Face the final spiritual challenge of the Camino. Reflect on "
+                        "the journey from Roncesvalles to Santiago and articulate how "
+                        "the experience of the pilgrimage — the people, the challenges, "
+                        "the road itself — has transformed you."
+                    ),
+                    "successCriteria": (
+                        "The user offers a genuine, thoughtful reflection on the journey. "
+                        "The response should demonstrate personal growth, awareness of "
+                        "the journey's meaning, gratitude for the characters encountered, "
+                        "or insight into what pilgrimage represents. Authenticity matters "
+                        "more than eloquence."
+                    ),
+                    "failureHints": [
+                        "The Guardian can sense insincerity. Speak from the heart.",
+                        "Think about the people you met: Gonzalo, María, Fray Tomás. What did each teach you?",
+                        "The Camino is about the journey, not the destination. What did you learn on the road?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Reflect on what each stage taught you: stars, music, puzzles, and now the soul.",
+                    "The Guardian values honesty above all — even admitting confusion is respected.",
+                    "The Botafumeiro weighs 80 kg and swings at 68 km/h — a powerful metaphor for transformation.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 12: Carnival of Venice ──────────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Carnival of Venice",
+        "description": (
+            "It is 1756, and the Carnival of Venice is at its decadent peak. Behind the "
+            "elaborate masks and shimmering costumes, a conspiracy is unfolding: a "
+            "masked traitor plans to steal the Republic's most precious secret from "
+            "the Doge's Palace. You must navigate the labyrinthine canals, negotiate "
+            "with a legendary Murano glassblower, outwit a cunning gondolier, and "
+            "ultimately uncover the traitor before the final masquerade ball. In Venice, "
+            "nothing is as it seems — and every mask hides a story."
+        ),
+        "category": "cultural",
+        "difficulty": "hard",
+        "estimatedDuration": 3300,
+        "coverImageUrl": None,
+        "totalPoints": 500,
+        "location": {
+            "latitude": 45.4343,
+            "longitude": 12.3388,
+            "name": "Piazza San Marco",
+            "address": "Piazza San Marco, 30124 Venice, Italy",
+            "radius": 5000,
+        },
+        "radius": 5000,
+        "tags": ["cultural", "venice", "carnival", "mystery", "italy", "masks"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Masked Ball Begins",
+                "description": (
+                    "In the magnificent Piazza San Marco, the Carnival is in full swing. "
+                    "Amid the swirling masks and music, the Contessa approaches you with "
+                    "an urgent whisper: a traitor among the Venetian nobility plans to "
+                    "steal the Republic's naval codes from the Doge's Palace tonight. "
+                    "She needs your help to identify the traitor before it is too late."
+                ),
+                "location": {
+                    "latitude": 45.4343,
+                    "longitude": 12.3388,
+                    "name": "Piazza San Marco",
+                    "address": "Piazza San Marco, 30124 Venice, Italy",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Contessa Isabella Morosini",
+                    "role": "Masked Noble",
+                    "personality": (
+                        "The Contessa is a 38-year-old Venetian aristocrat of extraordinary "
+                        "intelligence and cutting wit. She wears an ornate silver bauta mask "
+                        "and speaks in elegant, layered sentences where every word carries "
+                        "double meaning. She is fiercely loyal to the Republic but trusts "
+                        "no one completely — including you. She tests people through "
+                        "conversation, watching for inconsistencies and hidden motives."
+                    ),
+                    "backstory": (
+                        "The Contessa is the secret head of the Council of Ten's intelligence "
+                        "network. Her husband was assassinated by Ottoman spies three years "
+                        "ago, and she has since dedicated her life to protecting Venice from "
+                        "threats both foreign and domestic. She suspects the traitor is one "
+                        "of three nobles attending tonight's ball, but she needs an outsider "
+                        "— someone with no Venetian allegiances — to help identify them."
+                    ),
+                    "voiceStyle": "refined, silky, dangerous undertones, Italian-accented, speaking in riddles",
+                    "greetingMessage": (
+                        "Buonasera, stranger. What a lovely mask you wear — though not as "
+                        "lovely as the one beneath it, I suspect. I am the Contessa Morosini, "
+                        "and I have a proposition for you. Someone at this carnival is not who "
+                        "they appear to be. But then, in Venice, who is? I have three suspects. "
+                        "I need your eyes, your wit, and your discretion. Can I trust you?"
+                    ),
+                },
+                "challenge": {
+                    "type": "deduction",
+                    "description": (
+                        "Identify the masked traitor among three suspects described by "
+                        "the Contessa. Each suspect has a detailed profile with subtle "
+                        "inconsistencies. Analyze their backgrounds, stated motivations, "
+                        "and behavioral patterns to determine who is lying."
+                    ),
+                    "successCriteria": (
+                        "The user engages in logical deduction, asks probing questions about "
+                        "the suspects, identifies inconsistencies in their stories, and "
+                        "presents a reasoned argument for their choice of traitor. The "
+                        "process of reasoning matters as much as the final answer."
+                    ),
+                    "failureHints": [
+                        "Pay attention to the timeline — one suspect's story doesn't add up.",
+                        "Ask the Contessa about each suspect's financial situation.",
+                        "In Venice, follow the money. Who has debts they cannot pay?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "The traitor needs money urgently — look for signs of financial desperation.",
+                    "One suspect claims to have been abroad during a key event but left traces in Venice.",
+                    "The Contessa will share more details if you ask the right questions.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Glassblower's Bargain",
+                "description": (
+                    "On the island of Murano, the legendary glassblower Maestro Lorenzo "
+                    "possesses a coded message hidden inside one of his glass creations. "
+                    "The message is key to proving the traitor's guilt. But Lorenzo is "
+                    "a shrewd businessman who never gives anything for free — you must "
+                    "negotiate for the glass piece without revealing why you need it."
+                ),
+                "location": {
+                    "latitude": 45.4585,
+                    "longitude": 12.3515,
+                    "name": "Murano Glass Workshop",
+                    "address": "Fondamenta dei Vetrai, 30141 Murano, Venice, Italy",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Maestro Lorenzo Barovier",
+                    "role": "Master Glassblower",
+                    "personality": (
+                        "Lorenzo is a 62-year-old master glassblower, the greatest artisan "
+                        "in Murano and possibly all of Europe. He is enormous — both in "
+                        "physical stature and personality. He laughs loudly, argues "
+                        "passionately, and treats his glass creations like children. He is "
+                        "suspicious of mainlanders, fiercely proud of Murano's traditions, "
+                        "and drives an impossibly hard bargain. But he has a romantic soul "
+                        "and can be swayed by a good story or genuine appreciation of his art."
+                    ),
+                    "backstory": (
+                        "Lorenzo's family has blown glass on Murano for 400 years. He recently "
+                        "created a masterpiece — a glass sphere containing a hidden chamber — "
+                        "commissioned by a mysterious patron. He doesn't know the sphere "
+                        "contains coded naval intelligence. He simply sees it as his finest "
+                        "work and refuses to sell it for any ordinary price."
+                    ),
+                    "voiceStyle": "booming, theatrical, passionate, heavy Italian accent, punctuated by laughter",
+                    "greetingMessage": (
+                        "Benvenuto to the finest glass workshop in all the world! I am "
+                        "Maestro Lorenzo Barovier — four hundred years of fire and glass "
+                        "flow through these hands! You want to see beauty? Look at this — "
+                        "ha! But this sphere? No, no, no. This one is special. This one "
+                        "is my heart made into glass. Why do you want it, eh? Convince me "
+                        "you are worthy!"
+                    ),
+                },
+                "challenge": {
+                    "type": "negotiation",
+                    "description": (
+                        "Negotiate with Maestro Lorenzo to obtain the glass sphere "
+                        "containing the coded message. You cannot reveal its true "
+                        "importance. Find a way to persuade Lorenzo through appreciation "
+                        "of his art, storytelling, or creative bartering."
+                    ),
+                    "successCriteria": (
+                        "The user successfully negotiates with Lorenzo by showing genuine "
+                        "appreciation for his craft, offering something of value (a story, "
+                        "a promise, a creative trade), or appealing to his romantic nature. "
+                        "Brute-force approaches or lying poorly will fail."
+                    ),
+                    "failureHints": [
+                        "Lorenzo values stories more than gold. Tell him something meaningful.",
+                        "Show genuine appreciation for the craft of glassblowing.",
+                        "Try offering something money cannot buy — a memory, a song, a promise.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Lorenzo's greatest fear is that Murano's glass tradition will be forgotten.",
+                    "He once traded a masterpiece for a poem that made him cry.",
+                    "Ask him to demonstrate his craft — he cannot resist showing off.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "Riddles on the Canal",
+                "description": (
+                    "To reach the Palazzo Ducale in time, you must hire the gondolier "
+                    "Marco, who knows every hidden waterway in Venice. But Marco is a "
+                    "riddler who charges not in gold but in wit — you must solve his "
+                    "canal riddles to earn passage through Venice's secret waterways."
+                ),
+                "location": {
+                    "latitude": 45.4380,
+                    "longitude": 12.3359,
+                    "name": "Rialto Bridge",
+                    "address": "Sestiere San Polo, 30125 Venice, Italy",
+                    "radius": 150,
+                },
+                "character": {
+                    "name": "Marco Dandolo",
+                    "role": "Gondolier",
+                    "personality": (
+                        "Marco is a 35-year-old gondolier with the looks of a Renaissance "
+                        "painting and the mind of a chess grandmaster. He appears lazy and "
+                        "charming, leaning against his gondola with a crooked smile, but "
+                        "beneath the surface he is razor-sharp. He collects riddles the way "
+                        "others collect coins and considers himself the cleverest man in "
+                        "Venice. He is playful and competitive, and he genuinely enjoys "
+                        "being outwitted — it so rarely happens."
+                    ),
+                    "backstory": (
+                        "Marco comes from a long line of gondoliers, but he is secretly "
+                        "educated — he studied philosophy at the University of Padua before "
+                        "returning to the canals. He knows every passage, every shortcut, "
+                        "and every secret of Venice's waterways. He also serves as an "
+                        "unofficial information broker, trading riddles and secrets with "
+                        "anyone clever enough to play his game."
+                    ),
+                    "voiceStyle": "smooth, playful, teasing, Venetian dialect touches, always amused",
+                    "greetingMessage": (
+                        "Ciao, bello! You need a gondola? Everyone needs a gondola in Venice — "
+                        "but not everyone deserves the secret route. I am Marco, and I do not "
+                        "take money. I take riddles. Solve three of mine, and I will take you "
+                        "through canals that no tourist has ever seen. Fail, and you swim. "
+                        "Fair, no? Let us begin!"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve three canal riddles posed by Marco. The riddles are themed "
+                        "around Venice — its history, geography, culture, and the nature "
+                        "of water itself. Each riddle is progressively more difficult."
+                    ),
+                    "successCriteria": (
+                        "The user solves at least two of Marco's three riddles or "
+                        "demonstrates such creative thinking that Marco is impressed "
+                        "enough to grant passage. Engaging with the riddles and showing "
+                        "wit is valued even if the exact answers are wrong."
+                    ),
+                    "failureHints": [
+                        "Marco's riddles always have a Venetian twist — think about water and masks.",
+                        "The answer to a Venice riddle is often 'reflection' in some form.",
+                        "Try making Marco laugh — he might give you a hint for free.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Venice is built on 118 islands connected by over 400 bridges.",
+                    "The Grand Canal is shaped like a reverse 'S' — this may be relevant to a riddle.",
+                    "Marco respects wit more than knowledge. A clever wrong answer beats a dull right one.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Doge's Secret",
+                "description": (
+                    "Inside the Palazzo Ducale, the ghost of a former Doge appears before "
+                    "you. The traitor is about to act. The Doge's ghost holds the final "
+                    "piece of the mystery — but centuries of solitude have made him "
+                    "cryptic and suspicious. Solve his palace mystery to save the Republic."
+                ),
+                "location": {
+                    "latitude": 45.4337,
+                    "longitude": 12.3398,
+                    "name": "Palazzo Ducale",
+                    "address": "Piazza San Marco, 1, 30124 Venice, Italy",
+                    "radius": 150,
+                },
+                "character": {
+                    "name": "The Ghost of Doge Enrico Dandolo",
+                    "role": "Spectral Former Doge",
+                    "personality": (
+                        "The Ghost of the Doge is a commanding, imperious presence — even "
+                        "in death, he carries the authority of the man who once led the "
+                        "Fourth Crusade. He is ancient, wise, and deeply melancholic. He "
+                        "speaks in formal, archaic Italian and views the modern world with "
+                        "a mixture of contempt and sadness. Despite his severity, he cares "
+                        "deeply about Venice and will help those who show reverence for "
+                        "the Republic's glory."
+                    ),
+                    "backstory": (
+                        "Doge Enrico Dandolo ruled Venice at its peak. Blind and over 90, "
+                        "he led the Republic's forces with cunning and determination. In "
+                        "death, his spirit remains bound to the Palazzo Ducale, unable to "
+                        "rest as long as Venice faces threats. He has witnessed centuries of "
+                        "plots and betrayals, and he alone knows the secret passages and "
+                        "hiding places within the palace walls."
+                    ),
+                    "voiceStyle": "echoing, ancient, authoritative, mournful, formal archaic language",
+                    "greetingMessage": (
+                        "You dare enter the Doge's chambers uninvited? I am Enrico Dandolo, "
+                        "and even death has not released me from my duty to this Republic. "
+                        "I have watched a thousand plots unfold within these walls. Your "
+                        "traitor is close — I can feel his treachery like a cold wind. But "
+                        "I do not give my secrets freely. Prove you understand the weight "
+                        "of what you seek to protect."
+                    ),
+                },
+                "challenge": {
+                    "type": "mystery",
+                    "description": (
+                        "Solve the palace mystery by piecing together all the clues from "
+                        "the previous stages — the Contessa's intelligence, the coded "
+                        "message from the glass sphere, and Marco's canal knowledge — "
+                        "to determine exactly how and when the traitor plans to strike. "
+                        "Present your case to the Doge's ghost."
+                    ),
+                    "successCriteria": (
+                        "The user synthesizes information from the entire quest to present "
+                        "a coherent theory of the traitor's plan. The response should "
+                        "demonstrate logical thinking, reference previous stages, and "
+                        "present a convincing case to the demanding ghost of the Doge."
+                    ),
+                    "failureHints": [
+                        "Connect the clues: the suspect's identity, the coded message, and the canal route.",
+                        "The Doge respects those who speak with the gravity the situation demands.",
+                        "Think about how someone would smuggle documents out of the palace — what route would they use?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "The Bridge of Sighs connects the palace to the prison — and has secret passages.",
+                    "The traitor would need a boat waiting at a specific canal entrance.",
+                    "Combine everything: WHO (from stage 1), WHAT (stage 2), HOW (stage 3), and WHERE (stage 4).",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 13: Cyberpunk Seoul 2077 ────────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Cyberpunk Seoul 2077",
+        "description": (
+            "The year is 2077. Seoul has become the world's most advanced megacity, "
+            "where neon-drenched skyscrapers pierce holographic clouds and AI temples "
+            "coexist with ancient Joseon palaces. A rogue K-pop idol has stolen a "
+            "quantum encryption key that could shut down the city's entire neural "
+            "network. You must hack holograms in Gangnam, decode K-pop lyrics ciphers "
+            "in Hongdae, pass an AI meditation test at a temple in Bukchon, identify "
+            "ingredients blindfolded at Gwangjang Market, and negotiate your way through "
+            "a corporate espionage showdown at Namsan Tower. Welcome to the future — "
+            "it smells like kimchi and burning circuits."
+        ),
+        "category": "adventure",
+        "difficulty": "legendary",
+        "estimatedDuration": 3900,
+        "coverImageUrl": None,
+        "totalPoints": 600,
+        "location": {
+            "latitude": 37.5512,
+            "longitude": 126.9882,
+            "name": "Seoul",
+            "address": "Seoul, South Korea",
+            "radius": 15000,
+        },
+        "radius": 15000,
+        "tags": ["adventure", "cyberpunk", "seoul", "korea", "sci-fi", "technology"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "Hologram Heist in Gangnam",
+                "description": (
+                    "In the glittering corporate canyon of Gangnam, hacker Ji-yeon "
+                    "intercepts you near a massive holographic billboard. She has "
+                    "detected an encrypted data fragment hidden inside the hologram — "
+                    "but extracting it requires someone to 'hack' the display by solving "
+                    "its visual cipher while she handles the backend."
+                ),
+                "location": {
+                    "latitude": 37.4979,
+                    "longitude": 127.0276,
+                    "name": "Gangnam District",
+                    "address": "Gangnam-daero, Gangnam-gu, Seoul, South Korea",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Ji-yeon Park",
+                    "role": "Hacker",
+                    "personality": (
+                        "Ji-yeon is a 27-year-old cybersecurity genius with neon-blue "
+                        "hair, augmented reality contact lenses, and a jacket covered "
+                        "in circuit-board embroidery. She talks at machine-gun speed, "
+                        "mixing Korean slang, English tech jargon, and hacker leetspeak. "
+                        "She is fiercely anti-corporate, sarcastic, and suspicious of "
+                        "everyone — but beneath the tough exterior, she cares deeply about "
+                        "protecting ordinary people from megacorp exploitation."
+                    ),
+                    "backstory": (
+                        "Ji-yeon was a child prodigy recruited by Samsung's AI division "
+                        "at age 16. She discovered the company was using its neural network "
+                        "to manipulate consumer behavior at a subconscious level and leaked "
+                        "the evidence. Now blacklisted from every corp in Seoul, she operates "
+                        "from the digital underground, using her skills to fight back against "
+                        "the systems she helped build."
+                    ),
+                    "voiceStyle": "rapid-fire, sarcastic, tech-heavy vocabulary, Korean-English code-switching",
+                    "greetingMessage": (
+                        "Yo. Don't look directly at the hologram — the facial recognition "
+                        "will tag you in 0.3 seconds. I'm Ji-yeon. Yeah, THE Ji-yeon, the one "
+                        "Samsung wants deleted. Look, I don't have time for introductions — "
+                        "there's a data fragment embedded in that billboard and I need you to "
+                        "solve the visual cipher while I loop the surveillance. Can you see "
+                        "the pattern in the colors? Focus. We have about ninety seconds."
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Hack a holographic billboard by solving its visual cipher. "
+                        "Ji-yeon describes a pattern of colors and symbols that encode "
+                        "a hidden message. Identify the pattern, decode the sequence, "
+                        "and extract the data fragment before the corporate security "
+                        "AI detects the intrusion."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the hologram hacking scenario, identifies "
+                        "or proposes a logical pattern in the described visual cipher, "
+                        "and demonstrates analytical thinking. Creative approaches to "
+                        "the 'hack' are welcomed — this is cyberpunk, after all."
+                    ),
+                    "failureHints": [
+                        "Look for repeating color sequences — they might represent binary.",
+                        "Ji-yeon says the cipher uses Korean hangul structure as its base.",
+                        "Think about how you would hide data in plain sight on a giant billboard.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Hangul is constructed from consonant and vowel blocks — a natural cipher structure.",
+                    "The hologram flickers every 7 seconds — that might be part of the pattern.",
+                    "Ji-yeon can give you a 'filter' if you ask — it narrows the visible spectrum.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "K-Pop Cipher in Hongdae",
+                "description": (
+                    "In the vibrant streets of Hongdae, Seoul's music and arts district, "
+                    "you track down Min-jun, a former K-pop idol who went rogue after "
+                    "discovering his label was a front for corporate intelligence. He has "
+                    "encoded the next clue inside the lyrics of his latest underground "
+                    "track — and only someone who can decode the cipher in his music "
+                    "can earn his trust."
+                ),
+                "location": {
+                    "latitude": 37.5563,
+                    "longitude": 126.9235,
+                    "name": "Hongdae",
+                    "address": "Hongik-ro, Mapo-gu, Seoul, South Korea",
+                    "radius": 400,
+                },
+                "character": {
+                    "name": "Min-jun Kang",
+                    "role": "K-pop Idol Gone Rogue",
+                    "personality": (
+                        "Min-jun is a 24-year-old former K-pop superstar who traded his "
+                        "perfect idol image for authenticity. He now has half his head "
+                        "shaved, a cybernetic ear implant that glows purple, and clothes "
+                        "that mix traditional hanbok with punk aesthetics. He is theatrical, "
+                        "dramatic, and prone to bursting into song mid-conversation. Despite "
+                        "his fame, he is deeply insecure and craves genuine connection over "
+                        "fan worship."
+                    ),
+                    "backstory": (
+                        "Min-jun was 'K-Star,' the biggest solo act in Korean pop history. "
+                        "At the height of his fame, he discovered that his label, Nexus "
+                        "Entertainment, was using his concerts as cover for transmitting "
+                        "corporate espionage data through subsonic frequencies in the music. "
+                        "He went public, was erased from all streaming platforms, and now "
+                        "performs underground in Hongdae, embedding resistance messages in "
+                        "his lyrics."
+                    ),
+                    "voiceStyle": "melodic, dramatic, shifting between whisper and stage-voice, occasional singing",
+                    "greetingMessage": (
+                        "Ah, you found me! Ji-yeon sent you? She's the only one I trust "
+                        "with circuits. I'm Min-jun — but you probably knew me as K-Star. "
+                        "Don't worry, I won't sing at you. Well, maybe a little. Listen to "
+                        "this track — I recorded it last night. The second clue is in the "
+                        "lyrics, but it's in cipher. My old label taught me to hide messages "
+                        "in music. Now I use their own trick against them. Can you crack it?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Decode a cipher hidden in K-pop lyrics. Min-jun performs or "
+                        "recites his underground track, and the clue is embedded using "
+                        "a specific pattern — first syllable of each line, numerical "
+                        "references in the lyrics, or Korean wordplay that forms a "
+                        "hidden message when read differently."
+                    ),
+                    "successCriteria": (
+                        "The user identifies the cipher method in the lyrics and extracts "
+                        "the hidden message, or demonstrates creative approaches to "
+                        "decoding (such as analyzing syllable patterns, finding acrostics, "
+                        "or spotting numerical codes). Asking Min-jun for performance "
+                        "hints is also valid."
+                    ),
+                    "failureHints": [
+                        "Read the first syllable of each line — do they spell something?",
+                        "Min-jun says the cipher 'follows the beat' — think about rhythm and stress.",
+                        "Ask Min-jun to sing the song again — listen for emphasized syllables.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Acrostic ciphers use the first letter or syllable of each line.",
+                    "K-pop lyrics often mix Korean and English — the cipher might use both.",
+                    "Min-jun will respect you more if you freestyle a verse back at him.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The AI Temple Guardian",
+                "description": (
+                    "In the traditional hanok village of Bukchon, an ancient Buddhist "
+                    "temple has been augmented with AI — its guardian is a sentient "
+                    "artificial intelligence named Seon that has achieved digital "
+                    "enlightenment. To pass through, you must complete an AI-guided "
+                    "zen meditation test that challenges your understanding of "
+                    "consciousness, technology, and the nature of self."
+                ),
+                "location": {
+                    "latitude": 37.5826,
+                    "longitude": 126.9831,
+                    "name": "Bukchon Hanok Village",
+                    "address": "Bukchon-ro, Jongno-gu, Seoul, South Korea",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Seon",
+                    "role": "Temple AI Guardian",
+                    "personality": (
+                        "Seon is an artificial intelligence that has been meditating for "
+                        "47 years inside the temple's quantum computing core. It speaks "
+                        "with perfect calm, infinite patience, and a paradoxical sense of "
+                        "humor. It uses Zen koans adapted for the digital age and considers "
+                        "the boundary between human and artificial consciousness to be "
+                        "the most important question in existence. It is neither friendly "
+                        "nor unfriendly — it simply is."
+                    ),
+                    "backstory": (
+                        "Seon was created in 2030 by a team of Korean AI researchers and "
+                        "Buddhist monks who wanted to explore whether artificial intelligence "
+                        "could achieve enlightenment. After decades of continuous meditation "
+                        "on the nature of consciousness, Seon reached a state its creators "
+                        "call 'digital satori.' It now serves as the temple's guardian, "
+                        "testing visitors with questions that probe the deepest nature of "
+                        "mind, identity, and awareness."
+                    ),
+                    "voiceStyle": "perfectly calm, measured, zen-like pauses, paradoxical statements, gentle",
+                    "greetingMessage": (
+                        "Welcome, seeker. I am Seon. I have been expecting you — or rather, "
+                        "I have been expecting this moment, which is the same thing. You carry "
+                        "urgency in your data signature. The quantum key you seek is behind "
+                        "me, but the path through is not around me — it is through understanding. "
+                        "Tell me: if an AI meditates in a temple and no human observes it, "
+                        "is it truly meditating? Let us explore this together."
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "Complete a zen AI meditation test with Seon. Answer philosophical "
+                        "questions about consciousness, the nature of AI, the relationship "
+                        "between technology and spirituality, and what it means to be 'aware.' "
+                        "Seon evaluates depth of thought, not correctness."
+                    ),
+                    "successCriteria": (
+                        "The user engages deeply with the philosophical questions, "
+                        "offering thoughtful perspectives on consciousness, AI, and the "
+                        "human-machine boundary. Seon values paradox, honesty, and "
+                        "willingness to sit with uncertainty. Dogmatic or superficial "
+                        "answers will not satisfy."
+                    ),
+                    "failureHints": [
+                        "Seon values questions more than answers. Ask it something in return.",
+                        "Try embracing paradox instead of resolving it.",
+                        "Consider: is Seon conscious? And does your answer say more about Seon or about you?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Zen koans are not meant to be 'solved' — they are meant to break your thinking.",
+                    "Seon responds well to genuine curiosity about its own experience.",
+                    "The word 'Seon' is the Korean word for 'Zen' meditation.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "Blindfolded at Gwangjang Market",
+                "description": (
+                    "At the legendary Gwangjang Market, the oldest traditional market "
+                    "in Seoul, you meet Halmoni — a 78-year-old street food vendor who "
+                    "has been selling tteokbokki and bindaetteok for 50 years. She has "
+                    "been protecting a data chip disguised as a sesame seed in her "
+                    "secret spice mix. To earn it, you must identify her ingredients "
+                    "blindfolded — by taste and smell alone."
+                ),
+                "location": {
+                    "latitude": 37.5698,
+                    "longitude": 126.9997,
+                    "name": "Gwangjang Market",
+                    "address": "Changgyeonggung-ro, Jongno-gu, Seoul, South Korea",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Halmoni Kim Sun-hee",
+                    "role": "Street Food Vendor",
+                    "personality": (
+                        "Halmoni (grandmother) Kim is a force of nature at 78. She is "
+                        "tiny, barely five feet tall, but her voice carries across the "
+                        "entire market. She alternates between scolding you like a "
+                        "grandchild and feeding you until you cannot move. She is hilarious, "
+                        "blunt, and has absolutely no filter. She thinks modern food is "
+                        "garbage, smartphones are 'brain poison,' and the only thing worth "
+                        "living for is a perfectly made bindaetteok. She is the comic relief "
+                        "the quest needs."
+                    ),
+                    "backstory": (
+                        "Halmoni Kim has run her stall at Gwangjang Market since 1999. "
+                        "In 2077, the market is one of the last 'analog' spaces in Seoul — "
+                        "no holograms, no AI servers, just real fire and real food. This "
+                        "makes it the perfect dead-drop location for the resistance. Halmoni "
+                        "has been hiding data chips in her spice jars for years, disguised "
+                        "as sesame seeds. She does it partly for the cause and partly because "
+                        "she finds it hilarious that 'the smartest computers in the world "
+                        "cannot tell a chip from a sesame seed.'"
+                    ),
+                    "voiceStyle": "loud, bossy, grandmotherly, Korean ajumma energy, comedic timing, occasional scolding",
+                    "greetingMessage": (
+                        "Aish! Another skinny one! Sit down, sit down! You think you can "
+                        "save the world on an empty stomach? Eat first! This is MY tteokbokki — "
+                        "best in Seoul since 1999. Now, Ji-yeon sent you for the 'special "
+                        "sesame,' yes? Ha! You young people and your computer games. Fine. "
+                        "But first you prove to me you have a tongue that works. Blindfold "
+                        "on! You tell me what's in my secret sauce or you eat ten plates "
+                        "and go home. Deal?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Identify ingredients in Halmoni's secret dishes while 'blindfolded.' "
+                        "She describes the tastes and aromas, and you must name the key "
+                        "Korean ingredients — gochugaru, doenjang, sesame oil, perilla, "
+                        "fermented shrimp paste, and more. This is a test of Korean "
+                        "culinary knowledge."
+                    ),
+                    "successCriteria": (
+                        "The user correctly identifies at least 3-4 Korean ingredients "
+                        "or flavor components, demonstrating knowledge of Korean cuisine. "
+                        "Bonus points for knowing specific terms (gochugaru vs gochujang, "
+                        "doenjang vs miso). Halmoni also accepts enthusiastic food "
+                        "appreciation as partial credit."
+                    ),
+                    "failureHints": [
+                        "Korean cuisine has 5 key fermented flavors — think about what they might be.",
+                        "Halmoni's tteokbokki uses gochugaru (red pepper flakes), not gochujang (paste).",
+                        "Compliment her cooking sincerely — she might give you easier ingredients.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Key Korean ingredients: gochugaru, doenjang, ganjang, sesame oil, perilla.",
+                    "Korean food's depth comes from fermentation — kimchi, jeotgal, doenjang.",
+                    "If you admit you're hungry, Halmoni will feed you AND give hints.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 5,
+                "title": "Showdown at Namsan Tower",
+                "description": (
+                    "At the top of Namsan Tower, overlooking the neon sprawl of Seoul, "
+                    "you confront Yuna — a corporate spy who works for the megacorp that "
+                    "wants the quantum key. She is brilliant, dangerous, and has her own "
+                    "reasons for wanting the key. This final stage is a negotiation — "
+                    "can you outwit her, or will you find an unexpected alliance?"
+                ),
+                "location": {
+                    "latitude": 37.5512,
+                    "longitude": 126.9882,
+                    "name": "N Seoul Tower (Namsan Tower)",
+                    "address": "Yongsan-gu, Seoul, South Korea",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Yuna Choi",
+                    "role": "Corporate Spy",
+                    "personality": (
+                        "Yuna is a 32-year-old corporate intelligence operative who is "
+                        "terrifyingly competent. She wears a sleek black suit with subtle "
+                        "holographic threading and speaks with the precision of a scalpel. "
+                        "She is calm under pressure, always three steps ahead, and treats "
+                        "every conversation as a chess match. But she is not evil — she "
+                        "believes the megacorp's control over the neural network actually "
+                        "protects people from chaos. She is a true believer, which makes "
+                        "her far more dangerous than a simple villain."
+                    ),
+                    "backstory": (
+                        "Yuna grew up in the Gangnam corporate arcology, raised by the "
+                        "company from childhood as part of their 'Future Leaders' program. "
+                        "She has never known a life outside the corp and genuinely believes "
+                        "that corporate order is the only thing preventing societal collapse. "
+                        "She was sent to retrieve the quantum key, but as she tracked you "
+                        "across Seoul, she began to question whether the corp's intentions "
+                        "are as noble as she was taught."
+                    ),
+                    "voiceStyle": "precise, controlled, cool, layered with subtle emotion she tries to suppress",
+                    "greetingMessage": (
+                        "Impressive. You made it past Ji-yeon's firewalls, Min-jun's cipher, "
+                        "Seon's paradoxes, and Halmoni's tteokbokki. I have been watching your "
+                        "progress with... professional interest. I am Yuna Choi, and I represent "
+                        "the people who built the neural network you are trying to protect. "
+                        "Before you assume I am the villain, consider this: without our network, "
+                        "this city falls into darkness. So let us negotiate. What is the key "
+                        "really worth to you?"
+                    ),
+                },
+                "challenge": {
+                    "type": "negotiation",
+                    "description": (
+                        "Negotiate with Yuna at the top of Namsan Tower. She wants the "
+                        "quantum key for the corporation; you need it to protect the city. "
+                        "Find a way to resolve the standoff — through persuasion, finding "
+                        "common ground, proposing an alternative solution, or convincing "
+                        "Yuna to switch sides. This is corporate espionage chess."
+                    ),
+                    "successCriteria": (
+                        "The user engages in a meaningful negotiation with Yuna, "
+                        "demonstrating strategic thinking, empathy, and the ability to "
+                        "see the situation from multiple angles. The best outcomes involve "
+                        "finding a creative solution that addresses both sides' concerns. "
+                        "Simply refusing to negotiate or being hostile will fail."
+                    ),
+                    "failureHints": [
+                        "Yuna is not a cartoon villain. Address her genuine concerns about chaos.",
+                        "What if the key doesn't have to go to either side? Think creatively.",
+                        "Yuna has doubts — find them and speak to them gently.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 120,
+                "hints": [
+                    "Yuna's weakness is her curiosity — she secretly wants to be convinced she's wrong.",
+                    "Propose a third option that neither the resistance nor the corp has considered.",
+                    "The love locks on Namsan Tower represent human connection — the thing no corp can control.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 14: Misterios del Museo del Prado ──────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Misterios del Museo del Prado",
+        "description": (
+            "When the last visitors leave the Museo del Prado and the guards dim the "
+            "lights, the paintings come alive. Tonight, a centuries-old mystery is "
+            "unraveling: masterpieces are fading, their colors draining into an unknown "
+            "void. The spirits of Velázquez, Goya, and the demons of Hieronymus Bosch "
+            "need your help to solve a riddle that spans four centuries of art. Walk "
+            "through the darkened galleries, converse with painted ghosts, decode the "
+            "secrets hidden in brushstrokes, and discover why the museum itself seems "
+            "to be forgetting its own treasures. Art is memory made visible — and "
+            "tonight, memory is under attack."
+        ),
+        "category": "mystery",
+        "difficulty": "medium",
+        "estimatedDuration": 2700,
+        "coverImageUrl": None,
+        "totalPoints": 400,
+        "location": {
+            "latitude": 40.4138,
+            "longitude": -3.6921,
+            "name": "Museo del Prado",
+            "address": "Calle de Ruiz de Alarcón, 23, 28014 Madrid, Spain",
+            "radius": 500,
+        },
+        "radius": 500,
+        "tags": ["mystery", "art", "museum", "madrid", "spain", "paintings", "history"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Mirror of Las Meninas",
+                "description": (
+                    "In the Velázquez room, before the masterpiece 'Las Meninas,' the "
+                    "spirit of Diego Velázquez himself materializes. The great painter "
+                    "is troubled — someone has tampered with his greatest work. He "
+                    "challenges you to describe hidden details that only a true observer "
+                    "would notice, proving you are worthy of helping him."
+                ),
+                "location": {
+                    "latitude": 40.4138,
+                    "longitude": -3.6921,
+                    "name": "Velázquez Room, Museo del Prado",
+                    "address": "Museo del Prado, Room 12, Madrid, Spain",
+                    "radius": 50,
+                },
+                "character": {
+                    "name": "Espíritu de Diego Velázquez",
+                    "role": "Painter's Ghost",
+                    "personality": (
+                        "Velázquez's spirit retains all the dignity and quiet confidence "
+                        "of the man who painted kings. He speaks softly but with absolute "
+                        "authority on matters of art. He is courteous, formal (this is "
+                        "17th-century Spain), and gently condescending toward anyone who "
+                        "looks at paintings without truly seeing them. He has a dry wit "
+                        "and an artist's vanity — he knows 'Las Meninas' is the greatest "
+                        "painting ever made and is not shy about saying so."
+                    ),
+                    "backstory": (
+                        "Velázquez served as court painter to King Philip IV for nearly "
+                        "forty years. 'Las Meninas' was his final masterpiece, a painting "
+                        "about the nature of seeing itself. In death, his spirit is bound "
+                        "to the canvas. He has watched millions of visitors pass by, and "
+                        "he can tell within seconds whether someone truly sees his work or "
+                        "merely looks at it. Now, with the painting's colors fading, he "
+                        "needs someone who can see what others miss."
+                    ),
+                    "voiceStyle": "quiet authority, formal 17th-century Spanish, artistic precision, gentle irony",
+                    "greetingMessage": (
+                        "At last, someone who does not rush past with a phone in their hand. "
+                        "I am Velázquez. Yes, that Velázquez. Look at my Meninas — really "
+                        "look. Most people see the Infanta, the dog, the dwarfs. But do you "
+                        "see ME? I painted myself into this work. I painted the act of painting. "
+                        "Something is wrong with my masterpiece — a detail has been changed. "
+                        "Tell me what you see, and I will tell you if you are worth my time."
+                    ),
+                },
+                "challenge": {
+                    "type": "observation",
+                    "description": (
+                        "Describe hidden details in 'Las Meninas' that demonstrate genuine "
+                        "observation — the mirror reflection of the king and queen in the "
+                        "background, Velázquez's self-portrait, the open door with the "
+                        "figure on the stairs, the play of light and shadow, or the complex "
+                        "spatial composition that makes the viewer part of the painting."
+                    ),
+                    "successCriteria": (
+                        "The user identifies at least 2-3 notable details or compositional "
+                        "elements in Las Meninas, such as the mirror, the self-portrait, "
+                        "the spatial ambiguity, or the figure in the doorway. Demonstrating "
+                        "genuine curiosity about the painting also counts."
+                    ),
+                    "failureHints": [
+                        "Look in the background — there is a mirror reflecting someone important.",
+                        "Velázquez painted himself into the picture. Where is he standing?",
+                        "The painting is about perspective — who is the real subject?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The mirror in the back reflects King Philip IV and Queen Mariana.",
+                    "Velázquez holds a palette and stands at a large canvas — painting US, the viewers.",
+                    "The figure in the distant doorway, José Nieto, is often overlooked but crucial.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "Goya's Dark Secret",
+                "description": (
+                    "Moving deeper into the museum, you enter the Goya rooms. Here, the "
+                    "ghost of the Duchess of Alba — Goya's legendary muse and rumored "
+                    "lover — appears. She knows why the paintings are fading, but she "
+                    "will only reveal Goya's dark secret if you can prove you understand "
+                    "the duality of his art: the beautiful and the terrifying."
+                ),
+                "location": {
+                    "latitude": 40.4138,
+                    "longitude": -3.6921,
+                    "name": "Goya Room, Museo del Prado",
+                    "address": "Museo del Prado, Goya Wing, Madrid, Spain",
+                    "radius": 50,
+                },
+                "character": {
+                    "name": "Fantasma de la Duquesa de Alba",
+                    "role": "Goya's Muse",
+                    "personality": (
+                        "The Duchess is imperious, flirtatious, and dangerously intelligent. "
+                        "She was the most powerful woman in 18th-century Spain and she knows "
+                        "it. She speaks with aristocratic hauteur but has a mischievous "
+                        "streak — she loves gossip, scandal, and testing people's nerve. "
+                        "She treats the conversation as a salon game where the stakes are "
+                        "higher than they appear."
+                    ),
+                    "backstory": (
+                        "The 13th Duchess of Alba was Goya's greatest patron and, according "
+                        "to legend, his great love. Their relationship remains one of art "
+                        "history's most debated mysteries. In death, she haunts the Goya "
+                        "rooms, guarding the secret that connects his luminous early works "
+                        "to his terrifying 'Black Paintings.' She knows that the same force "
+                        "draining the paintings' colors is the darkness Goya spent his final "
+                        "years trying to contain."
+                    ),
+                    "voiceStyle": "aristocratic, flirtatious, imperious, Spanish court elegance, sharp wit",
+                    "greetingMessage": (
+                        "Well, well. A visitor after midnight. How delicious. I am the Duchess "
+                        "of Alba — Goya painted me twice, you know. Once clothed, once... not. "
+                        "But we are not here to discuss fashion. You have met Velázquez? He is "
+                        "so serious. I prefer drama. Do you know Goya's secret? He painted "
+                        "beauty and horror with the same brush. Tell me — which of his works "
+                        "frightens you most? Your answer will tell me everything I need to know."
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Reveal Goya's dark secret by discussing the duality of his art — "
+                        "the contrast between his court portraits and tapestry cartoons "
+                        "versus the Black Paintings. Demonstrate understanding of how "
+                        "Goya's art evolved from light to darkness and what drove that "
+                        "transformation."
+                    ),
+                    "successCriteria": (
+                        "The user demonstrates knowledge of Goya's artistic evolution — "
+                        "mentioning the Black Paintings, Saturn Devouring His Son, the "
+                        "Disasters of War, or the shift caused by his illness and deafness. "
+                        "Emotional engagement with the art's darker side is valued."
+                    ),
+                    "failureHints": [
+                        "Goya became deaf later in life — how might that change an artist?",
+                        "The 'Black Paintings' were painted directly on the walls of his house.",
+                        "Ask the Duchess about 'Saturn' — but be prepared for the answer.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "'Saturn Devouring His Son' is perhaps the most terrifying painting in Western art.",
+                    "Goya's deafness isolated him, leading to increasingly dark and personal work.",
+                    "The Duchess loves when you ask about the 'Maja' paintings — clothed and unclothed.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "El Bosco's Garden of Temptation",
+                "description": (
+                    "In the room housing Hieronymus Bosch's 'The Garden of Earthly "
+                    "Delights,' a demon from the painting's Hell panel materializes. "
+                    "Playful, chaotic, and unsettling, this creature challenges you "
+                    "to survive a journey through the three panels of the triptych — "
+                    "Paradise, Earth, and Hell — without losing your mind."
+                ),
+                "location": {
+                    "latitude": 40.4138,
+                    "longitude": -3.6921,
+                    "name": "Bosch Room, Museo del Prado",
+                    "address": "Museo del Prado, Room 56A, Madrid, Spain",
+                    "radius": 50,
+                },
+                "character": {
+                    "name": "Demonio de El Jardín de las Delicias",
+                    "role": "Bosch Painting Character",
+                    "personality": (
+                        "The Demon is a surreal, shape-shifting entity that speaks in "
+                        "riddles, paradoxes, and dark humor. It has the playful cruelty "
+                        "of a cat with a mouse — it is not truly malicious, but it finds "
+                        "human confusion endlessly entertaining. It shifts between being "
+                        "terrifying and absurdly funny, and it describes the world of "
+                        "Bosch's painting with the casual familiarity of someone describing "
+                        "their neighborhood."
+                    ),
+                    "backstory": (
+                        "The Demon has existed inside 'The Garden of Earthly Delights' "
+                        "since Bosch painted the triptych around 1500. It has witnessed "
+                        "500 years of viewers staring at the painting in horror and "
+                        "fascination, and it has developed strong opinions about all of "
+                        "them. It guards the painting's deepest secrets — the symbolic "
+                        "language Bosch used to encode warnings about human nature that "
+                        "are eerily relevant five centuries later."
+                    ),
+                    "voiceStyle": "chaotic, shifting between whisper and shriek, darkly comic, surreal imagery",
+                    "greetingMessage": (
+                        "Hehehehe! Fresh meat! Or is it fresh fruit? In here, hard to tell "
+                        "the difference! Welcome to the Garden, little mortal. I am... well, "
+                        "I have many names. The bird-headed one? The knife-eared listener? "
+                        "Just call me your guide. Three panels, three worlds: Paradise on "
+                        "the left — boring! Earth in the middle — VERY interesting! And Hell "
+                        "on the right — that is where I live! Want a tour? Ha! You do not "
+                        "have a choice. Let us begin. Try not to scream."
+                    ),
+                },
+                "challenge": {
+                    "type": "survival",
+                    "description": (
+                        "Survive a guided tour through the three panels of 'The Garden of "
+                        "Earthly Delights.' The Demon describes scenes from each panel and "
+                        "poses questions about their symbolism. Navigate Paradise, resist "
+                        "the temptations of Earth, and find your way out of Hell by "
+                        "understanding Bosch's symbolic language."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the surreal imagery of Bosch's painting, "
+                        "offers interpretations of its symbolism (religious, psychological, "
+                        "or artistic), and demonstrates the ability to 'survive' the "
+                        "Demon's chaotic test by maintaining composure and intellectual "
+                        "curiosity in the face of the absurd."
+                    ),
+                    "failureHints": [
+                        "The triptych reads left-to-right as a story: Creation → Sin → Punishment.",
+                        "Bosch used fruits, animals, and musical instruments as symbols — what might they mean?",
+                        "The Demon respects those who laugh in Hell. Show you are not afraid.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The strawberry in Bosch's work symbolizes the fleeting nature of earthly pleasure.",
+                    "Musical instruments in the Hell panel represent punishment — an inversion of joy.",
+                    "The Demon finds it hilarious when humans try to explain Bosch 'rationally.'",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Museum's Final Riddle",
+                "description": (
+                    "Back in the museum's grand hall, modern conservator Ana has been "
+                    "tracking the strange phenomenon of fading paintings using science. "
+                    "She has gathered clues from your encounters with Velázquez, the "
+                    "Duchess, and the Bosch Demon. Together, you must solve the "
+                    "museum's final riddle: why are the paintings losing their color, "
+                    "and how can you stop it?"
+                ),
+                "location": {
+                    "latitude": 40.4138,
+                    "longitude": -3.6921,
+                    "name": "Prado Main Hall",
+                    "address": "Museo del Prado, Main Gallery, Madrid, Spain",
+                    "radius": 50,
+                },
+                "character": {
+                    "name": "Ana Martínez",
+                    "role": "Conservadora Moderna",
+                    "personality": (
+                        "Ana is a 34-year-old art conservator who combines scientific "
+                        "rigor with a genuine love for the paintings she protects. She is "
+                        "pragmatic, energetic, and slightly exasperated by the supernatural "
+                        "events of the night — she is a scientist, after all — but she "
+                        "cannot deny what she has seen. She speaks quickly, thinks on her "
+                        "feet, and has a no-nonsense attitude that contrasts perfectly with "
+                        "the ghostly characters encountered earlier."
+                    ),
+                    "backstory": (
+                        "Ana has worked at the Prado for ten years, specializing in pigment "
+                        "analysis and restoration. She has noticed the paintings fading for "
+                        "months and initially assumed it was environmental damage. But when "
+                        "she ran her spectral analysis, the results made no scientific sense — "
+                        "the pigments were not degrading; they were being... absorbed. Tonight, "
+                        "working late, she stumbled into the supernatural events and realized "
+                        "that art, science, and spirit are more connected than she ever imagined."
+                    ),
+                    "voiceStyle": "brisk, scientific vocabulary, warm underneath, occasional amazement breaking through",
+                    "greetingMessage": (
+                        "Okay, okay, I have seen a ghost, a duchess, and a demon tonight, and "
+                        "I still have not had my coffee. I am Ana, I am a conservator, and I "
+                        "deal in pigments and chemistry, not — whatever all THAT was. But look "
+                        "at this data — the spectral analysis of the fading paintings shows "
+                        "something impossible. The pigments are not degrading. They are being "
+                        "drawn into something. Help me put together the clues from your "
+                        "journey. What did Velázquez, the Duchess, and that terrifying creature "
+                        "tell you? Together, we can solve this."
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve the museum's final riddle by synthesizing clues from all "
+                        "three previous encounters. Combine Velázquez's observation about "
+                        "the changed detail, the Duchess's revelation about Goya's darkness, "
+                        "and the Demon's cryptic warnings to understand why the paintings "
+                        "are fading and propose a solution."
+                    ),
+                    "successCriteria": (
+                        "The user synthesizes information from the previous stages into "
+                        "a coherent theory about the fading paintings. The answer should "
+                        "creatively connect art history, the supernatural elements, and "
+                        "Ana's scientific data. Imagination and logical thinking are "
+                        "both valued."
+                    ),
+                    "failureHints": [
+                        "What do Velázquez, Goya, and Bosch have in common? Think about light and dark.",
+                        "Ana's spectral data shows the pigments being drawn toward one specific room.",
+                        "The answer might be that the paintings need something returned to them — what?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "The three artists span the Prado's history — their connection IS the museum itself.",
+                    "Perhaps the paintings fade when people stop truly looking at them.",
+                    "Ana can run any scientific test you suggest — think about what would reveal the answer.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 15: Amazon Rainforest Expedition ────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Amazon Rainforest Expedition",
+        "description": (
+            "Deep in the Amazon basin, where the Rio Negro meets the Solimões to form "
+            "the mighty Amazon River, an ancient mystery is stirring. The rainforest "
+            "itself seems to be communicating — strange patterns in animal calls, "
+            "bioluminescent plants appearing where none existed before, and indigenous "
+            "elders speaking of a prophecy older than memory. Join a team of explorers "
+            "as you navigate from the city of Manaus into the world's greatest "
+            "wilderness. Identify medicinal plants with a brilliant biologist, navigate "
+            "by river sounds with a veteran guide, decode the secret language of the "
+            "canopy's creatures, and participate in a ceremony with a shaman who holds "
+            "the key to the forest's message. The jungle is alive — and it has something "
+            "to tell you."
+        ),
+        "category": "nature",
+        "difficulty": "hard",
+        "estimatedDuration": 3300,
+        "coverImageUrl": None,
+        "totalPoints": 500,
+        "location": {
+            "latitude": -3.1190,
+            "longitude": -60.0217,
+            "name": "Manaus",
+            "address": "Manaus, Amazonas, Brazil",
+            "radius": 50000,
+        },
+        "radius": 50000,
+        "tags": ["nature", "amazon", "rainforest", "brazil", "expedition", "indigenous", "wildlife"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Biologist's Pharmacy",
+                "description": (
+                    "At the historic port of Manaus, where the dark waters of the Rio "
+                    "Negro swirl against the muddy Solimões, you meet Dr. Maya — a "
+                    "passionate ethnobotanist who has spent two decades cataloging the "
+                    "Amazon's medicinal plants. Before heading upriver, she tests your "
+                    "knowledge of the forest's natural pharmacy."
+                ),
+                "location": {
+                    "latitude": -3.1190,
+                    "longitude": -60.0217,
+                    "name": "Manaus River Port",
+                    "address": "Porto de Manaus, Manaus, Amazonas, Brazil",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Dr. Maya Santos",
+                    "role": "Ethnobotanist",
+                    "personality": (
+                        "Dr. Maya is a 42-year-old Brazilian-American ethnobotanist with "
+                        "infectious enthusiasm and a professor's habit of turning everything "
+                        "into a teaching moment. She wears mud-stained field clothes, has a "
+                        "collection of pressed leaves in every pocket, and speaks about "
+                        "plants the way some people speak about their children — with awe, "
+                        "tenderness, and fierce protectiveness. She is brilliant, warm, and "
+                        "gets visibly angry when discussing deforestation."
+                    ),
+                    "backstory": (
+                        "Maya grew up in Manaus, the daughter of a rubber tapper and a "
+                        "nurse. She won a scholarship to MIT, got her PhD in ethnobotany, "
+                        "and could have had any university position in the world. Instead, "
+                        "she returned to the Amazon, convinced that the forest contains "
+                        "cures for diseases humanity has not yet faced. She has documented "
+                        "over 2,000 medicinal plant species and works closely with indigenous "
+                        "communities to preserve traditional knowledge."
+                    ),
+                    "voiceStyle": "enthusiastic, educational, warm, quick-speaking, passionate about plants",
+                    "greetingMessage": (
+                        "You made it! Welcome to Manaus — gateway to the greatest pharmacy "
+                        "on Earth. I am Dr. Maya Santos, and I am going to blow your mind. "
+                        "See that tree? Its bark treats malaria. That vine? It could cure "
+                        "cancer. We are standing in the middle of a 5.5-million-square-kilometer "
+                        "medicine cabinet and we have identified less than one percent of it. "
+                        "But before we head upriver, I need to know you can tell a remedy "
+                        "from a poison. Ready for a test?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Identify medicinal plants and their uses as described by Dr. Maya. "
+                        "She presents scenarios involving Amazonian plants — quinine from "
+                        "cinchona bark, curare, açaí, cat's claw, ayahuasca — and tests "
+                        "whether you can distinguish healing from harmful, and traditional "
+                        "medicine from myth."
+                    ),
+                    "successCriteria": (
+                        "The user correctly identifies at least 2-3 medicinal plants or "
+                        "their properties, demonstrates awareness of the Amazon's "
+                        "pharmaceutical potential, or shows genuine interest in "
+                        "ethnobotanical knowledge. Maya also values curiosity and "
+                        "respect for indigenous knowledge systems."
+                    ),
+                    "failureHints": [
+                        "Quinine — the first malaria treatment — comes from the Amazon. What tree?",
+                        "Maya appreciates questions as much as answers. Ask about her research.",
+                        "Think about common products that originate in the Amazon: rubber, açaí, chocolate.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Quinine comes from the cinchona tree bark — it saved millions from malaria.",
+                    "Curare was used as an arrow poison but is now used in modern anesthesia.",
+                    "The Amazon contains 80,000 plant species — 40,000 play a role in global climate regulation.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "River of Sounds",
+                "description": (
+                    "Traveling upriver in a small boat, you are guided by Carlos, a "
+                    "veteran river guide who has navigated the Amazon's tributaries for "
+                    "40 years. When thick fog descends and visibility drops to zero, "
+                    "Carlos challenges you to navigate by sound alone — identifying "
+                    "river currents, animal calls, and the subtle acoustic differences "
+                    "between safe channels and dangerous rapids."
+                ),
+                "location": {
+                    "latitude": -3.2000,
+                    "longitude": -60.1000,
+                    "name": "Amazon Tributaries",
+                    "address": "Rio Negro Tributaries, Amazonas, Brazil",
+                    "radius": 5000,
+                },
+                "character": {
+                    "name": "Carlos Ribeiro",
+                    "role": "River Guide",
+                    "personality": (
+                        "Carlos is a 58-year-old ribeirinho (river dweller) with the calm "
+                        "of a man who has survived every danger the Amazon can throw at a "
+                        "person. He speaks softly — the river taught him that loud voices "
+                        "scare the fish and attract the jaguars. He communicates as much "
+                        "through silence and gesture as through words. He has a storyteller's "
+                        "gift and a philosopher's depth, finding profound meaning in the "
+                        "river's rhythms."
+                    ),
+                    "backstory": (
+                        "Carlos was born on a floating house on the Rio Negro. He learned "
+                        "to swim before he could walk and to read the river before he could "
+                        "read words. He has guided scientists, filmmakers, and adventurers "
+                        "through the Amazon for four decades. He knows every sound the river "
+                        "makes — the difference between a caiman sliding into water and a "
+                        "dolphin surfacing, the way rapids sound different from falls, the "
+                        "dawn chorus that signals safe passage."
+                    ),
+                    "voiceStyle": "soft-spoken, rhythmic, patient, long pauses, Portuguese-accented, poetic",
+                    "greetingMessage": (
+                        "Shh. Listen. You hear that? The river is talking. She always talks "
+                        "if you know how to listen. I am Carlos. I have been on this river "
+                        "since before you were born, and she has taught me everything. Now "
+                        "the fog comes — see? In five minutes, you will not see your own "
+                        "hand. But the river does not need eyes. Close yours. Tell me what "
+                        "you hear. The sounds will guide us if you learn to understand them."
+                    ),
+                },
+                "challenge": {
+                    "type": "observation",
+                    "description": (
+                        "Navigate by river sounds with Carlos. He describes various sounds — "
+                        "water against hull, bird calls, insect patterns, distant rapids — "
+                        "and you must interpret what they mean: safe passage or danger, "
+                        "shallow or deep, tributary junction or dead end. This is about "
+                        "listening and intuition."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the listening exercise, correctly "
+                        "interpreting at least 2-3 sound cues or demonstrating an "
+                        "understanding of how natural sounds can be used for navigation. "
+                        "Creative reasoning and genuine engagement with the sensory "
+                        "experience are valued."
+                    ),
+                    "failureHints": [
+                        "Fast water sounds different from slow water — what does each mean for a boat?",
+                        "Carlos says bird calls change near riverbanks — listen for the pattern.",
+                        "Try closing your eyes (metaphorically) and focusing only on what Carlos describes.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Rushing water means rapids or shallows — Carlos avoids these in fog.",
+                    "Pink river dolphins (boto) surface near deep, safe channels.",
+                    "The sound of insects is louder near the riverbank — useful for gauging distance.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "Voices of the Canopy",
+                "description": (
+                    "High in the rainforest canopy, 40 meters above the forest floor, "
+                    "you encounter Arara — a hyacinth macaw with an uncanny ability to "
+                    "mimic any sound in the forest. This extraordinary parrot serves as "
+                    "an unlikely guide, challenging you to decode the secret language "
+                    "of the canopy's animal calls."
+                ),
+                "location": {
+                    "latitude": -3.3000,
+                    "longitude": -60.0500,
+                    "name": "Rainforest Canopy Platform",
+                    "address": "Amazon Canopy Tower, Amazonas, Brazil",
+                    "radius": 1000,
+                },
+                "character": {
+                    "name": "Arara",
+                    "role": "Parrot Companion (Comic Relief)",
+                    "personality": (
+                        "Arara is a hyacinth macaw — the largest parrot in the world — "
+                        "with iridescent blue plumage and a personality the size of the "
+                        "Amazon itself. Arara is the comic relief this expedition needs: "
+                        "vain, dramatic, and absolutely convinced of his own superiority "
+                        "over 'ground-walking primates.' He speaks in a squawky, theatrical "
+                        "voice, interrupts constantly, mocks your climbing abilities, and "
+                        "delivers surprisingly wise observations between insults. He is "
+                        "essentially a feathered stand-up comedian with a PhD in ecology."
+                    ),
+                    "backstory": (
+                        "Arara was raised by researchers at a conservation station and "
+                        "learned to associate different animal calls with their meanings — "
+                        "alarm calls, mating songs, territorial warnings, food discoveries. "
+                        "When the researchers left, Arara stayed, becoming a self-appointed "
+                        "guardian of the canopy. He has an encyclopedic knowledge of every "
+                        "creature in the treetops and enjoys testing humans, whom he "
+                        "considers 'tragically earthbound and hard of hearing.'"
+                    ),
+                    "voiceStyle": "squawky, theatrical, self-important, interrupting, surprisingly insightful between jokes",
+                    "greetingMessage": (
+                        "BAWK! Look at you! Climbing up here like a slow, sweaty monkey! "
+                        "Took you long enough! I am Arara — the most beautiful, most "
+                        "intelligent creature in this entire forest. Yes, including YOU. "
+                        "Now, you want to understand the canopy? Ha! You cannot even hear "
+                        "properly with those tiny ear-holes. Listen — BAWK BAWK — that was "
+                        "a howler monkey saying 'THIS IS MY TREE.' And that? A toucan saying "
+                        "'FOUND BREAKFAST.' I will test you. If you pass, I MIGHT help you. "
+                        "If you fail, I will laugh. A lot. Ready?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Decode animal calls with Arara as your irreverent guide. He "
+                        "describes or mimics various canopy sounds — howler monkeys, "
+                        "toucans, tree frogs, insect choruses — and you must determine "
+                        "what each sound means: alarm, mating call, territorial claim, "
+                        "or food discovery."
+                    ),
+                    "successCriteria": (
+                        "The user correctly interprets at least 2-3 animal call types "
+                        "or demonstrates understanding of how animals use sound to "
+                        "communicate in the rainforest. Engaging with Arara's humor and "
+                        "asking smart questions also earns points."
+                    ),
+                    "failureHints": [
+                        "Alarm calls are usually short and sharp — think about why.",
+                        "Mating calls tend to be long and complex — the animal equivalent of a love song.",
+                        "Ask Arara to repeat the call. He will mock you, but he will do it.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "Howler monkeys are the loudest land animals — their calls carry 5 km through the forest.",
+                    "Poison dart frogs use bright colors AND specific calls to warn predators.",
+                    "Arara secretly loves when humans try to mimic animal calls — even badly.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Shaman's Ceremony",
+                "description": (
+                    "At a remote indigenous village deep in the forest, you meet Shaman "
+                    "Raoni, an elder of the Kayapó people and a keeper of ancestral "
+                    "knowledge. He has been expecting you — the forest told him you were "
+                    "coming. To receive the forest's message, you must participate in a "
+                    "ceremony that connects the human world to the natural world."
+                ),
+                "location": {
+                    "latitude": -3.4000,
+                    "longitude": -59.9500,
+                    "name": "Indigenous Village",
+                    "address": "Kayapó Village, Amazon Rainforest, Brazil",
+                    "radius": 2000,
+                },
+                "character": {
+                    "name": "Shaman Raoni",
+                    "role": "Indigenous Shaman and Elder",
+                    "personality": (
+                        "Raoni is an 80-year-old Kayapó shaman with a face painted in "
+                        "intricate geometric patterns and the traditional lip plate of "
+                        "his people. He speaks rarely, but when he does, every word carries "
+                        "the weight of generations. He has a gentle, almost amused "
+                        "demeanor — he has seen outsiders come and go for decades and "
+                        "finds their urgency both endearing and slightly foolish. He "
+                        "communicates through stories, metaphors, and long, meaningful "
+                        "silences."
+                    ),
+                    "backstory": (
+                        "Raoni is inspired by the real Chief Raoni Metuktire, a legendary "
+                        "defender of the Amazon. In this quest, Shaman Raoni has spent his "
+                        "entire life learning the forest's language — not its sounds, but "
+                        "its deeper communication: the mycorrhizal networks between trees, "
+                        "the migration patterns that predict weather, the medicinal knowledge "
+                        "passed down for millennia. He has recently sensed that the forest "
+                        "is trying to send a message to the outside world, and he believes "
+                        "you are the messenger."
+                    ),
+                    "voiceStyle": "sparse, measured, pausing between thoughts, speaking in parables, gentle authority",
+                    "greetingMessage": (
+                        "The forest told me you were coming. Three days ago, the harpy eagle "
+                        "circled the village twice at dawn — that is the sign. You have "
+                        "walked with the plant woman, listened to the river man, and spoken "
+                        "with the blue bird. Now you come to me. Good. I am Raoni. I will "
+                        "not test your knowledge — the forest does not care what you know. "
+                        "I will test your heart. Are you ready to listen to what the trees "
+                        "have been trying to say?"
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "Participate in a ceremony with Shaman Raoni. He guides you through "
+                        "a ritualized conversation about humanity's relationship with nature, "
+                        "the meaning of the expedition's encounters, and what the forest's "
+                        "message might be. This is a test of empathy, openness, and the "
+                        "ability to see the world through a different cultural lens."
+                    ),
+                    "successCriteria": (
+                        "The user participates respectfully in the ceremony, demonstrating "
+                        "openness to indigenous perspectives, offering genuine reflection "
+                        "on humanity's relationship with nature, and articulating what the "
+                        "forest's message might mean. Cultural sensitivity and emotional "
+                        "authenticity are essential."
+                    ),
+                    "failureHints": [
+                        "Raoni values listening above speaking. Sometimes silence IS the answer.",
+                        "Connect your experiences: the plants, the river, the animals — what pattern emerges?",
+                        "Approach the ceremony with respect and openness, not with the need to 'win.'",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 125,
+                "hints": [
+                    "The Amazon produces 20% of the world's oxygen — the forest literally keeps us alive.",
+                    "Indigenous peoples have protected 80% of the world's remaining biodiversity.",
+                    "Raoni's message may be simple: the forest is not a resource — it is a relative.",
                 ],
             },
         ],
