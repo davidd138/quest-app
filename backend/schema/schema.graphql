@@ -1,0 +1,384 @@
+enum UserStatus {
+  pending
+  active
+  suspended
+  expired
+}
+
+enum QuestCategory {
+  adventure
+  mystery
+  cultural
+  educational
+  culinary
+  nature
+  urban
+  team_building
+}
+
+enum QuestDifficulty {
+  easy
+  medium
+  hard
+  legendary
+}
+
+enum ChallengeType {
+  conversation
+  riddle
+  knowledge
+  negotiation
+  persuasion
+  exploration
+  trivia
+}
+
+enum ProgressStatus {
+  in_progress
+  completed
+  abandoned
+}
+
+enum ConversationStatus {
+  in_progress
+  completed
+  analyzed
+}
+
+type User {
+  userId: String!
+  email: String!
+  name: String
+  role: String!
+  status: UserStatus!
+  avatarUrl: String
+  totalPoints: Int!
+  questsCompleted: Int!
+  groups: [String!]
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Location {
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  address: String
+  radius: Float
+}
+
+type Character {
+  name: String!
+  role: String!
+  personality: String!
+  backstory: String!
+  avatarUrl: String
+  voiceStyle: String!
+  greetingMessage: String!
+}
+
+type Challenge {
+  type: ChallengeType!
+  description: String!
+  successCriteria: String!
+  failureHints: [String!]!
+  maxAttempts: Int
+}
+
+type Stage {
+  id: String!
+  order: Int!
+  title: String!
+  description: String!
+  location: Location!
+  character: Character!
+  challenge: Challenge!
+  points: Int!
+  hints: [String!]!
+  unlockCondition: String
+}
+
+type Quest {
+  id: String!
+  title: String!
+  description: String!
+  category: QuestCategory!
+  difficulty: QuestDifficulty!
+  estimatedDuration: Int!
+  coverImageUrl: String
+  stages: [Stage!]!
+  totalPoints: Int!
+  location: Location!
+  radius: Float!
+  tags: [String!]!
+  isPublished: Boolean!
+  createdBy: String
+  createdAt: String!
+  updatedAt: String!
+}
+
+type CompletedStage {
+  stageId: String!
+  conversationId: String
+  points: Int!
+  attempts: Int!
+  completedAt: String!
+  duration: Int!
+}
+
+type Progress {
+  id: String!
+  userId: String!
+  questId: String!
+  currentStageIndex: Int!
+  completedStages: [CompletedStage!]!
+  status: ProgressStatus!
+  startedAt: String!
+  completedAt: String
+  totalPoints: Int!
+  totalDuration: Int!
+}
+
+type ChallengeResult {
+  passed: Boolean!
+  score: Int!
+  feedback: String!
+  strengths: [String!]!
+  improvements: [String!]!
+}
+
+type Conversation {
+  id: String!
+  userId: String!
+  questId: String!
+  stageId: String!
+  characterName: String!
+  transcript: String!
+  status: ConversationStatus!
+  startedAt: String!
+  endedAt: String
+  duration: Int
+  challengeResult: ChallengeResult
+}
+
+type Score {
+  id: String!
+  userId: String!
+  questId: String!
+  questTitle: String!
+  totalPoints: Int!
+  completionTime: Int!
+  stagesCompleted: Int!
+  totalStages: Int!
+  completedAt: String!
+}
+
+type LeaderboardEntry {
+  rank: Int!
+  userId: String!
+  userName: String!
+  avatarUrl: String
+  totalPoints: Int!
+  questsCompleted: Int!
+  averageScore: Float!
+}
+
+type Achievement {
+  id: String!
+  userId: String!
+  type: String!
+  title: String!
+  description: String!
+  iconUrl: String
+  earnedAt: String!
+  questId: String
+}
+
+type ActivityEntry {
+  date: String!
+  questTitle: String!
+  action: String!
+  points: Int!
+}
+
+type CategoryStat {
+  category: String!
+  completed: Int!
+  total: Int!
+  averageScore: Float!
+}
+
+type Analytics {
+  totalQuests: Int!
+  questsCompleted: Int!
+  totalPoints: Int!
+  averageScore: Float!
+  totalPlayTime: Int!
+  favoriteCategory: String
+  completionRate: Float!
+  recentActivity: [ActivityEntry!]!
+  categoryBreakdown: [CategoryStat!]!
+}
+
+type QuestStat {
+  questId: String!
+  questTitle: String!
+  completions: Int!
+  averageScore: Float!
+  averageTime: Int!
+}
+
+type GrowthEntry {
+  date: String!
+  users: Int!
+  completions: Int!
+}
+
+type AdminAnalytics {
+  totalUsers: Int!
+  activeUsers: Int!
+  totalQuests: Int!
+  totalCompletions: Int!
+  popularQuests: [QuestStat!]!
+  userGrowth: [GrowthEntry!]!
+}
+
+type RealtimeToken {
+  token: String!
+  expiresAt: Int!
+}
+
+type QuestConnection {
+  items: [Quest!]!
+  nextToken: String
+}
+
+type ConversationConnection {
+  items: [Conversation!]!
+  nextToken: String
+}
+
+type UserConnection {
+  items: [User!]!
+  nextToken: String
+}
+
+input LocationInput {
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  address: String
+  radius: Float
+}
+
+input CharacterInput {
+  name: String!
+  role: String!
+  personality: String!
+  backstory: String!
+  avatarUrl: String
+  voiceStyle: String!
+  greetingMessage: String!
+}
+
+input ChallengeInput {
+  type: ChallengeType!
+  description: String!
+  successCriteria: String!
+  failureHints: [String!]!
+  maxAttempts: Int
+}
+
+input StageInput {
+  id: String
+  order: Int!
+  title: String!
+  description: String!
+  location: LocationInput!
+  character: CharacterInput!
+  challenge: ChallengeInput!
+  points: Int!
+  hints: [String!]!
+  unlockCondition: String
+}
+
+input CreateQuestInput {
+  title: String!
+  description: String!
+  category: QuestCategory!
+  difficulty: QuestDifficulty!
+  estimatedDuration: Int!
+  coverImageUrl: String
+  stages: [StageInput!]!
+  location: LocationInput!
+  radius: Float!
+  tags: [String!]!
+  isPublished: Boolean
+}
+
+input UpdateQuestInput {
+  id: ID!
+  title: String
+  description: String
+  category: QuestCategory
+  difficulty: QuestDifficulty
+  estimatedDuration: Int
+  coverImageUrl: String
+  stages: [StageInput!]
+  location: LocationInput
+  radius: Float
+  tags: [String!]
+  isPublished: Boolean
+}
+
+input UpdateProgressInput {
+  id: ID!
+  currentStageIndex: Int
+  status: ProgressStatus
+}
+
+input CompleteStageInput {
+  questId: ID!
+  stageId: ID!
+  conversationId: ID!
+}
+
+input CreateConversationInput {
+  questId: ID!
+  stageId: ID!
+}
+
+input UpdateConversationInput {
+  id: ID!
+  transcript: String
+  status: String
+  duration: Int
+}
+
+type Query {
+  listQuests(category: String, difficulty: String, limit: Int, nextToken: String): QuestConnection! @aws_cognito_user_pools
+  getQuest(id: ID!): Quest @aws_cognito_user_pools
+  getProgress(questId: ID!): Progress @aws_cognito_user_pools
+  listConversations(questId: String, limit: Int, nextToken: String): ConversationConnection! @aws_cognito_user_pools
+  getConversation(id: ID!): Conversation @aws_cognito_user_pools
+  getLeaderboard(limit: Int): [LeaderboardEntry!]! @aws_cognito_user_pools
+  getAchievements: [Achievement!]! @aws_cognito_user_pools
+  getAnalytics: Analytics @aws_cognito_user_pools
+  getRealtimeToken(questId: ID!, stageId: ID!): RealtimeToken! @aws_cognito_user_pools
+  listAllUsers(limit: Int, nextToken: String): UserConnection! @aws_cognito_user_pools
+  getAdminAnalytics: AdminAnalytics @aws_cognito_user_pools
+}
+
+type Mutation {
+  syncUser: User! @aws_cognito_user_pools
+  startQuest(questId: ID!): Progress! @aws_cognito_user_pools
+  updateProgress(input: UpdateProgressInput!): Progress! @aws_cognito_user_pools
+  completeStage(input: CompleteStageInput!): Progress! @aws_cognito_user_pools
+  createConversation(input: CreateConversationInput!): Conversation! @aws_cognito_user_pools
+  updateConversation(input: UpdateConversationInput!): Conversation! @aws_cognito_user_pools
+  analyzeConversation(conversationId: ID!): ChallengeResult! @aws_cognito_user_pools
+  createQuest(input: CreateQuestInput!): Quest! @aws_cognito_user_pools
+  updateQuest(input: UpdateQuestInput!): Quest! @aws_cognito_user_pools
+  deleteQuest(id: ID!): Boolean! @aws_cognito_user_pools
+  updateUserStatus(userId: ID!, status: UserStatus!): User! @aws_cognito_user_pools
+}
