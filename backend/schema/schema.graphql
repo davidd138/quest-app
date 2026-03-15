@@ -430,6 +430,7 @@ type Query {
   getUserProfile(userId: ID!): PublicUserProfile @aws_cognito_user_pools
   searchQuests(query: String!, category: String, difficulty: String, limit: Int): QuestConnection! @aws_cognito_user_pools
   getQuestStats(questId: ID!): QuestStats! @aws_cognito_user_pools
+  getNotificationPreferences: NotificationPreferences! @aws_cognito_user_pools
 }
 
 input GenerateQuestInput {
@@ -458,6 +459,20 @@ type ContentReport {
   createdAt: String!
 }
 
+type NotificationPreferences {
+  emailNotifications: Boolean!
+  pushNotifications: Boolean!
+  inAppNotifications: Boolean!
+  marketingEmails: Boolean!
+}
+
+input UpdateNotificationPreferencesInput {
+  emailNotifications: Boolean
+  pushNotifications: Boolean
+  inAppNotifications: Boolean
+  marketingEmails: Boolean
+}
+
 type Mutation {
   syncUser: User! @aws_cognito_user_pools
   startQuest(questId: ID!): Progress! @aws_cognito_user_pools
@@ -476,4 +491,5 @@ type Mutation {
   reportContent(input: ReportContentInput!): ContentReport! @aws_cognito_user_pools
   approveQuest(questId: ID!, approved: Boolean!, rejectionReason: String): Quest! @aws_cognito_user_pools
   generateQuestAI(input: GenerateQuestInput!): Quest! @aws_cognito_user_pools
+  updateNotificationPreferences(input: UpdateNotificationPreferencesInput!): NotificationPreferences! @aws_cognito_user_pools
 }

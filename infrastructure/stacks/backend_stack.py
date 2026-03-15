@@ -492,6 +492,17 @@ class BackendStack(cdk.Stack):
         )
         update_user_status_fn.add_to_role_policy(cognito_policy)
 
+        # ---- Notification preferences resolvers ----
+        create_resolver(
+            "get_notification_preferences", "Query", "getNotificationPreferences",
+            read_tables=["users"],
+        )
+
+        create_resolver(
+            "update_notification_preferences", "Mutation", "updateNotificationPreferences",
+            write_tables=["users"],
+        )
+
         # ---- AI Quest Generator ----
         generate_quest_ai_fn = create_resolver(
             "generate_quest_ai", "Mutation", "generateQuestAI",
