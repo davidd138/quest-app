@@ -23,6 +23,9 @@ import {
   UsersRound,
   PlusCircle,
   Globe,
+  MessageCircle,
+  HelpCircle,
+  TrendingUp,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from './Logo';
@@ -41,9 +44,11 @@ const mainNav: NavItem[] = [
   { label: 'Crear', href: '/create', icon: PlusCircle },
   { label: 'Comunidad', href: '/community', icon: Globe },
   { label: 'Social', href: '/social', icon: UsersRound },
+  { label: 'Messages', href: '/messages', icon: MessageCircle },
   { label: 'History', href: '/history', icon: History },
   { label: 'Achievements', href: '/achievements', icon: Trophy },
   { label: 'Leaderboard', href: '/leaderboard', icon: Medal },
+  { label: 'Stats', href: '/stats', icon: TrendingUp },
   { label: 'Analytics', href: '/analytics', icon: BarChart3 },
 ];
 
@@ -54,6 +59,7 @@ const adminNav: NavItem[] = [
 ];
 
 const bottomNav: NavItem[] = [
+  { label: 'Help', href: '/help', icon: HelpCircle },
   { label: 'Ajustes', href: '/settings', icon: Settings },
   { label: 'Profile', href: '/profile', icon: User },
 ];
