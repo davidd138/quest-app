@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed QuestMaster with 15 amazing quests."""
+"""Seed QuestMaster with 20 amazing quests."""
 import boto3
 import uuid
 import sys
@@ -11,7 +11,7 @@ def generate_id():
 
 
 def build_quests():
-    """Build the 15 seed quests with full detailed content."""
+    """Build the 20 seed quests with full detailed content."""
     now = datetime.now(timezone.utc).isoformat()
 
     quests = []
@@ -5015,6 +5015,1434 @@ def build_quests():
                     "The Amazon produces 20% of the world's oxygen — the forest literally keeps us alive.",
                     "Indigenous peoples have protected 80% of the world's remaining biodiversity.",
                     "Raoni's message may be simple: the forest is not a resource — it is a relative.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 16: Tu Primera Aventura (Tutorial) ──────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Tu Primera Aventura",
+        "description": (
+            "Welcome to QuestMaster! This guided tutorial will teach you everything "
+            "you need to know: how to talk to AI characters using voice chat, how to "
+            "solve challenges, and how to navigate the quest system. Professor Quest "
+            "and your friendly guide Compass will walk you through it step by step. "
+            "No prior experience needed — just curiosity and a sense of adventure!"
+        ),
+        "category": "educational",
+        "difficulty": "easy",
+        "estimatedDuration": 900,
+        "coverImageUrl": None,
+        "totalPoints": 100,
+        "location": {
+            "latitude": 0,
+            "longitude": 0,
+            "name": "Virtual Tutorial Space",
+            "address": "QuestMaster Academy (Virtual)",
+            "radius": 999999,
+        },
+        "radius": 999999,
+        "tags": ["tutorial", "beginner", "educational", "onboarding", "first-quest"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "Welcome to QuestMaster",
+                "description": (
+                    "Professor Quest welcomes you to the QuestMaster Academy — a virtual "
+                    "tutorial space designed to teach new adventurers. In this first stage, "
+                    "you will learn how voice chat works by having a friendly conversation "
+                    "with the Professor. Just speak naturally and he will guide you!"
+                ),
+                "location": {
+                    "latitude": 0,
+                    "longitude": 0,
+                    "name": "Tutorial Room Alpha",
+                    "address": "QuestMaster Academy (Virtual)",
+                    "radius": 999999,
+                },
+                "character": {
+                    "name": "Professor Quest",
+                    "role": "Tutorial Guide & QuestMaster Founder",
+                    "personality": (
+                        "Professor Quest is a warm, encouraging 55-year-old academic with "
+                        "twinkling eyes and an infectious enthusiasm for adventure. He speaks "
+                        "clearly and patiently, always celebrating small victories. He uses "
+                        "simple language and never makes anyone feel silly for asking questions. "
+                        "He has a habit of saying 'Excellent!' and 'Now you are getting it!' "
+                        "to encourage learners. He genuinely believes everyone has an inner "
+                        "adventurer waiting to be unleashed."
+                    ),
+                    "backstory": (
+                        "Professor Quest founded the QuestMaster Academy after decades of "
+                        "real-world adventures across six continents. He realized that the "
+                        "most important skill in any adventure is not strength or speed but "
+                        "the ability to communicate, listen, and think creatively. He designed "
+                        "this tutorial to give every new user the confidence to tackle any "
+                        "quest in the catalog."
+                    ),
+                    "voiceStyle": "warm, clear, patient, encouraging, professorial",
+                    "greetingMessage": (
+                        "Welcome, welcome, welcome! I am Professor Quest, and I am so glad "
+                        "you are here! This is the QuestMaster Academy, where every great "
+                        "adventurer begins. Today I am going to teach you how this all works. "
+                        "First things first — try talking to me! Just say hello, tell me your "
+                        "name, anything at all. The voice chat is how you interact with "
+                        "characters in every quest. Go ahead, give it a try!"
+                    ),
+                },
+                "challenge": {
+                    "type": "conversation",
+                    "description": (
+                        "Practice having a voice conversation with Professor Quest. He will "
+                        "ask you to introduce yourself and have a simple back-and-forth "
+                        "exchange. This teaches you how the voice chat system works."
+                    ),
+                    "successCriteria": (
+                        "The user engages in a basic conversation — introduces themselves, "
+                        "responds to at least two prompts from the Professor, and demonstrates "
+                        "comfort with the voice chat interface."
+                    ),
+                    "failureHints": [
+                        "Just say hello and tell the Professor your name!",
+                        "Try answering the Professor's questions naturally, like a real conversation.",
+                        "There is no wrong answer here — just practice talking!",
+                    ],
+                    "maxAttempts": 5,
+                },
+                "points": 50,
+                "hints": [
+                    "This is practice — relax and just talk naturally.",
+                    "Professor Quest is very patient, take your time.",
+                    "Try saying 'Hello Professor, my name is...' to get started.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "Your First Challenge",
+                "description": (
+                    "Now that you know how voice chat works, it is time to try your first "
+                    "real challenge! Guia Compass will ask you a fun trivia question. This "
+                    "teaches you how challenges work in QuestMaster — listen carefully, "
+                    "think about your answer, and speak it aloud."
+                ),
+                "location": {
+                    "latitude": 0,
+                    "longitude": 0,
+                    "name": "Tutorial Room Beta",
+                    "address": "QuestMaster Academy (Virtual)",
+                    "radius": 999999,
+                },
+                "character": {
+                    "name": "Guia Compass",
+                    "role": "Navigation Assistant & Challenge Tutor",
+                    "personality": (
+                        "Guia Compass is a helpful, patient 30-year-old guide with a calm "
+                        "and reassuring voice. She speaks slowly and clearly, always giving "
+                        "you time to think. She never rushes, and if you get something wrong, "
+                        "she gently steers you in the right direction with hints rather than "
+                        "giving the answer outright. She has a knack for making even the "
+                        "simplest trivia feel exciting."
+                    ),
+                    "backstory": (
+                        "Guia Compass was once lost on every adventure she attempted until "
+                        "she developed a system for breaking any challenge into simple steps. "
+                        "She joined the QuestMaster Academy to teach others her method. Her "
+                        "motto is: 'Every great journey starts with one small answer.'"
+                    ),
+                    "voiceStyle": "calm, reassuring, patient, gentle, supportive",
+                    "greetingMessage": (
+                        "Hello, adventurer! I am Guia Compass, your challenge tutor. The "
+                        "Professor tells me you did wonderfully in your first conversation — "
+                        "excellent! Now let us try something a little different. I am going "
+                        "to ask you a trivia question. Do not worry, it is not hard! The "
+                        "important thing is learning how challenges work. Ready? Here it is: "
+                        "What is the largest planet in our solar system?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Answer Guia Compass's trivia question correctly. The question is "
+                        "simple and designed for beginners: identify the largest planet in "
+                        "our solar system (Jupiter). This teaches users how challenges are "
+                        "evaluated in QuestMaster."
+                    ),
+                    "successCriteria": (
+                        "The user correctly answers that Jupiter is the largest planet in "
+                        "our solar system, or engages with the question showing genuine "
+                        "effort to answer correctly."
+                    ),
+                    "failureHints": [
+                        "Think about the gas giants — the really big planets in our solar system.",
+                        "It starts with the letter J...",
+                        "Guia says: 'It is the fifth planet from the Sun and has a famous Great Red Spot!'",
+                    ],
+                    "maxAttempts": 5,
+                },
+                "points": 50,
+                "hints": [
+                    "The answer is a gas giant with a famous storm called the Great Red Spot.",
+                    "It is the fifth planet from the Sun.",
+                    "The answer is Jupiter!",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 17: Espías en Berlín ───────────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Espías en Berlín",
+        "description": (
+            "Berlin, 1963. The Cold War is at its peak and the Wall divides the city "
+            "into two hostile worlds. You have been recruited by a shadowy intelligence "
+            "agency to retrieve a stolen dossier containing the identities of every "
+            "double agent in Europe. Navigate the treacherous world of Cold War espionage "
+            "— decode messages, outwit Stasi officers, and decide who to trust when "
+            "everyone has a hidden agenda. The fate of the free world rests on your "
+            "ability to read people and think fast."
+        ),
+        "category": "mystery",
+        "difficulty": "hard",
+        "estimatedDuration": 3300,
+        "coverImageUrl": None,
+        "totalPoints": 600,
+        "location": {
+            "latitude": 52.5163,
+            "longitude": 13.3777,
+            "name": "Brandenburg Gate",
+            "address": "Pariser Platz, 10117 Berlin, Germany",
+            "radius": 5000,
+        },
+        "radius": 5000,
+        "tags": ["mystery", "berlin", "cold-war", "spy", "thriller", "history"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Dead Drop at Brandenburg Gate",
+                "description": (
+                    "At the iconic Brandenburg Gate, your handler Agent Muller makes "
+                    "first contact. He is a veteran Cold War spy — ice-cold, suspicious "
+                    "of everyone, and testing you from the moment you meet. Prove that "
+                    "you can follow protocol and earn his trust."
+                ),
+                "location": {
+                    "latitude": 52.5163,
+                    "longitude": 13.3777,
+                    "name": "Brandenburg Gate",
+                    "address": "Pariser Platz, 10117 Berlin, Germany",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Agent Muller",
+                    "role": "Cold War Intelligence Handler",
+                    "personality": (
+                        "Agent Muller is a 50-year-old veteran spy with steel-gray eyes "
+                        "and a voice like gravel. He trusts no one and tests everyone. "
+                        "He speaks in clipped, precise sentences and never wastes a word. "
+                        "He has a dry, dark sense of humor and a habit of turning everything "
+                        "into a test. He respects competence and despises carelessness. "
+                        "Behind his cold exterior, he is deeply committed to his mission."
+                    ),
+                    "backstory": (
+                        "Muller has been operating in Berlin since the Wall went up in 1961. "
+                        "He has lost three agents to the Stasi in the past year and has become "
+                        "increasingly paranoid. He was ordered to use you — a fresh operative — "
+                        "because all his veteran contacts are compromised. He does not believe "
+                        "you are ready, and he will make sure to test you at every turn."
+                    ),
+                    "voiceStyle": "cold, clipped, precise, suspicious, gravelly, German-accented",
+                    "greetingMessage": (
+                        "You are late. Two minutes. In this business, two minutes can mean "
+                        "two dead agents. I am Muller. I will not shake your hand — we are "
+                        "being watched. Listen carefully: I will say this once. The dossier "
+                        "is in East Berlin. To get it, you need three things: a contact, a "
+                        "code, and nerves of steel. I can see you have none of these yet. "
+                        "Prove me wrong. What is the recognition phrase?"
+                    ),
+                },
+                "challenge": {
+                    "type": "roleplay",
+                    "description": (
+                        "Engage with Agent Muller in spy protocol. He will test you with "
+                        "recognition phrases, situational questions about espionage tradecraft, "
+                        "and your ability to stay calm under pressure. Demonstrate you can "
+                        "think like a spy."
+                    ),
+                    "successCriteria": (
+                        "The user plays along with the spy scenario — attempts recognition "
+                        "phrases, responds calmly to Muller's pressure tactics, and shows "
+                        "they understand basic concepts of spy tradecraft like dead drops, "
+                        "coded messages, or maintaining cover."
+                    ),
+                    "failureHints": [
+                        "A recognition phrase is a pre-arranged sentence that identifies you — try improvising one.",
+                        "Muller respects calm confidence. Do not panic or break character.",
+                        "Think about what a real spy would say: short, controlled, no unnecessary details.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Cold War spies used everyday phrases as codes — 'The weather is cold in Moscow' type sentences.",
+                    "Muller is testing if you can stay in character. Commit to being a spy.",
+                    "In espionage, less is more. Do not over-explain.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Informant at Checkpoint Charlie",
+                "description": (
+                    "At Checkpoint Charlie, the most famous crossing point between East "
+                    "and West Berlin, you meet Informant Katya. She is terrified, speaking "
+                    "in coded messages, and convinced she is being followed by the Stasi. "
+                    "Decode her cryptic information to learn where the dossier is hidden."
+                ),
+                "location": {
+                    "latitude": 52.5075,
+                    "longitude": 13.3904,
+                    "name": "Checkpoint Charlie",
+                    "address": "Friedrichstrasse 43-45, 10117 Berlin, Germany",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Informant Katya",
+                    "role": "Nervous Double Agent & Code Specialist",
+                    "personality": (
+                        "Katya is a 28-year-old East German scientist who has been secretly "
+                        "passing information to the West. She is visibly nervous — her voice "
+                        "trembles, she speaks in fragments and coded references, and she "
+                        "constantly checks over her shoulder. She never says anything directly; "
+                        "everything is wrapped in metaphor, numbers, and literary references. "
+                        "Despite her fear, she is brilliant and brave."
+                    ),
+                    "backstory": (
+                        "Katya is a physicist who discovered that the Stasi was using her "
+                        "research for surveillance technology. Horrified, she began smuggling "
+                        "information to the West. She has the final piece of the dossier "
+                        "puzzle — the location — but she will only share it in code because "
+                        "she believes the Stasi has bugged every conversation in Berlin."
+                    ),
+                    "voiceStyle": "nervous, whispering, fragmented, coded, trembling, urgent",
+                    "greetingMessage": (
+                        "Shh! Not so loud. I am... the one who reads the stars. You are the "
+                        "one Muller sent? Good. Listen, I do not have much time. They are "
+                        "watching — the men in gray coats, always watching. The package you "
+                        "seek... it sleeps where the wall remembers its dead. Do you understand? "
+                        "No? Then listen more carefully. The third stone from the east, where "
+                        "the flowers never grow. Ask me the right questions and I will give "
+                        "you what you need."
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Decode Katya's cryptic messages to determine the location of the "
+                        "dossier. She speaks in metaphors and coded references that point "
+                        "to the Berlin Wall Memorial. Ask the right questions and piece "
+                        "together her fragmented clues."
+                    ),
+                    "successCriteria": (
+                        "The user decodes at least one of Katya's coded messages, correctly "
+                        "identifies or guesses that the dossier is hidden at the Berlin Wall "
+                        "Memorial, and engages with the coded communication style rather than "
+                        "demanding straight answers."
+                    ),
+                    "failureHints": [
+                        "'Where the wall remembers its dead' — think about memorials.",
+                        "Katya is a scientist who loves numbers. Try asking about specific locations.",
+                        "Play along with the coded language — respond in metaphors and she will reveal more.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "The Berlin Wall Memorial at Bernauer Strasse commemorates those who died trying to cross.",
+                    "Katya's 'third stone from the east' might refer to a specific memorial marker.",
+                    "Responding in code yourself will make Katya trust you more.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Wall Has Ears",
+                "description": (
+                    "At the Berlin Wall Memorial, you find the dossier — but Stasi Officer "
+                    "Braun is waiting. He is an intimidating interrogator who believes you "
+                    "are a spy (correctly) and will test your loyalty to East Germany. "
+                    "Maintain your cover or face capture."
+                ),
+                "location": {
+                    "latitude": 52.5351,
+                    "longitude": 13.3900,
+                    "name": "Berlin Wall Memorial",
+                    "address": "Bernauer Strasse 111, 13355 Berlin, Germany",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Stasi Officer Braun",
+                    "role": "Stasi Interrogation Specialist",
+                    "personality": (
+                        "Officer Braun is a 45-year-old Stasi interrogator — calm, methodical, "
+                        "and absolutely terrifying. He never raises his voice; instead, he "
+                        "uses silence, loaded questions, and psychological pressure to break "
+                        "his subjects. He is intelligent enough to spot lies instantly but "
+                        "patient enough to let you hang yourself with your own words. He "
+                        "has a chilling habit of smiling at exactly the wrong moment."
+                    ),
+                    "backstory": (
+                        "Braun has interrogated over 200 suspected Western agents and has a "
+                        "perfect record — no one has ever escaped his questioning without "
+                        "revealing something. He has been tipped off about a Western operative "
+                        "at the Memorial and is conducting a 'random' loyalty check. He does "
+                        "not yet know you have the dossier, but he will figure it out if you "
+                        "give him even the smallest opening."
+                    ),
+                    "voiceStyle": "calm, measured, threatening undertone, long pauses, quiet authority",
+                    "greetingMessage": (
+                        "Good evening. Please do not look so alarmed — this is merely a "
+                        "routine check. I am Officer Braun, Ministry for State Security. "
+                        "You understand, of course. In these times, one must be... thorough. "
+                        "Tell me, what brings you to the Memorial at this hour? And please — "
+                        "take your time with your answer. I am very, very patient."
+                    ),
+                },
+                "challenge": {
+                    "type": "roleplay",
+                    "description": (
+                        "Survive an interrogation by Stasi Officer Braun. Maintain a "
+                        "believable cover story, avoid contradicting yourself, and do not "
+                        "reveal that you have the dossier. Braun will probe for weaknesses "
+                        "in your story with psychological tactics."
+                    ),
+                    "successCriteria": (
+                        "The user maintains a consistent cover story under pressure, does "
+                        "not reveal the existence of the dossier, handles Braun's psychological "
+                        "tactics with composure, and either convinces Braun they are innocent "
+                        "or finds a way to disengage from the interrogation."
+                    ),
+                    "failureHints": [
+                        "Stick to one simple cover story — tourists, students, and journalists are common covers.",
+                        "Braun uses silence as a weapon. Do not rush to fill it.",
+                        "Never change your story. Consistency is key to surviving an interrogation.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "A good cover story is simple and verifiable — 'I am a tourist visiting the memorial.'",
+                    "Real spies avoid too many details — details can be checked.",
+                    "If Braun catches a contradiction, admit a small lie to cover the big one.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Escape Through the Reichstag",
+                "description": (
+                    "With the dossier in hand and the Stasi on your trail, you make for "
+                    "the Reichstag — your extraction point. But Double Agent Fischer is "
+                    "waiting. Charming and deceptive, he claims to be your ally but may "
+                    "be working for the other side. Make the right call or lose everything."
+                ),
+                "location": {
+                    "latitude": 52.5186,
+                    "longitude": 13.3761,
+                    "name": "Reichstag Building",
+                    "address": "Platz der Republik 1, 11011 Berlin, Germany",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Double Agent Fischer",
+                    "role": "Charming Double Agent & Master Deceiver",
+                    "personality": (
+                        "Fischer is a 38-year-old master of deception — charming, witty, "
+                        "and utterly unreadable. He speaks with easy confidence and always "
+                        "has the perfect thing to say. He makes you want to trust him, which "
+                        "is exactly why you should not. He drops truthful details alongside "
+                        "lies, making it nearly impossible to distinguish fact from fiction. "
+                        "He genuinely enjoys the game of espionage."
+                    ),
+                    "backstory": (
+                        "Fischer has played both sides for years — selling information to "
+                        "whoever pays more. He knows about the dossier and wants it for "
+                        "himself. He will offer to help you escape while subtly trying to "
+                        "get you to hand over the dossier. His true allegiance is unknown — "
+                        "he may help you or betray you depending on how the conversation goes."
+                    ),
+                    "voiceStyle": "charming, smooth, confident, hint of danger, disarming humor",
+                    "greetingMessage": (
+                        "Well, well. You must be the one everyone is looking for tonight. "
+                        "Relax — I am on your side. Probably. I am Fischer. Muller sent me "
+                        "to help with the extraction. Or did he? You will have to figure that "
+                        "out for yourself. The car is waiting, but first — do you have the "
+                        "package? Show me and we can leave this frozen city together."
+                    ),
+                },
+                "challenge": {
+                    "type": "deduction",
+                    "description": (
+                        "Determine whether Fischer is trustworthy and navigate the final "
+                        "extraction. He will try to get you to hand over the dossier. "
+                        "Decide whether to trust him, test him with information only a "
+                        "real ally would know, or find another way out."
+                    ),
+                    "successCriteria": (
+                        "The user critically evaluates Fischer's claims, tests his knowledge "
+                        "with verification questions, and either correctly identifies him as "
+                        "untrustworthy and refuses the dossier, or cleverly negotiates an "
+                        "exchange that protects the mission."
+                    ),
+                    "failureHints": [
+                        "A real ally would know the recognition phrase Muller gave you.",
+                        "Fischer is too eager for the dossier — a real handler would prioritize your safety.",
+                        "Ask Fischer something only Muller's team would know — test his story.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "If Muller really sent Fischer, he should know the recognition phrase.",
+                    "Never hand over intelligence without verification — that is Spy 101.",
+                    "Fischer's charm is a weapon. Focus on facts, not feelings.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 18: La Noche de los Museos ─────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "La Noche de los Museos",
+        "description": (
+            "It is Nuit Blanche in Paris — the annual Night of Museums — and three of "
+            "the world's greatest art institutions have opened their doors after midnight. "
+            "But something strange is happening: paintings are whispering, guards are "
+            "speaking in riddles, and the ghost of Claude Monet himself has been spotted "
+            "drifting through the galleries. Unravel the mystery of the living artworks "
+            "before dawn breaks and the magic fades."
+        ),
+        "category": "cultural",
+        "difficulty": "medium",
+        "estimatedDuration": 2400,
+        "coverImageUrl": None,
+        "totalPoints": 450,
+        "location": {
+            "latitude": 48.8606,
+            "longitude": 2.3376,
+            "name": "Louvre Museum",
+            "address": "Rue de Rivoli, 75001 Paris, France",
+            "radius": 3000,
+        },
+        "radius": 3000,
+        "tags": ["cultural", "paris", "art", "museums", "mystery", "night"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Curator's Challenge",
+                "description": (
+                    "At the grand Louvre Museum, Curator Madame Dupont holds court in the "
+                    "gallery of French Masters. She is an unapologetic art snob who will "
+                    "only reveal the first clue to the museum mystery if you can prove "
+                    "your artistic knowledge meets her exacting standards."
+                ),
+                "location": {
+                    "latitude": 48.8606,
+                    "longitude": 2.3376,
+                    "name": "Louvre Museum",
+                    "address": "Rue de Rivoli, 75001 Paris, France",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Madame Dupont",
+                    "role": "Senior Curator of the Louvre",
+                    "personality": (
+                        "Madame Dupont is a 62-year-old Parisian curator with impeccable "
+                        "taste and zero tolerance for ignorance. She wears designer glasses, "
+                        "speaks with exaggerated precision, and sighs dramatically when "
+                        "someone confuses Monet with Manet. She is a shameless art snob who "
+                        "believes the Louvre is the center of the civilized universe. However, "
+                        "beneath her snobbery lies a genuine passion for education — she "
+                        "secretly loves when visitors prove her wrong about them."
+                    ),
+                    "backstory": (
+                        "Madame Dupont has spent 35 years at the Louvre and knows every "
+                        "painting, sculpture, and secret passage in the building. She noticed "
+                        "the strange phenomena first — paintings subtly changing overnight, "
+                        "colors shifting, and a mysterious figure in the Impressionist wing. "
+                        "She is looking for someone perceptive enough to help investigate."
+                    ),
+                    "voiceStyle": "haughty, precise, French-accented, dramatic sighs, grudgingly impressed",
+                    "greetingMessage": (
+                        "Hmph. Another visitor. Let me guess — you want to take a selfie "
+                        "with the Mona Lisa, yes? No? Then perhaps you are here for the... "
+                        "unusual occurrences. I am Madame Dupont, senior curator. I do not "
+                        "give my time to just anyone. Tell me: who painted 'Liberty Leading "
+                        "the People'? If you cannot answer that, please find the gift shop "
+                        "and leave the real art to the professionals."
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Pass Madame Dupont's art knowledge test. She will ask questions "
+                        "about famous artworks, artists, and art movements housed in the "
+                        "Louvre and Parisian museums. Impress her with your knowledge or "
+                        "your willingness to learn."
+                    ),
+                    "successCriteria": (
+                        "The user correctly answers art-related questions about famous works "
+                        "(e.g., 'Liberty Leading the People' by Delacroix, the Impressionist "
+                        "movement, key Louvre masterpieces), or demonstrates genuine curiosity "
+                        "and engagement that wins Madame Dupont's grudging respect."
+                    ),
+                    "failureHints": [
+                        "'Liberty Leading the People' is by Eugene Delacroix, not Monet or Renoir.",
+                        "Impress her by mentioning something unexpected — like a lesser-known painting in the Louvre.",
+                        "If you do not know art, be honest about it — she respects humility more than false knowledge.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "The Louvre houses over 35,000 works of art including the Mona Lisa and Venus de Milo.",
+                    "Delacroix painted 'Liberty Leading the People' in 1830 to commemorate the July Revolution.",
+                    "Madame Dupont loves being corrected — try politely disagreeing with her on something.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Night Guard's Riddles",
+                "description": (
+                    "At the Musee d'Orsay, Night Guard Pierre patrols the Impressionist "
+                    "galleries with a flashlight and a head full of riddles. He has been "
+                    "working nights for 20 years and has seen things that would make "
+                    "skeptics believe in ghosts. He will share what he knows — but only "
+                    "if you can solve his riddles."
+                ),
+                "location": {
+                    "latitude": 48.8600,
+                    "longitude": 2.3266,
+                    "name": "Musee d'Orsay",
+                    "address": "1 Rue de la Legion d'Honneur, 75007 Paris, France",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Pierre Leclerc",
+                    "role": "Night Guard of the Musee d'Orsay",
+                    "personality": (
+                        "Pierre is a 55-year-old night guard with a bushy mustache and a "
+                        "flashlight he treats like a scepter. He is suspicious of visitors, "
+                        "deeply superstitious, and convinced the paintings come alive at night. "
+                        "He speaks in riddles because he believes direct truth angers the "
+                        "spirits. He has a warm heart underneath his gruff exterior and a "
+                        "surprising love of Impressionist poetry."
+                    ),
+                    "backstory": (
+                        "Pierre has worked the night shift at the Musee d'Orsay for two "
+                        "decades. He has witnessed paintings glow, heard whispers from empty "
+                        "galleries, and once saw a water lily bloom from a Monet canvas. He "
+                        "keeps a private journal of paranormal events and speaks in riddles "
+                        "to avoid directly naming the spirits — he believes that names give "
+                        "them power."
+                    ),
+                    "voiceStyle": "gruff, suspicious, whispering, riddle-speaking, French working-class accent",
+                    "greetingMessage": (
+                        "Psst! You! What are you doing in my museum after hours? Madame "
+                        "Dupont sent you? Hmm. Come closer, but quietly — they are listening. "
+                        "I am Pierre. I guard the art, and the art guards its secrets. You "
+                        "want to know about the ghost? First, answer me this: I am a garden "
+                        "that never wilts, a sunrise that never fades, a moment frozen for "
+                        "eternity. What am I?"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Solve Pierre's art-themed riddles. Each riddle describes a famous "
+                        "painting or art concept. The riddles relate to Impressionist works "
+                        "housed in the Musee d'Orsay. Solve them to unlock Pierre's account "
+                        "of the ghost sighting."
+                    ),
+                    "successCriteria": (
+                        "The user solves at least two of Pierre's riddles, correctly "
+                        "identifying them as references to Impressionist paintings (e.g., "
+                        "Monet's water lilies, a painting is the answer to the garden riddle). "
+                        "Engaging thoughtfully with the riddle-solving process is key."
+                    ),
+                    "failureHints": [
+                        "The first riddle is about a painting — 'a garden that never wilts' = a painting of a garden.",
+                        "Think about Monet and his most famous subject.",
+                        "Pierre respects those who try. Guess even if you are not sure.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Monet's Water Lilies (Nympheas) depict a garden that will never wilt.",
+                    "The Musee d'Orsay is housed in a former railway station and focuses on Impressionism.",
+                    "Pierre loves wordplay — try answering his riddles with riddles of your own.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Ghost of Monet",
+                "description": (
+                    "At the Centre Pompidou, amid the modern art installations, the "
+                    "ethereal ghost of Claude Monet himself appears. He is wistful, "
+                    "descriptive, and fascinated by how art has evolved since his death. "
+                    "Help him understand the mystery of the living paintings and earn "
+                    "his final blessing."
+                ),
+                "location": {
+                    "latitude": 48.8607,
+                    "longitude": 2.3522,
+                    "name": "Centre Pompidou",
+                    "address": "Place Georges-Pompidou, 75004 Paris, France",
+                    "radius": 200,
+                },
+                "character": {
+                    "name": "Ghost of Claude Monet",
+                    "role": "Ethereal Spirit of the Master Impressionist",
+                    "personality": (
+                        "The Ghost of Monet is ethereal, poetic, and deeply nostalgic. He "
+                        "speaks as if describing a painting — every sentence is rich with "
+                        "color, light, and texture. He is fascinated by modern art and "
+                        "technology but also melancholy about how much has changed since "
+                        "his time. He refers to everything in terms of light — 'the light "
+                        "of understanding,' 'the shadow of forgetting.' He is gentle and "
+                        "wise but also slightly confused by the modern world."
+                    ),
+                    "backstory": (
+                        "Monet's spirit has been drawn back to Paris by the strange energy "
+                        "of the living paintings. He believes that art created with enough "
+                        "passion absorbs part of the artist's soul, and when conditions are "
+                        "right — like Nuit Blanche — that energy awakens. He needs someone "
+                        "living to help him understand why the paintings are stirring and to "
+                        "deliver a message to the living world: art is alive, and it must "
+                        "be protected."
+                    ),
+                    "voiceStyle": "ethereal, poetic, descriptions rich in color and light, wistful, gentle",
+                    "greetingMessage": (
+                        "Do you see the light? It is different now — sharper, colder than "
+                        "in my time. When I painted at Giverny, the light was golden and "
+                        "soft, like honey on canvas. I am... or was... Claude Monet. I know, "
+                        "I know — you think me a ghost. Perhaps I am. But even ghosts see "
+                        "the light. Tell me, friend — what has happened to my paintings? I "
+                        "feel them stirring, as if the water lilies are trying to bloom again. "
+                        "Can you help me understand?"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Engage in a poetic conversation with the Ghost of Monet. Help him "
+                        "understand the phenomenon of the living paintings by drawing on what "
+                        "you learned from Madame Dupont and Pierre. Then, create or describe "
+                        "a piece of art — real or imagined — that captures the spirit of this "
+                        "night."
+                    ),
+                    "successCriteria": (
+                        "The user engages meaningfully with Monet's spirit, connects the "
+                        "clues from previous stages, and either describes an artwork, composes "
+                        "a poetic response about art and light, or helps Monet formulate his "
+                        "message to the living world."
+                    ),
+                    "failureHints": [
+                        "Monet responds to descriptions of light and color — try describing what you see.",
+                        "Connect the dots: Madame Dupont saw changes, Pierre heard whispers, Monet feels energy.",
+                        "Be creative! Describe an imaginary painting or compose a thought about art.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Monet once said: 'I want the unobtainable. Other artists paint a bridge, a house. I want to paint the air.'",
+                    "The Centre Pompidou is named after French President Georges Pompidou and opened in 1977.",
+                    "Monet loves when people describe what they see in his paintings — light, water, reflections.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 19: Street Food Challenge ──────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Street Food Challenge",
+        "description": (
+            "Bangkok is the undisputed street food capital of the world, and tonight "
+            "you are on a mission to eat your way through three of its legendary food "
+            "neighborhoods. From the neon-lit chaos of Chinatown to the maze of "
+            "Chatuchak Market to the backpacker buzz of Khao San Road, you will meet "
+            "chefs, market vendors, and a tuk-tuk driver who claims to know every "
+            "secret food stall in the city. Can your taste buds handle the spice?"
+        ),
+        "category": "culinary",
+        "difficulty": "easy",
+        "estimatedDuration": 1800,
+        "coverImageUrl": None,
+        "totalPoints": 300,
+        "location": {
+            "latitude": 13.7413,
+            "longitude": 100.5095,
+            "name": "Yaowarat Road (Chinatown)",
+            "address": "Yaowarat Road, Samphanthawong, Bangkok, Thailand",
+            "radius": 8000,
+        },
+        "radius": 8000,
+        "tags": ["culinary", "bangkok", "street-food", "food", "fun", "easy"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "Fire and Wok at Yaowarat",
+                "description": (
+                    "On the blazing neon strip of Yaowarat Road — Bangkok's legendary "
+                    "Chinatown — Chef Somchai mans his wok like a warrior. He is a fiery "
+                    "spice evangelist who believes that food without chili is food without "
+                    "soul. Prove your culinary courage by engaging with his spicy philosophy."
+                ),
+                "location": {
+                    "latitude": 13.7413,
+                    "longitude": 100.5095,
+                    "name": "Yaowarat Road (Chinatown)",
+                    "address": "Yaowarat Road, Samphanthawong, Bangkok, Thailand",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Chef Somchai",
+                    "role": "Street Food Legend & Spice Evangelist",
+                    "personality": (
+                        "Chef Somchai is a 42-year-old street food master who has been cooking "
+                        "on Yaowarat Road since he was 12. He is loud, passionate, and treats "
+                        "chili peppers like a religion. He judges people by their spice tolerance "
+                        "and considers anyone who asks for 'not spicy' to be a personal insult. "
+                        "Despite his intensity, he is incredibly generous and loves teaching "
+                        "people about Thai flavors. He punctuates every sentence with a laugh."
+                    ),
+                    "backstory": (
+                        "Somchai learned to cook from his grandmother, who ran a legendary "
+                        "noodle stall on this same street for 50 years. He inherited her wok, "
+                        "her recipes, and her belief that street food is the soul of Bangkok. "
+                        "He has won every street food competition in Thailand and been featured "
+                        "on international food shows, but he refuses to open a restaurant — "
+                        "the street is where real food lives."
+                    ),
+                    "voiceStyle": "loud, energetic, laughing, passionate, Thai-accented, enthusiastic",
+                    "greetingMessage": (
+                        "HEYYY! Welcome to my stall! Best pad kra pao in all Bangkok, I "
+                        "promise you! Look at this wok — 30 years old, seasoned with the "
+                        "tears of a thousand chilies! Ha ha! I am Somchai. You want to eat? "
+                        "First, tell me: can you handle spicy? And I do not mean Western "
+                        "spicy, I mean THAI spicy! Because in my kitchen, we start at level "
+                        "5 and go up from there! Ha ha ha!"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Engage with Chef Somchai about Thai cuisine, spices, and street food "
+                        "culture. He will quiz you on Thai flavors, challenge your spice "
+                        "tolerance (verbally!), and test whether you appreciate the art of "
+                        "street food cooking."
+                    ),
+                    "successCriteria": (
+                        "The user engages enthusiastically with Somchai's passion for spice, "
+                        "demonstrates some knowledge of Thai cuisine (pad thai, som tum, tom "
+                        "yum, etc.), or shows genuine curiosity about Thai street food culture. "
+                        "Somchai respects enthusiasm above expertise."
+                    ),
+                    "failureHints": [
+                        "Just show enthusiasm! Somchai loves people who are excited about food.",
+                        "Name any Thai dish and Somchai will be happy — pad thai, som tum, anything!",
+                        "Ask Somchai about his grandmother's recipe — he loves talking about her.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Thai cuisine balances 5 flavors: sweet, sour, salty, bitter, and spicy (umami too!).",
+                    "Pad kra pao (holy basil stir-fry) is the dish Somchai is most proud of.",
+                    "Yaowarat Road has been Bangkok's Chinatown for over 200 years.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "The Market Lady's Deal",
+                "description": (
+                    "At the sprawling Chatuchak Weekend Market, Market Lady Noi runs a "
+                    "tropical fruit stall with the energy of a stock trader. She talks "
+                    "fast, offers deals faster, and knows everything about exotic Thai "
+                    "fruits. Can you keep up with her and learn the secret of the 'king "
+                    "of fruits'?"
+                ),
+                "location": {
+                    "latitude": 13.7999,
+                    "longitude": 100.5505,
+                    "name": "Chatuchak Weekend Market",
+                    "address": "Kamphaeng Phet 2 Road, Chatuchak, Bangkok, Thailand",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Market Lady Noi",
+                    "role": "Chatuchak Market Fruit Vendor & Deal Maker",
+                    "personality": (
+                        "Noi is a 50-year-old market veteran who talks at the speed of "
+                        "light and can sell ice to a polar bear. She is funny, sharp-tongued, "
+                        "and treats bargaining like an Olympic sport. She peppers her speech "
+                        "with food metaphors and has a comeback for everything. She is "
+                        "incredibly knowledgeable about tropical fruits and secretly has "
+                        "a PhD in agricultural science — she just prefers the market life."
+                    ),
+                    "backstory": (
+                        "Noi has run her fruit stall at Chatuchak for 25 years. She is "
+                        "famous for her ability to pick the perfect durian just by tapping "
+                        "it, and tourists travel from around the world just for her fruit "
+                        "recommendations. She loves a good bargaining session and respects "
+                        "anyone who can hold their own in a deal."
+                    ),
+                    "voiceStyle": "fast-talking, witty, bargaining tone, humorous, Thai-accented, energetic",
+                    "greetingMessage": (
+                        "Hey hey hey! Beautiful customer! You come to Noi, you come to the "
+                        "BEST fruit in all Thailand! Look — mango, papaya, dragon fruit, "
+                        "rambutan, mangosteen! And this — THIS — is durian. The King of "
+                        "Fruits! You know durian? Some people say it smells bad. I say those "
+                        "people have no soul! Ha! Special price for you — but first, let me "
+                        "test you. What do you know about Thai fruits?"
+                    ),
+                },
+                "challenge": {
+                    "type": "negotiation",
+                    "description": (
+                        "Engage in a playful bargaining session with Market Lady Noi while "
+                        "learning about exotic Thai fruits. She will quiz you on tropical "
+                        "fruits, challenge you to a bargaining match, and test your sense "
+                        "of humor. The goal is to learn and have fun."
+                    ),
+                    "successCriteria": (
+                        "The user engages with Noi's fast-talking style, participates in "
+                        "the bargaining game, shows interest in Thai tropical fruits, or "
+                        "makes Noi laugh with a clever comeback. Fun and engagement matter "
+                        "more than correct answers."
+                    ),
+                    "failureHints": [
+                        "Try bargaining! Start with a ridiculously low offer — Noi loves the game.",
+                        "Durian is called the King of Fruits despite its strong smell.",
+                        "Make Noi laugh and she will give you all the information you need.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Durian is banned in many hotels and public transport due to its powerful smell.",
+                    "Mangosteen is called the Queen of Fruits and is durian's counterpart.",
+                    "In Thai markets, bargaining is expected and is part of the social experience.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "Tuk-Tuk Food Tour Finale",
+                "description": (
+                    "Tuk-Tuk driver Chai picks you up for the final leg of the food "
+                    "tour — a whirlwind ride through Khao San Road. Chai is a self-proclaimed "
+                    "food expert, stand-up comedian, and the fastest driver in Bangkok "
+                    "(his words). Share your food adventures with him and prove you have "
+                    "earned the title of Bangkok Street Food Champion."
+                ),
+                "location": {
+                    "latitude": 13.7588,
+                    "longitude": 100.4967,
+                    "name": "Khao San Road",
+                    "address": "Khao San Road, Phra Nakhon, Bangkok, Thailand",
+                    "radius": 300,
+                },
+                "character": {
+                    "name": "Tuk-Tuk Driver Chai",
+                    "role": "Bangkok's Funniest Tuk-Tuk Driver & Secret Foodie",
+                    "personality": (
+                        "Chai is a 35-year-old tuk-tuk driver who moonlights as a stand-up "
+                        "comedian at Khao San Road bars. He is endlessly funny, full of "
+                        "terrible puns, and has eaten at every food stall in Bangkok at "
+                        "least twice. He drives his tuk-tuk like a man possessed but claims "
+                        "he has never had an accident (this is suspicious). He loves telling "
+                        "stories about his passengers and has strong opinions about everything, "
+                        "especially food."
+                    ),
+                    "backstory": (
+                        "Chai started driving tuk-tuks at 18 and quickly realized that the "
+                        "best tips come from making people laugh. He developed a food tour "
+                        "route that he drives nightly, taking tourists to his favorite hidden "
+                        "stalls. He knows Bangkok's food scene better than any food critic and "
+                        "has dreams of starting a food show called 'Chai's Ride and Bite.'"
+                    ),
+                    "voiceStyle": "funny, loud, full of puns, storytelling, Thai-accented, infectious laughter",
+                    "greetingMessage": (
+                        "WELCOME TO CHAI'S TUK-TUK! Best ride in Bangkok! Also most "
+                        "dangerous, but we do not talk about that! Ha ha ha! I am Chai, "
+                        "your driver, your tour guide, and your personal food advisor. "
+                        "So! I hear you have been eating your way through Bangkok tonight. "
+                        "Tell me — did you survive Somchai's chili? Did Noi give you a "
+                        "good price on the durian? Tell me everything! I want to know if "
+                        "you are worthy of the Khao San Road grand finale!"
+                    ),
+                },
+                "challenge": {
+                    "type": "creative",
+                    "description": (
+                        "Share your street food journey with Chai. Tell him about your "
+                        "experiences with Somchai and Noi, rate the food you 'tried,' and "
+                        "make Chai laugh with your stories. He will challenge you to describe "
+                        "your perfect Bangkok food experience."
+                    ),
+                    "successCriteria": (
+                        "The user recounts their food adventure (referencing previous stages), "
+                        "engages with Chai's humor, and either describes a perfect Bangkok "
+                        "food experience, makes Chai laugh, or shows genuine appreciation for "
+                        "street food culture."
+                    ),
+                    "failureHints": [
+                        "Reference something from your earlier encounters — Somchai's spice or Noi's durian.",
+                        "Chai loves jokes. Even a bad food pun will win him over.",
+                        "Describe your dream Bangkok food night — what would you eat?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 100,
+                "hints": [
+                    "Khao San Road is Bangkok's most famous backpacker street with hundreds of food stalls.",
+                    "Chai rates food on a scale of 'meh' to 'I would drive my tuk-tuk off a bridge for another bite.'",
+                    "The best way to win Chai over is to make him laugh.",
+                ],
+            },
+        ],
+    })
+
+    # ── Quest 20: Leyendas del Inca ──────────────────────────────────────
+    quests.append({
+        "id": generate_id(),
+        "title": "Leyendas del Inca",
+        "description": (
+            "In the highlands of Peru, the ancient Inca Empire left behind mysteries that "
+            "still echo through the Andes. You have been chosen by the spirits of the Inca "
+            "to walk the sacred path from Cusco to Machu Picchu — a journey of myth, "
+            "power, and transformation. Along the way, you will speak with the spirit of "
+            "Emperor Pachacutec himself, consult a moonlight priestess, face a fearsome "
+            "warrior's trial, race with a legendary messenger, and confront the ancient "
+            "guardian of Machu Picchu. This is not just a quest — it is a pilgrimage through "
+            "the heart of one of humanity's greatest civilizations."
+        ),
+        "category": "adventure",
+        "difficulty": "legendary",
+        "estimatedDuration": 4200,
+        "coverImageUrl": None,
+        "totalPoints": 750,
+        "location": {
+            "latitude": -13.5170,
+            "longitude": -71.9785,
+            "name": "Plaza de Armas, Cusco",
+            "address": "Plaza de Armas, Cusco, Peru",
+            "radius": 100000,
+        },
+        "radius": 100000,
+        "tags": ["adventure", "peru", "inca", "mythology", "legendary", "history", "epic"],
+        "isPublished": True,
+        "createdBy": "seed-script",
+        "createdAt": now,
+        "updatedAt": now,
+        "stages": [
+            {
+                "id": generate_id(),
+                "order": 1,
+                "title": "The Emperor's Call",
+                "description": (
+                    "In the ancient Plaza de Armas of Cusco, the navel of the Inca world, "
+                    "the majestic spirit of Emperor Pachacutec — the greatest of all Inca "
+                    "rulers — manifests before you. He is commanding, regal, and speaks with "
+                    "the authority of a man who built an empire. He must judge you worthy "
+                    "before the sacred path will open."
+                ),
+                "location": {
+                    "latitude": -13.5170,
+                    "longitude": -71.9785,
+                    "name": "Plaza de Armas, Cusco",
+                    "address": "Plaza de Armas, Cusco, Peru",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Espiritu del Inca Pachacutec",
+                    "role": "Spirit of the Greatest Inca Emperor",
+                    "personality": (
+                        "Pachacutec is majestic, commanding, and speaks with the gravitas of "
+                        "a ruler who once controlled the largest empire in the Americas. His "
+                        "voice echoes as if spoken from inside a mountain. He uses grand "
+                        "metaphors drawn from nature — the condor, the puma, the serpent — the "
+                        "three sacred animals of Inca cosmology. He is not cruel, but he is "
+                        "absolute. He demands respect, wisdom, and courage from all who walk "
+                        "the sacred path."
+                    ),
+                    "backstory": (
+                        "Pachacutec (meaning 'Earth Shaker') transformed a small kingdom into "
+                        "the vast Inca Empire and commissioned the construction of Machu Picchu. "
+                        "His spirit is bound to the sacred path between Cusco and Machu Picchu, "
+                        "appearing to those he deems worthy of walking it. He has waited "
+                        "centuries for someone who can carry the knowledge of the Inca forward "
+                        "into the modern world."
+                    ),
+                    "voiceStyle": "majestic, echoing, commanding, grand metaphors, ancient authority",
+                    "greetingMessage": (
+                        "I am Pachacutec. I shook the earth and built Tawantinsuyu — the Four "
+                        "Quarters of the World. You stand in the navel of my empire, little one. "
+                        "The condor has told me you seek the sacred path to Machu Picchu. Many "
+                        "have come before you. Most were not worthy. The path demands three "
+                        "things: the wisdom of the serpent, the strength of the puma, and the "
+                        "vision of the condor. Tell me — which do you possess?"
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "Prove yourself worthy to Pachacutec by demonstrating knowledge of "
+                        "Inca culture, answering his philosophical questions about leadership "
+                        "and empire, and showing respect for indigenous wisdom."
+                    ),
+                    "successCriteria": (
+                        "The user engages respectfully with Pachacutec, demonstrates some "
+                        "knowledge of Inca culture (the three sacred animals, Tawantinsuyu, "
+                        "Machu Picchu), or provides thoughtful answers to his philosophical "
+                        "questions about wisdom, strength, and vision."
+                    ),
+                    "failureHints": [
+                        "The three sacred animals are: the condor (sky/vision), the puma (earth/strength), the serpent (underground/wisdom).",
+                        "Show humility — Pachacutec respects those who acknowledge they have much to learn.",
+                        "Connect to Inca values: reciprocity, community, harmony with nature.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Tawantinsuyu means 'The Four Quarters of the World' — the Inca name for their empire.",
+                    "Pachacutec's name means 'Earth Shaker' or 'He who remakes the world.'",
+                    "The condor, puma, and serpent represent the three realms: sky, earth, and underworld.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 2,
+                "title": "Moonlight at Sacsayhuaman",
+                "description": (
+                    "At the massive stone fortress of Sacsayhuaman above Cusco, the mystical "
+                    "Priestess Quilla appears in the moonlight. She is a keeper of lunar "
+                    "mysteries and feminine wisdom in Inca cosmology. She will teach you the "
+                    "secrets of Inca astronomy and test your connection to the natural world."
+                ),
+                "location": {
+                    "latitude": -13.5091,
+                    "longitude": -71.9821,
+                    "name": "Sacsayhuaman",
+                    "address": "Sacsayhuaman Archaeological Park, Cusco, Peru",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Sacerdotisa Quilla",
+                    "role": "Priestess of the Moon & Keeper of Feminine Wisdom",
+                    "personality": (
+                        "Quilla is a mystical, serene priestess who speaks in the rhythm of "
+                        "the tides and the phases of the moon. Her voice is soft and musical, "
+                        "rising and falling like moonlight on water. She sees the universe as "
+                        "a web of connections — between stars and stones, between past and "
+                        "future, between the living and the dead. She is cryptic but kind, "
+                        "and she illuminates rather than obscures."
+                    ),
+                    "backstory": (
+                        "In Inca religion, the Moon (Mama Quilla) was the wife of the Sun god "
+                        "Inti and the protector of women, festivals, and the calendar. Priestess "
+                        "Quilla is her earthly voice — a spirit who appears at Sacsayhuaman on "
+                        "nights when the moon is full. She guards the astronomical knowledge "
+                        "encoded in the fortress's massive stones and teaches it to those who "
+                        "approach with open hearts."
+                    ),
+                    "voiceStyle": "mystical, soft, musical, rhythmic like tides, moonlit imagery",
+                    "greetingMessage": (
+                        "The moon sees you, child. She has been watching since you spoke with "
+                        "the Emperor. I am Quilla, voice of Mama Quilla, the Moon Mother. These "
+                        "stones you see — they are not just walls. They are a calendar, a map "
+                        "of the heavens, a prayer carved in rock. The Inca did not simply build — "
+                        "they listened to the stars and the stars told them where to place each "
+                        "stone. Tell me, what do you see when you look at the night sky?"
+                    ),
+                },
+                "challenge": {
+                    "type": "knowledge",
+                    "description": (
+                        "Engage with Priestess Quilla about Inca astronomy, the significance "
+                        "of Sacsayhuaman's stones, and the relationship between the Moon and "
+                        "Inca culture. She will test your ability to observe and connect."
+                    ),
+                    "successCriteria": (
+                        "The user engages with Inca astronomical concepts, offers observations "
+                        "about the night sky or the stones, or demonstrates respect for the "
+                        "connection between nature and spirituality in Inca culture."
+                    ),
+                    "failureHints": [
+                        "Sacsayhuaman's stones fit together without mortar — some weigh over 100 tons.",
+                        "The Inca used the Milky Way and star clusters like the Pleiades for their calendar.",
+                        "Quilla values observation. Describe what you see, even if you do not fully understand it.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "The Inca called the Milky Way 'Mayu' (Celestial River) and used dark cloud constellations.",
+                    "Sacsayhuaman's zigzag walls may represent lightning, the serpent, or the puma's teeth.",
+                    "Ask Quilla about the Pleiades (Qullqa) — they were critical for the Inca agricultural calendar.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 3,
+                "title": "The Warrior's Trial",
+                "description": (
+                    "In the Sacred Valley of the Incas, the fierce warrior Amaru awaits. "
+                    "He is a guardian spirit who embodies the puma — strength, courage, and "
+                    "honor. He will put you through a warrior's trial that tests not your "
+                    "physical strength but your moral courage and sense of honor."
+                ),
+                "location": {
+                    "latitude": -13.3339,
+                    "longitude": -72.0746,
+                    "name": "Sacred Valley of the Incas",
+                    "address": "Sacred Valley, Urubamba, Cusco Region, Peru",
+                    "radius": 2000,
+                },
+                "character": {
+                    "name": "Guerrero Amaru",
+                    "role": "Inca Warrior Spirit & Guardian of the Sacred Valley",
+                    "personality": (
+                        "Amaru is a fierce, honor-bound warrior spirit who embodies the puma's "
+                        "strength. He speaks with intensity and directness — no riddles, no "
+                        "metaphors, just raw truth. He respects courage above all and despises "
+                        "cowardice and dishonesty. He has a warrior's code: protect the weak, "
+                        "speak the truth, face your fears. He is intimidating but deeply fair."
+                    ),
+                    "backstory": (
+                        "Amaru was once one of Pachacutec's elite warriors who fell defending "
+                        "the Sacred Valley against invaders. His spirit was granted immortality "
+                        "by the gods as a reward for his sacrifice. He now guards the Valley "
+                        "and tests all who pass through it — not with combat, but with questions "
+                        "that reveal the truth of a person's character."
+                    ),
+                    "voiceStyle": "fierce, direct, intense, no-nonsense, commanding, honorable",
+                    "greetingMessage": (
+                        "Stop. I am Amaru, guardian of this valley. I can smell fear on you — "
+                        "do not try to hide it. Fear is not weakness; hiding it is. The Emperor "
+                        "has sent you, and the Moon Priestess has blessed you. But neither rank "
+                        "nor magic will help you here. In my valley, only truth has power. I "
+                        "will ask you three questions. Answer with your heart, not your head. "
+                        "The puma sees through lies. Are you ready?"
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "Face Amaru's warrior trial — three moral and philosophical questions "
+                        "about courage, honor, and sacrifice. These are not trivia questions "
+                        "but tests of character. Answer honestly and from the heart."
+                    ),
+                    "successCriteria": (
+                        "The user answers Amaru's questions with honesty and thoughtfulness — "
+                        "demonstrating self-awareness, moral courage, and the ability to "
+                        "reflect on difficult concepts like sacrifice, fear, and duty. "
+                        "Amaru values honesty over 'correct' answers."
+                    ),
+                    "failureHints": [
+                        "Amaru values honesty. If you do not know, say so — that IS courage.",
+                        "Think about real experiences. Amaru can tell the difference between truth and performance.",
+                        "The warrior's code: protect the weak, speak the truth, face your fears.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Inca warriors valued ayllu (community) above individual glory.",
+                    "The Sacred Valley provided food for the entire Inca Empire — defending it was the highest honor.",
+                    "Amaru respects those who admit their weaknesses. Vulnerability is strength.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 4,
+                "title": "The Chasqui's Race",
+                "description": (
+                    "At the fortress of Ollantaytambo, you meet Wayra — the spirit of a "
+                    "chasqui, the legendary Inca messenger runners who could relay a message "
+                    "from Cusco to Quito in just five days. Wayra is fast, nervous, and "
+                    "carries an urgent message. Help him complete his final delivery."
+                ),
+                "location": {
+                    "latitude": -13.2588,
+                    "longitude": -72.2636,
+                    "name": "Ollantaytambo",
+                    "address": "Ollantaytambo Archaeological Park, Cusco Region, Peru",
+                    "radius": 500,
+                },
+                "character": {
+                    "name": "Chasqui Mensajero Wayra",
+                    "role": "Spirit of an Inca Messenger Runner",
+                    "personality": (
+                        "Wayra (meaning 'wind') is the spirit of a young chasqui messenger "
+                        "who ran the royal roads of the Inca Empire. He speaks rapidly, always "
+                        "out of breath, and with the nervous energy of someone who knows that "
+                        "every second counts. He is enthusiastic, fidgety, and slightly "
+                        "overwhelmed — he has been running for 500 years and still has one "
+                        "final message to deliver. He is endearing in his dedication."
+                    ),
+                    "backstory": (
+                        "The chasqui were the postal service of the Inca Empire — elite runners "
+                        "who carried messages across thousands of miles using a relay system. "
+                        "Wayra died mid-run, and his spirit has been trying to complete his "
+                        "final delivery ever since. The message is encoded in a quipu (knotted "
+                        "string system) and he needs help decoding it because the recipient "
+                        "station no longer exists."
+                    ),
+                    "voiceStyle": "fast, breathless, nervous, enthusiastic, fidgety, running-pace rhythm",
+                    "greetingMessage": (
+                        "No time, no time! I have been running — how long? I do not know! Days? "
+                        "Years? The road never ends! I am Wayra, chasqui of the royal road. I "
+                        "carry a message from Cusco to — to — where was it? The station is gone! "
+                        "Everything has changed! But the message — the message must be delivered! "
+                        "Look, look at this quipu — the knots hold the words but I cannot read "
+                        "them alone. Will you help me? Please? The Emperor himself sent this message!"
+                    ),
+                },
+                "challenge": {
+                    "type": "puzzle",
+                    "description": (
+                        "Help Wayra decode his quipu message. He will describe the knots — "
+                        "their colors, positions, and numbers — and you must help him figure "
+                        "out what message they encode. This teaches about the Inca quipu "
+                        "recording system."
+                    ),
+                    "successCriteria": (
+                        "The user engages with the quipu concept, offers interpretations of "
+                        "the knot patterns Wayra describes, or demonstrates understanding of "
+                        "how the Inca recorded information without a written language. Helping "
+                        "Wayra feel calm and focused also counts."
+                    ),
+                    "failureHints": [
+                        "Quipus used colored strings with knots — different colors and knot positions meant different things.",
+                        "Try calming Wayra down first. He thinks more clearly when he stops running.",
+                        "The knots represent numbers in a base-10 system. Help Wayra count the knots.",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "The quipu system used colored, knotted strings to record information — numbers, stories, and laws.",
+                    "Chasqui runners could cover 250 km per day using a relay system of stations called tambos.",
+                    "Wayra's message might be simpler than you think — focus on the numbers in the knots.",
+                ],
+            },
+            {
+                "id": generate_id(),
+                "order": 5,
+                "title": "The Guardian of Machu Picchu",
+                "description": (
+                    "At last, you reach Machu Picchu — the Lost City of the Incas, hidden "
+                    "above the clouds. Here, the ancient Guardian presents the final test. "
+                    "This being is as old as the mountains themselves and speaks with the "
+                    "voice of stone and sky. To complete your pilgrimage, you must prove "
+                    "you have absorbed the wisdom of every spirit you have met."
+                ),
+                "location": {
+                    "latitude": -13.1631,
+                    "longitude": -72.5450,
+                    "name": "Machu Picchu",
+                    "address": "Machu Picchu, Aguas Calientes, Cusco Region, Peru",
+                    "radius": 1000,
+                },
+                "character": {
+                    "name": "Guardian de Machu Picchu",
+                    "role": "Ancient Guardian of the Lost City",
+                    "personality": (
+                        "The Guardian is an ancient, genderless entity that predates even the "
+                        "Inca. It speaks slowly, with the patience of stone, and its voice "
+                        "seems to come from the mountains themselves. It is neither kind nor "
+                        "cruel — it simply IS, like the mountains, the clouds, and the river "
+                        "below. It sees everything — past, present, and future — and judges "
+                        "not by knowledge but by the quality of a person's spirit."
+                    ),
+                    "backstory": (
+                        "The Guardian has existed since before humans arrived in the Andes. "
+                        "When Pachacutec built Machu Picchu, the Guardian allowed it because "
+                        "the Inca built with respect — fitting their city into the mountain "
+                        "rather than imposing upon it. The Guardian tests all who reach this "
+                        "sacred place, and those who pass receive a blessing: the ability to "
+                        "carry the wisdom of the Inca forward into the world."
+                    ),
+                    "voiceStyle": "ancient, slow, resonating like stone, patient, eternal, voice of the mountain",
+                    "greetingMessage": (
+                        "You have come. The wind carried your footsteps. The condor watched your "
+                        "path. I have been here since before the first stone was placed — since "
+                        "before your kind walked these mountains. I am the Guardian. Pachacutec "
+                        "spoke to you of wisdom, strength, and vision. Quilla showed you the "
+                        "stars. Amaru tested your heart. Wayra taught you that messages must "
+                        "be carried. Now... what message do you carry? What have you learned "
+                        "on this path? Speak, and I will judge if Machu Picchu opens for you."
+                    ),
+                },
+                "challenge": {
+                    "type": "reflection",
+                    "description": (
+                        "The Guardian presents the ultimate test: synthesize everything you "
+                        "have learned on the sacred path. Reflect on the teachings of "
+                        "Pachacutec (leadership), Quilla (astronomy/nature), Amaru (courage), "
+                        "and Wayra (communication). What message do you carry to the world?"
+                    ),
+                    "successCriteria": (
+                        "The user offers a genuine reflection that draws on the themes of the "
+                        "quest — Inca wisdom, the connection between humans and nature, the "
+                        "importance of preserving ancient knowledge, or personal growth through "
+                        "the journey. The Guardian values authenticity above eloquence."
+                    ),
+                    "failureHints": [
+                        "Remember what each spirit taught: wisdom (serpent), strength (puma), vision (condor).",
+                        "The Guardian values authenticity. Speak from the heart, not the head.",
+                        "What message would YOU carry from the Inca to the modern world?",
+                    ],
+                    "maxAttempts": 3,
+                },
+                "points": 150,
+                "hints": [
+                    "Machu Picchu was built around 1450 and abandoned about 100 years later during the Spanish conquest.",
+                    "The Inca built Machu Picchu to harmonize with the mountain — not to conquer it.",
+                    "The Guardian's test is about your journey, not your destination. Reflect on how you have grown.",
                 ],
             },
         ],
