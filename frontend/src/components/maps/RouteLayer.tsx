@@ -8,7 +8,7 @@ import type { Stage } from '@/types';
 interface RouteLayerProps {
   stages: Stage[];
   currentStageIndex: number;
-  completedStageIds: Set<string>;
+  completedStageIds?: Set<string>;
 }
 
 const RouteLayer: React.FC<RouteLayerProps> = ({ stages, currentStageIndex }) => {
