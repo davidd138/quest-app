@@ -11,15 +11,39 @@ import HistoryScreen from '../screens/HistoryScreen';
 import AchievementsScreen from '../screens/AchievementsScreen';
 import LeaderboardScreen from '../screens/LeaderboardScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import RewardsScreen from '../screens/RewardsScreen';
+import ClanScreen from '../screens/ClanScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const ProfileStack = createNativeStackNavigator();
+const ClanStack = createNativeStackNavigator();
 
 function TabIcon({ label, focused }: { label: string; focused: boolean }) {
   return (
     <Text style={{ color: focused ? '#7c3aed' : '#64748b', fontSize: 20 }}>
       {label}
     </Text>
+  );
+}
+
+function ProfileStackNavigator({ user }: { user: any }) {
+  return (
+    <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
+      <ProfileStack.Screen name="ProfileMain">
+        {(props) => <ProfileScreen {...props} user={user} />}
+      </ProfileStack.Screen>
+      <ProfileStack.Screen name="Settings" component={SettingsScreen} />
+    </ProfileStack.Navigator>
+  );
+}
+
+function ClanStackNavigator() {
+  return (
+    <ClanStack.Navigator screenOptions={{ headerShown: false }}>
+      <ClanStack.Screen name="ClanMain" component={ClanScreen} />
+    </ClanStack.Navigator>
   );
 }
 
@@ -60,6 +84,14 @@ function MainTabs({ user }: { user: any }) {
         )}
       </Tab.Screen>
       <Tab.Screen
+        name="Rewards"
+        component={RewardsScreen}
+        options={{
+          tabBarLabel: 'Rewards',
+          tabBarIcon: ({ focused }) => <TabIcon label={'\u2726'} focused={focused} />,
+        }}
+      />
+      <Tab.Screen
         name="History"
         component={HistoryScreen}
         options={{
@@ -82,7 +114,7 @@ function MainTabs({ user }: { user: any }) {
           tabBarIcon: ({ focused }) => <TabIcon label={'\u2662'} focused={focused} />,
         }}
       >
-        {(props) => <ProfileScreen {...props} user={user} />}
+        {() => <ProfileStackNavigator user={user} />}
       </Tab.Screen>
     </Tab.Navigator>
   );
@@ -108,6 +140,9 @@ export default function AppNavigator({ user }: { user: any }) {
         options={{ gestureEnabled: false }}
       />
       <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
+      <Stack.Screen name="Clan">
+        {() => <ClanStackNavigator />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 }
